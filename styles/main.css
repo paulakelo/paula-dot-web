@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    :root {
+        --bg: 0 0% 100%;
+        --fg: 222 47% 11%;
+        --brand: 281 100% 56%;
+        --accent: 191 100% 26%;
+    }
+    [data-theme="dark"] {
+        --bg: 240 7% 7%;
+        --fg: 210 40% 96%;
+        --brand: 281 100% 70%;
+        --accent: 191 60% 45%;
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
