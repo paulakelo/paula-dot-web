@@ -1,8 +1,9 @@
+import 'main.css'
 export function HomePage() {
     return (
         <>
         <title>Paul Akelo</title>
-        
+
         <div className="page-root bg-bg text-fg">
         <header>
             <div className="container">
