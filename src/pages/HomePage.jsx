@@ -1,5 +1,8 @@
 export function HomePage() {
     return (
+        <>
+        <title>Paul Akelo</title>
+        
         <div className="page-root bg-bg text-fg">
         <header>
             <div className="container">
@@ -44,6 +47,6 @@ export function HomePage() {
         </footer>
 
         </div>
-
+        </>
     );
 }
