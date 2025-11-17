@@ -3,212 +3,301 @@
 @tailwind utilities;
 
 @layer base {
+    /* styles/main.css — Earthy GIS-inspired palette (add near :root) */
+    /* Palette inspired by maps and `assets/images/paula_dot_icon.png` (water, forest, moss, stone, sand) */
     :root {
-        --bg: 0 0% 100%;
-        --fg: 222 47% 11%;
-        --brand: 281 100% 56%;
-        --accent: 191 100% 26%;
+        /* Map / Earth tones (H S% L%) */
+        --map-water-deep: 200 75% 22%; /* deep ocean / navy-teal */
+        --map-water: 195 80% 40%; /* river / teal-blue */
+        --map-river: 190 85% 52%; /* lighter water */
+
+        --map-forest: 140 40% 22%; /* dark forest green */
+        --map-moss: 110 30% 36%; /* mossy olive */
+        --map-fern: 150 45% 46%; /* bright fern */
+
+        --map-sand: 35 30% 68%; /* warm sand / beige */
+        --map-stone: 220 6% 56%; /* cool stone / muted grey-blue */
+
+        /* Neutrals */
+        --map-muted: 210 10% 46%; /* mid grey */
+        --map-ink: 220 14% 8%; /* dark text / ink */
+        --map-paper: 30 10% 98%; /* very light paper */
     }
+
+    /* Dark-theme palette adjusts lightness for readability */
     [data-theme="dark"] {
-        --bg: 240 7% 7%;
-        --fg: 210 40% 96%;
-        --brand: 281 100% 70%;
-        --accent: 191 60% 45%;
+        --map-water-deep: 200 70% 18%;
+        --map-water: 195 75% 30%;
+        --map-river: 190 80% 40%;
+
+        --map-forest: 140 30% 18%;
+        --map-moss: 110 25% 28%;
+        --map-fern: 150 35% 34%;
+
+        --map-sand: 35 20% 24%;
+        --map-stone: 220 8% 42%;
+
+        --map-muted: 210 10% 68%;
+        --map-ink: 220 12% 96%;
+        --map-paper: 220 10% 6%;
     }
-}
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
-}
+    /* Small helpers / preview swatches */
+    .palette-row {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 0.5rem 0;
+    }
 
-html, body, #root {
-    height: 100%;
-}
+    .palette-swatch {
+        width: 40px;
+        height: 28px;
+        border-radius: 6px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+    }
 
-/* Make the React root a column flex container so header/main/footer inside it can be arranged vertically.
-   This ensures pages that render Header, main, Footer as siblings will allow `main` to grow and push the footer down. */
-#root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+    /* Utility classes for quick use */
+    .bg-water {
+        background-color: hsl(var(--map-water));
+        color: white;
+    }
 
-/* Homepage uses an inner wrapper `.page-root`; make it expand as well so its inner <main> can grow and push footer. */
-.page-root {
-    display: flex;
-    flex-direction: column;
-    flex: 1 0 auto;
-    min-height: 0; /* allow children to scroll when overflowing */
-}
+    .bg-forest {
+        background-color: hsl(var(--map-forest));
+        color: white;
+    }
 
-body{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    .bg-moss {
+        background-color: hsl(var(--map-moss));
+        color: white;
+    }
 
-    /* font-family: 'Roboto', sans-serif;
-    background-color: #ffffff; */
+    .bg-sand {
+        background-color: hsl(var(--map-sand));
+        color: var(--map-ink);
+    }
 
-    background-color: hsl(var(--bg));
-    color: hsl(var(--fg));
-}
+    .text-stone {
+        color: hsl(var(--map-stone));
+    }
 
-/* make main grow to fill available space between header and footer */
-main {
-    flex: 1 0 auto;
-}
+    .text-water-deep {
+        color: hsl(var(--map-water-deep));
+    }
 
-main.page,
-.page {
-    flex: 1 0 auto;
-    min-height: 0;
-    background: transparent;
-    color: inherit;
-}
+    /* Example usage (commented):
+    .hero { background: linear-gradient(135deg, hsl(var(--map-water)), hsl(var(--map-fern))); }
+    .btn--primary { background-color: hsl(var(--map-water-deep)); color: white; }
+    */
+    /* :root {
+         --bg: 0 0% 100%;
+         --fg: 222 47% 11%;
+         --brand: 281 100% 56%;
+         --accent: 191 100% 26%;
+     }
+     [data-theme="dark"] {
+         --bg: 240 7% 7%;
+         --fg: 210 40% 96%;
+         --brand: 281 100% 70%;
+         --accent: 191 60% 45%;
+     }
+ } */
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        box-sizing: border-box;
+    }
 
-/* Shared page inner container: centralizes max-width and page padding so all pages use the same spacing.
-   Use by adding `page page-inner <page-name>` on the <main> element or by applying `page-inner` to a child wrapper. */
-.page-inner {
-    padding: 2rem 1rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
+    html, body, #root {
+        height: 100%;
+    }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 16px;
-}
+    /* Make the React root a column flex container so header/main/footer inside it can be arranged vertically.
+       This ensures pages that render Header, main, Footer as siblings will allow `main` to grow and push the footer down. */
+    #root {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
 
-.logo {
-    position: static;
-    top: auto;
-    right: auto;
-    transform: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-left: 0;
-}
+    /* Homepage uses an inner wrapper `.page-root`; make it expand as well so its inner <main> can grow and push footer. */
+    .page-root {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 auto;
+        min-height: 0; /* allow children to scroll when overflowing */
+    }
 
-.logo img {
-    height: 40px;
-    width: auto;
-    display: block;
-    margin-right: 0;
-}
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
 
-.logo .brand{
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: inherit;
-    text-decoration: none;
-    margin-left: 0;
-}
+        /* font-family: 'Roboto', sans-serif;
+        background-color: #ffffff; */
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
+       /* background-color: hsl(var(--bg));
+        color: hsl(var(--fg)); */
+    }
 
-.nav-links a {
-    text-decoration: none;
-    color: #0c0c0c;
-    padding: 0.25rem 0.375rem;
-    transition: color 0.15s ease;
-    cursor: pointer;
-}
+    /* make main grow to fill available space between header and footer */
+    main {
+        flex: 1 0 auto;
+    }
 
-.nav-links a.active {
-    font-weight: 600;
-}
+    main.page,
+    .page {
+        flex: 1 0 auto;
+        min-height: 0;
+        background: transparent;
+        color: inherit;
+    }
 
-.nav-links a:hover {
-    color: #007185;
-}
+    /* Shared page inner container: centralizes max-width and page padding so all pages use the same spacing.
+       Use by adding `page page-inner <page-name>` on the <main> element or by applying `page-inner` to a child wrapper. */
+    /* If you want slightly more top spacing globally, edit .page-inner { padding-top: X } in styles/main.css */
+    .page-inner {
+        padding: 2rem 1rem;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
 
-.hero{
-    height: 50vh;
-   /* background: linear-gradient(to right, #bf1cff, #007185); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* color: #ffffff; */
-    text-align: match-parent;
-    padding: 2rem;
-}
+    .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 16px;
+    }
 
-.hero-text h2{
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
+    .logo {
+        position: static;
+        top: auto;
+        right: auto;
+        transform: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-left: 0;
+    }
 
-.hero-text p{
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-}
+    .logo img {
+        height: 40px;
+        width: auto;
+        display: block;
+        margin-right: 0;
+    }
 
-.btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background-color: #007185;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.15s ease;
-}
-
-.btn:hover {
-    background-color: #005662;
-}
-
-.skills {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1px 1rem;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.skill-card {
-    background-color: #ffffff;
-    border-radius: 0.75rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.15s ease;
-}
-
-.skill-card:hover {
-    transform: translateY(-5px);
-}
-
-@media (max-width: 768px) {
-    .hero-text h2 {
-        font-size: 2rem;
+    .logo .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: inherit;
+        text-decoration: none;
+        margin-left: 0;
     }
 
     .nav-links {
-        flex-direction: row;
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #0c0c0c;
+        padding: 0.25rem 0.375rem;
+        transition: color 0.15s ease;
+        cursor: pointer;
+    }
+
+    .nav-links a.active {
+        font-weight: 600;
+    }
+
+    .nav-links a:hover {
+        color: #007185;
+    }
+
+    .hero {
+        height: 50vh;
+        /* background: linear-gradient(to right, #bf1cff, #007185); */
+        display: flex;
+        justify-content: center;
         align-items: center;
+        /* color: #ffffff; */
+        text-align: match-parent;
+        padding: 2rem;
     }
 
-    .contact {
-        grid-template-columns: 1fr;
+    .hero-text h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
     }
+
+    .hero-text p {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: #007185;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.15s ease;
+    }
+
+    .btn:hover {
+        background-color: #005662;
+    }
+
+    .skills {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1px 1rem;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .skill-card {
+        background-color: #ffffff;
+        border-radius: 0.75rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.15s ease;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-5px);
+    }
+
+    @media (max-width: 768px) {
+        .hero-text h2 {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .contact {
+            grid-template-columns: 1fr;
+        }
+    }
+
 }
-
-
 
 .projects {
     max-width: 1100px;
