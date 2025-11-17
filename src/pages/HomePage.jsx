@@ -1,26 +1,12 @@
+import {Header} from "../components/Header.jsx";
+import {Footer} from "../components/Footer.jsx";
 export function HomePage() {
     return (
         <>
         <title>Paul Akelo</title>
 
         <div className="page-root bg-bg text-fg">
-        <header>
-            <div className="container">
-                <nav className="navbar">
-                    <h1 className="logo">
-                        <a href="/" className="brand">
-                            <img src="/assets/images/paula_dot_icon.png" alt="Paula-dot logo"/>
-                        </a>
-                    </h1>
-                    <ul className="nav-links">
-                        <li><a href="/" className="active">Home</a></li>
-                        <li><a href="/about.html">About</a></li>
-                        <li><a href="/projects.html">Projects</a></li>
-                        <li><a href="/contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+        <Header />
 
         <main>
             <section className="hero bg-gradient-to-r from-[#bf1cff] to-[#007185]">
@@ -41,12 +27,8 @@ export function HomePage() {
                 </div>
             </section>
         </main>
-
-        <footer className="footer">
-            <p>&copy; 2024 Paul Akelo. All rights reserved.</p>
-        </footer>
-
         </div>
+        <Footer />
         </>
     );
 }
