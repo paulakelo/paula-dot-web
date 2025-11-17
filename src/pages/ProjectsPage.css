@@ -4,6 +4,12 @@
     background: transparent;
 }
 
+.page.projects-page {
+    padding: 2rem 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
 .project-card img {
     width: 100%;
     height: 160px;

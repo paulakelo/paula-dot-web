@@ -24,7 +24,7 @@
     box-sizing: border-box;
 }
 
-html, body {
+html, body, #root {
     height: 100%;
 }
 
@@ -32,12 +32,24 @@ body{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-family: 'Roboto', sans-serif;
-    background-color: #ffffff;
+
+    /* font-family: 'Roboto', sans-serif;
+    background-color: #ffffff; */
+
+    background-color: hsl(var(--bg));
+    color: hsl(var(--fg));
 }
 
 main {
     flex: 1;
+}
+
+main.page,
+.page {
+    flex: 1 0 auto;
+    min-height: 0;
+    background: transparent;
+    color: inherit;
 }
 
 header {
@@ -189,6 +201,7 @@ header .navbar {
     color: #e0e6f0;
     text-align: center;
     padding: 1rem 0;
+    margin-top: auto;
 }
 
 @media (max-width: 768px) {

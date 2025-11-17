@@ -4,6 +4,12 @@
     background: transparent;
 }
 
+.page.about {
+    padding: 2rem 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
 .about .intro {
     display: flex;
     gap: 1.25rem;

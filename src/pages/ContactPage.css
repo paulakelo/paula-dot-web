@@ -4,6 +4,12 @@
     background: transparent
 }
 
+.page.contact-page {
+    padding: 2rem 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
 .contact-form {
     max-width: 520px;
     margin: 0 auto;
