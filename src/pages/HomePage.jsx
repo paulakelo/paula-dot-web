@@ -1,4 +1,3 @@
-import 'main.css'
 export function HomePage() {
     return (
         <>
