@@ -136,6 +136,7 @@
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+        background: linear-gradient(180deg, #a8c9e6 0%, #d4e5f2 100%);
 
         /* font-family: 'Roboto', sans-serif;
         background-color: #ffffff; */
