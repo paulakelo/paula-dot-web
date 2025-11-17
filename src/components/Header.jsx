@@ -11,9 +11,9 @@ export function Header() {
                     </h1>
                     <ul className="nav-links">
                         <li><NavLink to="/" className="active">Home</NavLink></li>
-                        <li><NavLink to="/about.html">About</NavLink></li>
-                        <li><NavLink to="/projects.html">Projects</NavLink></li>
-                        <li><NavLink to="/contact.html">Contact</NavLink></li>
+                        <li><NavLink to="/about">About</NavLink></li>
+                        <li><NavLink to="/projects">Projects</NavLink></li>
+                        <li><NavLink to="/contact">Contact</NavLink></li>
                     </ul>
                 </nav>
             </div>
