@@ -1,5 +1,6 @@
 import {Header} from "../components/Header.jsx";
 import {Footer} from "../components/Footer.jsx";
+import './ContactPage.css'
 
 export function ContactPage() {
     return (

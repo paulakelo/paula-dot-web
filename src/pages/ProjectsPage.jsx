@@ -1,5 +1,7 @@
 import { Header } from "../components/Header.jsx";
 import {Footer} from "../components/Footer.jsx";
+import './ProjectsPage.css'
+
 export function ProjectsPage() {
     return (
         <>
