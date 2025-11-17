@@ -1,34 +1,18 @@
-import 'main.css'
+import { Link } from "react-router-dom";
+import './HomePage.css'
+
 export function HomePage() {
     return (
         <>
         <title>Paul Akelo</title>
 
-        <div className="page-root bg-bg text-fg">
-        <header>
-            <div className="container">
-                <nav className="navbar">
-                    <h1 className="logo">
-                        <a href="/" className="brand">
-                            <img src="/assets/images/paula_dot_icon.png" alt="Paula-dot logo"/>
-                        </a>
-                    </h1>
-                    <ul className="nav-links">
-                        <li><a href="/" className="active">Home</a></li>
-                        <li><a href="/about.html">About</a></li>
-                        <li><a href="/projects.html">Projects</a></li>
-                        <li><a href="/contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-
-        <main>
+        <main className="page home">
+            <div className="page-inner">
             <section className="hero bg-gradient-to-r from-[#bf1cff] to-[#007185]">
                 <div className="hero-text">
                     <h2>Hello, I'm Paul Akelo</h2>
                     <p>Aspiring data scientist and GIS developer building impacting visuals and insights.</p>
-                    <a href="/projects.html" className="btn">View my work</a>
+                    <Link to="/projects" className="btn">View my work</Link>
                 </div>
             </section>
 
@@ -41,13 +25,8 @@ export function HomePage() {
                     <div className="skill-card">SQL</div>
                 </div>
             </section>
+            </div>
         </main>
-
-        <footer className="footer">
-            <p>&copy; 2024 Paul Akelo. All rights reserved.</p>
-        </footer>
-
-        </div>
         </>
     );
 }

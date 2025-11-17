@@ -1,0 +1,14 @@
+/* Page-specific styles for HomePage - keep minimal since most rules live in styles/main.css */
+
+/* layout/padding handled by .page-inner in styles/main.css */
+
+/* Slight tweak for the hero so the gradient text contrast works with palette */
+.page.home .hero {
+  color: hsl(var(--bg));
+}
+
+/* Ensure hero-text sits nicely on small screens */
+.hero-text {
+  max-width: 720px;
+  text-align: center;
+}

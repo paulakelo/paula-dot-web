@@ -1,0 +1,133 @@
+@keyframes earthyGradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+header {
+    position: relative;
+    padding: 12px 0;
+    margin-bottom: 16px;
+    border: 1px solid #e5e7eb;
+    border-bottom: none;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    background: linear-gradient(
+        -45deg,
+        hsl(var(--map-water)),
+        hsl(var(--map-river)),
+        hsl(var(--map-forest)),
+        hsl(var(--map-fern)),
+        hsl(var(--map-moss)),
+        hsl(var(--map-water-deep))
+    );
+    background-size: 400% 400%;
+    animation: none !important;
+}
+
+header .container {
+    max-width: none;
+    padding: 0 0;
+}
+
+header .navbar {
+    padding: 2px 80px 2px 30px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+}
+
+/* --- Moved from styles/main.css: theme-driven header class + presets --- */
+.header {
+    /* keep header content readable and use a static gradient background */
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+    color: hsl(var(--map-paper));
+    transition: color 300ms ease;
+    background: linear-gradient(135deg, hsl(var(--map-water)), hsl(var(--map-fern)));
+    background-color: hsl(var(--map-water));
+    /* ensure no transform/animation */
+    animation: none !important;
+}
+
+/* Disable pseudo-element animations and remove their backgrounds so nothing animates */
+.header::before,
+.header::after {
+    content: none; /* remove decorative pseudo-elements entirely */
+}
+
+/* Per-preset static backgrounds (override default background when using presets) */
+.header--water {
+    background-image: linear-gradient(135deg, hsl(var(--map-water)) 0%, hsl(var(--map-fern)) 100%);
+    background-color: hsl(var(--map-water));
+}
+
+.header--water-deep {
+    background-image: linear-gradient(135deg, hsl(var(--map-water-deep)) 0%, hsl(var(--map-moss)) 100%);
+    background-color: hsl(var(--map-water-deep));
+}
+
+.header--forest {
+    background-image: linear-gradient(135deg, hsl(var(--map-forest)) 0%, hsl(var(--map-stone)) 60%, hsl(var(--map-sand)) 100%);
+    background-color: hsl(var(--map-forest));
+}
+
+.header a, .header .nav-links a, .header .logo {
+    color: inherit;
+}
+
+/* Small overlay to improve contrast when needed (kept as separate rule if you need it) */
+.header--overlay::after {
+    background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0));
+    mix-blend-mode: multiply;
+}
+
+/* Header nav link hover/focus: more visible on header backgrounds */
+.header .nav-links a {
+    color: inherit;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.header .nav-links a:hover,
+.header .nav-links a:focus {
+    /* warm sand for visible contrast on teal/green backgrounds */
+    color: hsl(var(--map-sand));
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    outline: none;
+}
+
+.header .nav-links a:focus {
+    /* strong focus ring for keyboard users */
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.08), 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    header,
+    .header,
+    .header::before,
+    .header::after {
+        animation: none !important;
+        transition: none !important;
+    }
+    .header::before,
+    .header::after {
+        opacity: 1;
+    }
+}

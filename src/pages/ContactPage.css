@@ -1,0 +1,53 @@
+.contact-page {
+    min-height: 100%;
+    color: inherit;
+    background: transparent
+}
+
+/* layout/padding handled by .page-inner in styles/main.css */
+
+.contact-form {
+    max-width: 520px;
+    margin: 0 auto;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.contact-form label {
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.contact-form .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.contact-form .row > * {
+    min-width: 0;
+}
+
+.contact-form .actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 0.25rem;
+}
+
+.contact-form .btn {
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+}
+
+/* single-column on small screens */
+@media (max-width: 700px) {
+    .contact-form .row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 0 8px;
+    }
+}
