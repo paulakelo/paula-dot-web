@@ -1,10 +1,6 @@
 /* Page-specific styles for HomePage - keep minimal since most rules live in styles/main.css */
 
-.page.home {
-  padding: 2rem 1rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
+/* layout/padding handled by .page-inner in styles/main.css */
 
 /* Slight tweak for the hero so the gradient text contrast works with palette */
 .page.home .hero {
@@ -16,4 +12,3 @@
   max-width: 720px;
   text-align: center;
 }
-

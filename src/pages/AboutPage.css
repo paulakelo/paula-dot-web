@@ -4,11 +4,7 @@
     background: transparent;
 }
 
-.page.about {
-    padding: 2rem 1rem;
-    max-width: 1100px;
-    margin: 0 auto;
-}
+/* layout-specific padding moved to .page-inner in styles/main.css */
 
 .about .intro {
     display: flex;
