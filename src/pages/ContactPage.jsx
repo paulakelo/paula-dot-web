@@ -1,5 +1,3 @@
-import {Header} from "../components/Header.jsx";
-import {Footer} from "../components/Footer.jsx";
 import './ContactPage.css'
 
 export function ContactPage() {
@@ -7,9 +5,7 @@ export function ContactPage() {
         <>
             <title>Contact</title>
 
-            <Header/>
-
-            <main className="contact">
+            <main className="page contact">
                 <section className="contact-info">
                     <h2>Get in Touch</h2>
                     <p>
@@ -33,8 +29,6 @@ export function ContactPage() {
                     </form>
                 </section>
             </main>
-
-            <Footer/>
         </>
     );
 }

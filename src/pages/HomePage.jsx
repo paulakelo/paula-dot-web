@@ -1,6 +1,5 @@
-import {Header} from "../components/Header.jsx";
-import {Footer} from "../components/Footer.jsx";
 import { Link } from "react-router-dom";
+import './HomePage.css'
 
 export function HomePage() {
     return (
@@ -8,9 +7,8 @@ export function HomePage() {
         <title>Paul Akelo</title>
 
         <div className="page-root bg-bg text-fg">
-        <Header />
 
-        <main>
+        <main className="page home">
             <section className="hero bg-gradient-to-r from-[#bf1cff] to-[#007185]">
                 <div className="hero-text">
                     <h2>Hello, I'm Paul Akelo</h2>
@@ -30,7 +28,6 @@ export function HomePage() {
             </section>
         </main>
         </div>
-        <Footer />
         </>
     );
 }

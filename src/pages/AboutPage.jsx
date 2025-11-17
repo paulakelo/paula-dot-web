@@ -1,5 +1,3 @@
-import {Header} from "../components/Header.jsx";
-import {Footer} from "../components/Footer.jsx";
 import './AboutPage.css'
 
 export function AboutPage() {
@@ -7,9 +5,7 @@ export function AboutPage() {
         <>
             <title>About</title>
 
-            <Header />
-
-            <main className="about">
+            <main className="page about">
                 <section className="intro">
                     <h2>About me</h2>
                     <p>
@@ -27,8 +23,6 @@ export function AboutPage() {
                     </p>
                 </section>
             </main>
-
-            <Footer />
         </>
     );
 }
