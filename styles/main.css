@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-    /* styles/main.css — Earthy GIS-inspired palette (add near :root) */
-    /* Palette inspired by maps and `assets/images/paula_dot_icon.png` (water, forest, moss, stone, sand) */
+    /* styles/main.css  Global variables and helpers (palette, utilities, layout) */
     :root {
         /* Map / Earth tones (H S% L%) */
         --map-water-deep: 200 75% 22%; /* deep ocean / navy-teal */
@@ -88,66 +87,7 @@
         color: hsl(var(--map-water-deep));
     }
 
-    /* Add to `styles/main.css` (after your :root / [data-theme] vars) */
-
-    /* Base header rule: color and transition follow theme vars */
-    .header {
-        color: hsl(var(--map-paper)); /* readable text that flips with theme */
-        transition: background-color 300ms ease, background-image 300ms ease, color 300ms ease;
-    }
-
-    /* Rhyming gradient options that derive from the palette variables.
-       They will change automatically when `data-theme` toggles. */
-
-    /* Bright / river-forward: teal-blue -> bright fern */
-    .header--water {
-        background-image: linear-gradient(135deg,
-        hsl(var(--map-water)) 0%,
-        hsl(var(--map-fern)) 100%);
-        background-color: hsl(var(--map-water)); /* fallback for old browsers */
-    }
-
-    /* Deep / contrast: deep water -> moss (good for stronger contrast) */
-    .header--water-deep {
-        background-image: linear-gradient(135deg,
-        hsl(var(--map-water-deep)) 0%,
-        hsl(var(--map-moss)) 100%);
-        background-color: hsl(var(--map-water-deep));
-    }
-
-    /* Earthy / grounded: forest -> stone/sand transition */
-    .header--forest {
-        background-image: linear-gradient(135deg,
-        hsl(var(--map-forest)) 0%,
-        hsl(var(--map-stone)) 60%,
-        hsl(var(--map-sand)) 100%);
-        background-color: hsl(var(--map-forest));
-    }
-
-    /* Make sure header content keeps contrast on small screens */
-    .header a, .header .nav-links a, .header .logo {
-        color: inherit;
-    }
-
-    /* Optional: subtle overlay to improve text contrast (works across themes) */
-    .header::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0));
-        border-radius: inherit;
-        mix-blend-mode: multiply;
-        transition: opacity 300ms ease;
-    }
-
-    /* If you need a darkening/brightening tweak per theme, add selectors */
-    [data-theme="dark"] .header--water,
-    [data-theme="dark"] .header--water-deep,
-    [data-theme="dark"] .header--forest {
-        /* small increase to overlay opacity for readability on dark theme */
-    }
-
+    /* Header styles were moved to src/components/Header.css to keep component styles colocated. */
 
     /* Example usage (commented):
     .hero { background: linear-gradient(135deg, hsl(var(--map-water)), hsl(var(--map-fern))); }
@@ -236,54 +176,6 @@
         padding: 0 16px;
     }
 
-    .logo {
-        position: static;
-        top: auto;
-        right: auto;
-        transform: none;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        margin-left: 0;
-    }
-
-    .logo img {
-        height: 40px;
-        width: auto;
-        display: block;
-        margin-right: 0;
-    }
-
-    .logo .brand {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: inherit;
-        text-decoration: none;
-        margin-left: 0;
-    }
-
-    .nav-links {
-        list-style: none;
-        display: flex;
-        gap: 2rem;
-    }
-
-    .nav-links a {
-        text-decoration: none;
-        color: #0c0c0c;
-        padding: 0.25rem 0.375rem;
-        transition: color 0.15s ease;
-        cursor: pointer;
-    }
-
-    .nav-links a.active {
-        font-weight: 600;
-    }
-
-    .nav-links a:hover {
-        color: #007185;
-    }
 
     .hero {
         height: 50vh;
