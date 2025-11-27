@@ -21,7 +21,7 @@ export default function Hero() {
                 <span className="px-3 py-1 bg-white/10 rounded-full">Spatial Analysis</span>
                 <span className="px-3 py-1 bg-white/10 rounded-full">PostGIS</span>
             </div>*/}
-            
+
         </section>
     );
 }
