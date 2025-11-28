@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Hero from "../components/Hero";
-import Skills from "../components/Skills.jsx";
-import skillsData from "../data/skills.json";
+import Hero from "../../components/Hero/Hero.jsx";
+import Skills from "../../components/Skills/Skills.jsx";
+import skillsData from "../../data/skills.json";
 import './HomePage.css'
 
 

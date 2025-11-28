@@ -1,4 +1,4 @@
-import Projects from "../components/Projects/Projects";
+import Projects from "../../components/Projects/Projects.jsx";
 import './ProjectsPage.css'
 
 export function ProjectsPage() {
