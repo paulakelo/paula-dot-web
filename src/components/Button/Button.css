@@ -33,6 +33,20 @@
     padding: 0.85rem 2.25rem;
 }
 
+/* Gold-accented primary for calls-to-action where gold is desired */
+.btn-primary--gold {
+    background-color: hsl(var(--brand-black));
+    color: hsl(var(--brand-gold));
+    border: 1px solid hsl(var(--brand-gold) / 0.18);
+}
+
+.btn-primary--gold:hover,
+.btn-primary--gold:focus {
+    background-color: hsl(var(--brand-black));
+    color: hsl(var(--brand-gold));
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12), 0 0 0 4px hsl(var(--brand-gold) / 0.08);
+}
+
 .btn-secondary {
     background-color: #fff;
     border: 1px solid #cbd5f5;
@@ -44,4 +58,3 @@
 @media (max-width: 600px) {
     .btn { width: 100%; padding-left: 1rem; padding-right: 1rem; }
 }
-

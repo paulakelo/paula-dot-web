@@ -43,7 +43,16 @@
 .skills-list-item {
     padding: 0.45rem 0.85rem;
     border-radius: 0.75rem;
-    background: rgba(79, 70, 229, 0.08);
-    color: #312e81;
+    /* subtle gold wash for skill chips to tie with brand (low opacity) */
+    background: hsl(var(--brand-gold) / 0.10);
+    color: hsl(var(--brand-black));
     font-size: 0.9rem;
+}
+
+/* compact modifier keeps items tighter but still uses gold wash */
+.skills-section--compact .skills-list-item {
+    background: hsl(var(--brand-gold) / 0.08);
+    color: hsl(var(--brand-black));
+    font-size: 0.85rem;
+    padding: 0.35rem 0.6rem;
 }

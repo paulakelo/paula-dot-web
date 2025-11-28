@@ -59,8 +59,7 @@ header .navbar {
     color: hsl(var(--map-paper));
     /* animate color & background changes smoothly when theme toggles */
     transition: background-color 300ms ease, background-image 300ms ease, color 300ms ease;
-    background: linear-gradient(135deg, hsl(var(--map-water)), hsl(var(--map-fern)));
-    background-color: hsl(var(--map-water));
+    background: hsl(var(--map-water)) linear-gradient(135deg, hsl(var(--map-water)), hsl(var(--map-fern)));
     /* ensure no transform/animation */
     animation: none !important;
 }
@@ -137,15 +136,16 @@ header .navbar {
 .header .nav-links a:hover,
 .header .nav-links a:focus {
     /* warm sand for visible contrast on teal/green backgrounds */
-    color: hsl(var(--map-sand));
-    background: rgba(255,255,255,0.06);
+    /* use brand gold for hover to reflect the logo without overpowering the palette */
+    color: hsl(var(--brand-gold));
+    background: hsl(var(--brand-gold-muted) / 0.06);
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     outline: none;
 }
 
 .header .nav-links a:focus {
     /* strong focus ring for keyboard users */
-    box-shadow: 0 0 0 3px rgba(255,255,255,0.08), 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 0 0 3px hsl(var(--brand-gold) / 0.12), 0 4px 12px rgba(0,0,0,0.08);
 }
 
 /* Logo helpers moved from main.css */
@@ -174,6 +174,18 @@ header .navbar {
     color: inherit;
     text-decoration: none;
     margin-left: 0;
+}
+
+/* Subtle gold/black treatment for the brand on hover/focus */
+.logo .brand:hover,
+.logo .brand:focus {
+    color: hsl(var(--brand-gold));
+    text-shadow: 0 1px 0 rgba(0,0,0,0.08);
+}
+
+.logo img {
+    /* small soft drop shadow for better contrast on various backgrounds */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12));
 }
 
 /* Respect reduced motion preference */

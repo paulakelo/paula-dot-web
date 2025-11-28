@@ -21,6 +21,14 @@
         --map-muted: 210 10% 46%; /* mid grey */
         --map-ink: 220 14% 8%; /* dark text / ink */
         --map-paper: 30 10% 98%; /* very light paper */
+
+        /* Brand accents - subtle black & gold tokens
+           - --brand-black: near-pure black for headings and strong accents
+           - --brand-gold: primary gold tone; use with low alpha for subtle backgrounds
+        */
+        --brand-black: 220 8% 6%; /* H S% L% for HSL-like usage with hsl(var(--brand-black)) */
+        --brand-gold: 44 90% 54%; /* warm gold */
+        --brand-gold-muted: 44 90% 60%; /* lighter gold for soft backgrounds */
     }
 
     /* Dark-theme palette adjusts lightness for readability */
@@ -39,6 +47,10 @@
         --map-muted: 210 10% 68%;
         --map-ink: 220 12% 96%;
         --map-paper: 220 10% 6%;
+
+        /* Slightly deeper gold on dark theme for contrast */
+        --brand-gold: 44 90% 48%;
+        --brand-gold-muted: 44 90% 56%;
     }
 
     /* Small helpers / preview swatches */
@@ -85,6 +97,35 @@
 
     .text-water-deep {
         color: hsl(var(--map-water-deep));
+    }
+
+    /* Brand utilities (subtle by default) */
+    .text-gold {
+        color: hsl(var(--brand-gold));
+    }
+
+    .text-gold-subtle {
+        color: rgba(255, 215, 0, 0.85); /* fallback literal gold with subtle opacity */
+        color: hsl(var(--brand-gold) / 0.92);
+    }
+
+    .bg-gold-subtle {
+        background-color: hsl(var(--brand-gold-muted) / 0.10); /* very light gold wash */
+    }
+
+    .border-gold-subtle {
+        border-color: hsl(var(--brand-gold) / 0.18);
+    }
+
+    .text-black-strong {
+        color: hsl(var(--brand-black));
+    }
+
+    /* Small helper for an underlined gold accent on hover */
+    .underline-gold-hover:hover {
+        text-decoration: underline;
+        text-decoration-color: hsl(var(--brand-gold));
+        text-decoration-thickness: 2px;
     }
 
     /* Component/page-specific styles moved:

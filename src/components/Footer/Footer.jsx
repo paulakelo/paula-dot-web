@@ -10,7 +10,7 @@ export function Footer() {
                 <ul className="social-links" aria-label="Social Links">
                     <li>
                         <a
-                            href="https://www.linkedin.com/in/your-profile"
+                            href="https: //linkedin.com/in/paul-akelo-377577291"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="LinkedIn Profile (opens in new tab)"
