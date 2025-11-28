@@ -7,7 +7,7 @@ import './HomePage.css'
 
 export function HomePage() {
     return (
-        <>
+        <div className="home-page">
         <title>Paul Akelo</title>
         {/*
         <main className="page home">
@@ -36,6 +36,6 @@ export function HomePage() {
         {/*
             <Skills data={skillsData} />
        */}
-        </>
+        </div>
     );
 }

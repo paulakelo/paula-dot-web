@@ -5,3 +5,15 @@
         flex-direction: column;
     }
 }
+
+/* Apply the svg background only to the Home page hero section. The correct relative path from
+   this file (src/pages/HomePage/HomePage.css) to src/assets/top(1).svg is ../../assets/top(1).svg */
+.home-page {
+    background-image: url('../../assets/top(1).svg');
+    background-size: cover;
+    background-attachment: scroll;
+
+    [data-theme="dark"] body {
+        background-image: url('../../assets/top(1).svg');
+    }
+}
