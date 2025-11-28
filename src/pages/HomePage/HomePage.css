@@ -6,14 +6,26 @@
     }
 }
 
-/* Apply the svg background only to the Home page hero section. The correct relative path from
-   this file (src/pages/HomePage/HomePage.css) to src/assets/top(1).svg is ../../assets/top(1).svg */
+/* The root page wrapper `.home-page` should fill the <main> area so the background spans
+   only between the navbar (Header) and the Footer. main already has `display:flex; flex-direction:column; flex:1`
+   so we make .home-page grow to fill it and allow its children to scroll when necessary. */
 .home-page {
-    background-image: url('../../assets/top(1).svg');
-    background-size: cover;
-    background-attachment: scroll;
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto; /* grow to fill the available space inside <main> */
+    min-height: 0;   /* allow children to scroll/overflow inside flex container */
 
-    [data-theme="dark"] body {
-        background-image: url('../../assets/top(1).svg');
-    }
+    /* Background image scoped to this page only. Path is relative to this file. */
+    background-image: url('../../assets/top(1).svg');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: scroll; /* avoid fixed viewport background so it stays between header/footer */
+    background-color: transparent; /* fallback */
+}
+
+/* If you use a data-theme attribute on <html> or <body>, target it from the root instead of nesting. */
+[data-theme="dark"] .home-page {
+    /* You can change or swap the image for dark mode here if needed. For now keep the same image. */
+    background-image: url('../../assets/top(1).svg');
 }
