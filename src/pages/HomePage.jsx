@@ -33,7 +33,9 @@ export function HomePage() {
         </main> */}
 
          <Hero />
-         <Skills data={skillsData} />
+        {/*
+            <Skills data={skillsData} />
+       */}
         </>
     );
 }
