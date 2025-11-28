@@ -5,28 +5,34 @@ import "./Hero.css"
 export default function Hero() {
     return (
         <section className="hero-section" id="hero">
-            <h1 className="hero-title">
-                Hello, I'm <span className="hero-accent">Paul Akelo</span>
-            </h1>
+            <div className="hero-container">
+                <div className="hero-overlay" aria-hidden="true">
 
-            <p className="hero-lede">
-                GIS Analyst & Software Engineer crafting interactive maps, spatial data pipelines,
-                and 3D geospatial visuals for real-world decisions.
-            </p>
+                </div>
 
-            <p className="hero-subtext">
-                I blend cartographic intuition with full-stack engineering to turn location data into products people
-                actually enjoy using, whether that’s a live dashboard, a spatial API, or a photorealistic render.
-            </p>
+                <h1 className="hero-title">
+                    Hello, I'm <span className="hero-accent">Paul Akelo</span>
+                </h1>
 
-            <div className="hero-cta">
-                <Link to="/projects" className="btn btn-primary">
-                    View Projects
-                </Link>
+                <p className="hero-lede">
+                    GIS Analyst & Software Engineer crafting interactive maps, spatial data pipelines,
+                    and 3D geospatial visuals for real-world decisions.
+                </p>
 
-                <Link to="/contact" className="btn btn-secondary">
-                    Contact Me
-                </Link>
+                <p className="hero-subtext">
+                    I blend cartographic intuition with full-stack engineering to turn location data into products people
+                    actually enjoy using, whether that’s a live dashboard, a spatial API, or a photorealistic render.
+                </p>
+
+                <div className="hero-cta">
+                    <Link to="/projects" className="btn btn-primary">
+                        View Projects
+                    </Link>
+
+                    <Link to="/contact" className="btn btn-secondary">
+                        Contact Me
+                    </Link>
+                </div>
             </div>
         </section>
     );
