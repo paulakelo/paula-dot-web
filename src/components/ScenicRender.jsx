@@ -1,27 +1,32 @@
-/*
-import kasipul from "../assets/kasipul.jpg"; // change name accordingly
+import ScenicPlaceholder from "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80";
+import "./ScenicRender.css";
 
 export default function ScenicRender() {
     return (
-        <section className="py-16 bg-gray-100">
-            <div className="max-w-5xl mx-auto px-6">
-                <h2 className="text-3xl font-bold text-blue-900 mb-6">
-                    Scenic Kasipul Render
-                </h2>
+        <section className="scenic-section">
+            <div className="scenic-layout">
+                <div className="scenic-copy">
+                    <p className="scenic-eyebrow">Geospatial storytelling</p>
+                    <h2 className="scenic-title">Scenic Kasipul Render</h2>
+                    <p className="scenic-description">
+                        A render inspired by the rolling landscapes of Kasipul Constituency—blending terrain, vegetation,
+                        and settlements into a single frame. It hints at how I approach GIS work: balancing data accuracy
+                        with visual clarity so insight feels tangible.
+                    </p>
+                </div>
 
-                <img
-                    src={kasipul}
-                    alt="Kasipul Constituency scenic render"
-                    className="rounded-xl shadow-lg w-full"
-                />
-
-                <p className="mt-4 text-gray-700 text-lg">
-                    A render representing the beautiful landscapes of Kasipul Constituency —
-                    blending the natural environment with my geospatial storytelling work.
-                </p>
+                <div className="scenic-visual">
+                    <img
+                        src={ScenicPlaceholder}
+                        alt="Kasipul Constituency scenic render"
+                        className="scenic-image"
+                    />
+                    <div className="scenic-caption">
+                        <span className="scenic-location">Kasipul, Kenya</span>
+                        <span className="scenic-tag">GIS concept art</span>
+                    </div>
+                </div>
             </div>
         </section>
     );
 }
-
- */
