@@ -15,8 +15,9 @@
     flex: 1 0 auto; /* grow to fill the available space inside <main> */
     min-height: 0;   /* allow children to scroll/overflow inside flex container */
 
-    /* Background image scoped to this page only. Path is relative to this file. */
-    background-image: url('../../assets/top(1).svg');
+    /* Background image scoped to this page only. Served from `public/assets/top-1.svg` at runtime.
+       Use the absolute path so the file is loaded from the `public` folder: */
+    background-image: url('/assets/top-1.svg');
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
@@ -26,6 +27,6 @@
 
 /* If you use a data-theme attribute on <html> or <body>, target it from the root instead of nesting. */
 [data-theme="dark"] .home-page {
-    /* You can change or swap the image for dark mode here if needed. For now keep the same image. */
-    background-image: url('../../assets/top(1).svg');
+    /* Keep the same image for dark mode; served from public */
+    background-image: url('/assets/top-1.svg');
 }
