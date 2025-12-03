@@ -8,7 +8,11 @@ export function Header() {
                 <nav className="navbar">
                     <h1 className="logo">
                         <NavLink to="/" className="brand" >
-                            <img src="/assets/paula_dot_icon.png" alt="Paula-dot logo"/>
+                            {/**
+                             * Use Vite's BASE_URL so the logo works regardless of deploy base path
+                             * (e.g., Vercel previews or custom base). The file lives under public/assets.
+                             */}
+                            <img src={`${import.meta.env.BASE_URL}assets/paula_dot_icon.png`} alt="Paula-dot logo"/>
                         </NavLink>
                     </h1>
                     <ul className="nav-links">
