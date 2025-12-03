@@ -1,9 +1,13 @@
+@import './topographic-background.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Import topographic background styles */
+
 @layer base {
-    /* styles/main.css   Global variables and helpers (palette, utilities, layout) */
+    /* styles/main.css   Global variables and helpers (palette, utilities, layout) */
     :root {
         /* Map / Earth tones (H S% L%) */
         --map-water-deep: 200 75% 22%; /* deep ocean / navy-teal */
@@ -51,6 +55,11 @@
         /* Slightly deeper gold on dark theme for contrast */
         --brand-gold: 44 90% 48%;
         --brand-gold-muted: 44 90% 56%;
+    }
+
+    /* Apply even darker background to dark theme */
+    [data-theme="dark"] body {
+        background-color: hsl(220, 20%, 6%);
     }
 
     /* Small helpers / preview swatches */
@@ -146,6 +155,7 @@
         padding: 0;
         font-family: 'Roboto', sans-serif;
         box-sizing: border-box;
+        color: hsl(var(--map-ink, 220 12% 96%)); /* Light text for dark background */
     }
 
     html, body, #root {
@@ -158,6 +168,8 @@
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+        position: relative;
+        z-index: 0;
     }
 
     /* Homepage uses an inner wrapper `.page-root`; make it expand as well so its inner <main> can grow and push footer. */
@@ -166,12 +178,18 @@
         flex-direction: column;
         flex: 1 0 auto;
         min-height: 0; /* allow children to scroll when overflowing */
+        position: relative;
+        z-index: 1;
     }
 
     body {
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+        /* Topographic background applied globally */
+        position: relative;
+        background-color: hsl(220, 20%, 8%); /* Deep dark base */
+        overflow-x: hidden;
         /* background-image was removed here so the SVG can be applied per-page instead of globally */
         /*background: linear-gradient(180deg, #a8c9e6 0%, #d4e5f2 100%);*/
         /* font-family: 'Roboto', sans-serif;
@@ -179,6 +197,96 @@
 
        /* background-color: hsl(var(--bg));
         color: hsl(var(--fg)); */
+    }
+
+    /* Apply topographic pattern to body using pseudo-elements */
+    body::before,
+    body::after {
+        content: '';
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        right: -50%;
+        bottom: -50%;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+            /* Contour lines - multiple layers for depth */
+            repeating-radial-gradient(
+                circle at 20% 30%,
+                transparent 0,
+                transparent 8px,
+                rgba(100, 150, 180, 0.08) 8px,
+                rgba(100, 150, 180, 0.08) 9px
+            ),
+            repeating-radial-gradient(
+                circle at 80% 70%,
+                transparent 0,
+                transparent 12px,
+                rgba(80, 130, 160, 0.06) 12px,
+                rgba(80, 130, 160, 0.06) 13px
+            ),
+            repeating-radial-gradient(
+                circle at 50% 50%,
+                transparent 0,
+                transparent 15px,
+                rgba(90, 140, 170, 0.05) 15px,
+                rgba(90, 140, 170, 0.05) 16px
+            ),
+            /* Additional elevation lines */
+            repeating-radial-gradient(
+                circle at 65% 40%,
+                transparent 0,
+                transparent 20px,
+                rgba(70, 120, 150, 0.04) 20px,
+                rgba(70, 120, 150, 0.04) 21px
+            ),
+            /* Noise texture for organic feel */
+            linear-gradient(
+                135deg,
+                rgba(20, 40, 60, 0.4) 0%,
+                rgba(10, 25, 40, 0.6) 100%
+            );
+        background-size:
+            600px 600px,
+            800px 800px,
+            1000px 1000px,
+            1200px 1200px,
+            100% 100%;
+        animation: topographicScroll 120s linear infinite;
+    }
+
+    /* Second layer for depth and complexity */
+    body::after {
+        background-image:
+            repeating-radial-gradient(
+                circle at 40% 60%,
+                transparent 0,
+                transparent 10px,
+                rgba(60, 110, 140, 0.06) 10px,
+                rgba(60, 110, 140, 0.06) 11px
+            ),
+            repeating-radial-gradient(
+                circle at 90% 20%,
+                transparent 0,
+                transparent 18px,
+                rgba(50, 100, 130, 0.04) 18px,
+                rgba(50, 100, 130, 0.04) 19px
+            ),
+            repeating-radial-gradient(
+                circle at 30% 80%,
+                transparent 0,
+                transparent 14px,
+                rgba(70, 120, 150, 0.05) 14px,
+                rgba(70, 120, 150, 0.05) 15px
+            );
+        background-size:
+            700px 700px,
+            900px 900px,
+            1100px 1100px;
+        animation: topographicScrollReverse 100s linear infinite,
+                   topographicPulse 8s ease-in-out infinite;
+        opacity: 0.7;
     }
 
     /* make main grow to fill available space between header and footer */
@@ -209,6 +317,27 @@
         max-width: 1100px;
         margin: 0 auto;
         padding: 0 16px;
+    }
+
+    /* Accessibility: Reduced motion support for topographic animations */
+    @media (prefers-reduced-motion: reduce) {
+        body::before,
+        body::after {
+            animation: none;
+        }
+    }
+
+    /* Responsive adjustments for topographic background */
+    @media (max-width: 768px) {
+        body::before,
+        body::after {
+            background-size:
+                400px 400px,
+                500px 500px,
+                600px 600px,
+                700px 700px,
+                100% 100%;
+        }
     }
 
 }

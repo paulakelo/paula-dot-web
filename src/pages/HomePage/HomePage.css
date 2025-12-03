@@ -6,20 +6,13 @@
     }
 }
 
-/* The root page wrapper `.home-page` should fill the <main> area so the background spans
-   only between the navbar (Header) and the Footer. main already has `display:flex; flex-direction:column; flex:1`
+/* The root page wrapper `.home-page` should fill the <main> area.
+   main already has `display:flex; flex-direction:column; flex:1`
    so we make .home-page grow to fill it and allow its children to scroll when necessary. */
 .home-page {
     display: flex;
     flex-direction: column;
     flex: 1 0 auto; /* grow to fill the available space inside <main> */
     min-height: 0;   /* allow children to scroll/overflow inside flex container */
-
-    /* Background image is set inline in the HomePage component to reference the public asset
-       `/assets/top-1.svg` at runtime while avoiding editor resolver errors in CSS. */
-}
-
-/* If you use a data-theme attribute on <html> or <body>, target it from the root instead of nesting. */
-[data-theme="dark"] .home-page {
-    /* Any theme-specific background handling is applied inline in the component when needed. */
+    background: transparent; /* Let global topographic background show through */
 }

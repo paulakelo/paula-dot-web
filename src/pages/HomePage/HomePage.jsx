@@ -5,16 +5,11 @@ import './HomePage.css'
 
 
 export function HomePage() {
-    const bgStyle = {
-        backgroundImage: `url('/assets/top-1.svg')`,
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center top',
-        backgroundSize: 'cover',
-        backgroundAttachment: 'scroll'
-    };
+    // Global topographic background is now applied via body element
+    // No need for page-specific background
 
     return (
-        <div className="home-page" style={bgStyle}>
+        <div className="home-page">
         <title>Paul Akelo</title>
             <Hero />
             <TechStackMarquee />
