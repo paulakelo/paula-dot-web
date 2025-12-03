@@ -15,9 +15,6 @@ export function HomePage() {
         <div className="home-page" style={bgStyle}>
         <title>Paul Akelo</title>
             <Hero />
-        {/*
-            <Skills data={skillsData} />
-       */}
         </div>
     );
 }

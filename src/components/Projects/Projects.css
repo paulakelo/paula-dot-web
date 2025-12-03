@@ -31,8 +31,10 @@
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-auto-rows: auto;
+    gap: 1.5rem;
+    align-items: start;
 }
 
 .project-card {
@@ -43,6 +45,7 @@
     transition: transform 180ms ease, box-shadow 180ms ease;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .project-card:hover {
