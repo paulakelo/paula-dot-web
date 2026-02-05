@@ -1,5 +1,3 @@
-import './ContactPage.css'
-
 export function ContactPage() {
     const handleSubmit = (e) => {
         e.preventDefault();
