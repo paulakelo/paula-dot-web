@@ -18,14 +18,14 @@
 .featured-work-title {
     font-size: 2rem;
     font-weight: 700;
-    color: #1e293b;
+    color: hsl(var(--text-primary));
     margin-bottom: 0.75rem;
     text-align: left;
 }
 
 .featured-work-subtitle {
     font-size: 1.125rem;
-    color: #64748b;
+    color: hsl(var(--text-secondary));
     margin: 0;
     text-align: left;
     max-width: 600px;
@@ -51,20 +51,20 @@
     gap: 0.5rem;
     padding: 1rem 2rem;
     background: transparent;
-    color: #047857;
+    color: hsl(var(--brand-gold));
     font-size: 1.125rem;
     font-weight: 600;
     text-decoration: none;
     border-radius: 12px;
-    border: 2px solid #047857;
+    border: 2px solid hsl(var(--brand-gold));
     transition: all 0.3s ease;
 }
 
 .view-all-link:hover {
-    background: #047857;
-    color: white;
+    background: hsl(var(--brand-gold));
+    color: hsl(var(--text-inverted));
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(4, 120, 87, 0.3);
+    box-shadow: 0 8px 24px hsl(var(--brand-gold) / 0.3);
 }
 
 .view-all-link svg {

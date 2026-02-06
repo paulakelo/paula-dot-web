@@ -111,7 +111,7 @@ header .navbar {
 
 .nav-links a {
     text-decoration: none;
-    color: #0c0c0c;
+    color: hsl(var(--text-primary));
     padding: 0.25rem 0.375rem;
     transition: color 0.15s ease;
     cursor: pointer;
@@ -122,7 +122,7 @@ header .navbar {
 }
 
 .nav-links a:hover {
-    color: #007185;
+    color: hsl(var(--brand-gold));
 }
 
 /* Slightly more visible nav link styles when header backgrounds are used */

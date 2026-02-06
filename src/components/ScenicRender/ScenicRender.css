@@ -19,18 +19,18 @@
     text-transform: uppercase;
     letter-spacing: 0.25em;
     font-size: 0.75rem;
-    color: #0ea5e9;
+    color: hsl(var(--brand-gold));
     margin-bottom: 0.5rem;
 }
 
 .scenic-title {
     font-size: clamp(2rem, 4vw, 2.75rem);
-    color: #0f172a;
+    color: hsl(var(--text-primary));
     margin-bottom: 1rem;
 }
 
 .scenic-description {
-    color: #475569;
+    color: hsl(var(--text-secondary));
     line-height: 1.7;
 }
 
@@ -61,11 +61,11 @@
 
 .scenic-location {
     font-weight: 600;
-    color: #0f172a;
+    color: hsl(var(--text-primary));
 }
 
 .scenic-tag {
-    color: #6b7280;
+    color: hsl(var(--text-muted));
 }
 
 @media (max-width: 900px) {

@@ -46,7 +46,7 @@
 .contact-page .contact-info h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #ffffff;
+    color: hsl(var(--text-inverted));
     letter-spacing: -0.025em;
     margin: 0;
 }
@@ -54,19 +54,19 @@
 .contact-page .contact-info p {
     font-size: 1.125rem;
     line-height: 1.75;
-    color: #9ca3af;
+    color: hsl(var(--text-muted));
     margin: 0;
 }
 
 .contact-page .contact-info a {
-    color: #14b8a6;
+    color: hsl(var(--brand-gold));
     font-weight: 600;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .contact-page .contact-info a:hover {
-    color: #2dd4bf;
+    color: hsl(var(--brand-gold-muted));
     text-decoration: underline;
 }
 
@@ -92,32 +92,32 @@
 .contact-page .contact-form label {
     font-size: 0.875rem;
     font-weight: 700;
-    color: #ffffff;
+    color: hsl(var(--text-inverted));
 }
 
 .contact-page .contact-form input,
 .contact-page .contact-form textarea {
     width: 100%;
     box-sizing: border-box;
-    background-color: #1f2937;
+    background-color: hsl(var(--accent-dark));
     border: 1px solid #374151;
     border-radius: 0.5rem;
     padding: 0.875rem 1rem;
     font-size: 1rem;
-    color: #e5e7eb;
+    color: hsl(var(--text-inverted));
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .contact-page .contact-form input::placeholder,
 .contact-page .contact-form textarea::placeholder {
-    color: #6b7280;
+    color: hsl(var(--text-muted));
 }
 
 .contact-page .contact-form input:focus,
 .contact-page .contact-form textarea:focus {
     outline: none;
-    border-color: #14b8a6;
-    box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.2);
+    border-color: hsl(var(--brand-gold));
+    box-shadow: 0 0 0 2px hsl(var(--brand-gold) / 0.2);
 }
 
 .contact-page .contact-form textarea {
@@ -133,8 +133,8 @@
     gap: 0.5rem;
     margin-top: 1rem;
     padding: 0.875rem 1.5rem;
-    background-color: #14b8a6;
-    color: #000000;
+    background-color: hsl(var(--brand-gold));
+    color: hsl(var(--text-inverted));
     font-size: 1rem;
     font-weight: 600;
     border: none;
@@ -144,8 +144,8 @@
 }
 
 .contact-page .contact-form button:hover {
-    background-color: #2dd4bf;
-    box-shadow: 0 0 20px rgba(20, 184, 166, 0.3);
+    background-color: hsl(var(--accent-dark));
+    box-shadow: 0 0 20px hsl(var(--brand-gold) / 0.3);
 }
 
 .contact-page .contact-form button svg {

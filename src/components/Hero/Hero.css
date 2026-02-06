@@ -51,8 +51,8 @@
     gap: 0.5rem;
     width: fit-content;
     padding: 0.5rem 1rem;
-    background: #134e4a;
-    color: #5eead4;
+    background: hsl(var(--accent-dark));
+    color: hsl(var(--accent-light));
     font-size: 0.875rem;
     font-weight: 500;
     border-radius: 50px;
@@ -62,7 +62,7 @@
 .badge-dot {
     width: 8px;
     height: 8px;
-    background: #10b981;
+    background: hsl(var(--brand-gold));
     border-radius: 50%;
     animation: pulse-dot 2s ease-in-out infinite;
 }
@@ -76,7 +76,7 @@
 .hero-name {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #64748b;
+    color: hsl(var(--text-secondary));
     margin: 0;
     letter-spacing: 0.05em;
 }
@@ -93,11 +93,11 @@
 }
 
 .title-line {
-    color: #1e293b;
+    color: hsl(var(--text-primary));
 }
 
 .title-accent {
-    background: linear-gradient(135deg, #047857 0%, #0d9488 50%, #14b8a6 100%);
+    background: linear-gradient(135deg, hsl(var(--accent-dark)) 0%, hsl(var(--accent)) 50%, hsl(var(--accent-light)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -107,7 +107,7 @@
 .hero-subtext {
     font-size: 1.125rem;
     line-height: 1.7;
-    color: #475569;
+    color: hsl(var(--text-secondary));
     max-width: 520px;
 }
 
@@ -132,27 +132,27 @@
 }
 
 .btn-primary {
-    background: #047857;
-    color: #ffffff;
+    background: hsl(var(--brand-gold));
+    color: hsl(var(--text-inverted));
     border: none;
-    box-shadow: 0 4px 12px rgba(4, 120, 87, 0.25);
+    box-shadow: 0 4px 12px hsl(var(--brand-gold) / 0.25);
 }
 
 .btn-primary:hover {
-    background: #065f46;
+    background: hsl(var(--accent-dark));
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(4, 120, 87, 0.3);
+    box-shadow: 0 6px 16px hsl(var(--brand-gold) / 0.3);
 }
 
 .btn-outline {
     background: transparent;
-    color: #1e293b;
-    border: 2px solid #334155;
+    color: hsl(var(--text-primary));
+    border: 2px solid hsl(var(--text-secondary));
 }
 
 .btn-outline:hover {
-    background: #334155;
-    color: #ffffff;
+    background: hsl(var(--text-primary));
+    color: hsl(var(--text-inverted));
     transform: translateY(-2px);
 }
 

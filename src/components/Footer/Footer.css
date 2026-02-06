@@ -35,7 +35,7 @@
     width: 44px;
     height: 44px;
     border-radius: 8px;
-    color: #fff;
+    color: hsl(var(--text-inverted));
     text-decoration: none;
     background: rgba(255, 255, 255, 0.15);
     transition: all 200ms ease;

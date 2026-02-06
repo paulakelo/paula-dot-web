@@ -33,6 +33,18 @@
         --brand-black: 220 8% 6%; /* H S% L% for HSL-like usage with hsl(var(--brand-black)) */
         --brand-gold: 44 90% 54%; /* warm gold */
         --brand-gold-muted: 44 90% 60%; /* lighter gold for soft backgrounds */
+
+        /* Neutral accent palette (slate) */
+        --accent: 215 16% 42%; /* balanced slate accent */
+        --accent-light: 215 18% 58%; /* lighter slate for hover/accents */
+        --accent-dark: 215 22% 26%; /* deeper slate for contrast */
+        --accent-muted: 215 14% 72%; /* softer slate for backgrounds */
+
+        /* Consistent text colors (light theme) */
+        --text-primary: 220 14% 10%; /* near-black for headings */
+        --text-secondary: 215 16% 35%; /* dark gray for body text */
+        --text-muted: 215 12% 50%; /* muted gray for captions/secondary */
+        --text-inverted: 30 10% 98%; /* light text on dark backgrounds */
     }
 
     /* Dark-theme palette adjusts lightness for readability */
@@ -55,6 +67,18 @@
         /* Slightly deeper gold on dark theme for contrast */
         --brand-gold: 44 90% 48%;
         --brand-gold-muted: 44 90% 56%;
+
+        /* Neutral accent palette (slate) */
+        --accent: 215 14% 68%;
+        --accent-light: 215 16% 76%;
+        --accent-dark: 215 18% 52%;
+        --accent-muted: 215 12% 64%;
+
+        /* Consistent text colors (dark theme) */
+        --text-primary: 220 12% 96%; /* near-white for headings */
+        --text-secondary: 215 10% 80%; /* light gray for body text */
+        --text-muted: 215 8% 60%; /* muted for captions/secondary */
+        --text-inverted: 220 14% 10%; /* dark text on light backgrounds */
     }
 
     /* Apply even darker background to dark theme */
@@ -130,6 +154,74 @@
         color: hsl(var(--brand-black));
     }
 
+    /* Neutral accent utilities */
+    .text-accent {
+        color: hsl(var(--accent));
+    }
+
+    .text-accent-light {
+        color: hsl(var(--accent-light));
+    }
+
+    .text-accent-dark {
+        color: hsl(var(--accent-dark));
+    }
+
+    .bg-accent {
+        background-color: hsl(var(--accent));
+        color: white;
+    }
+
+    .bg-accent-subtle {
+        background-color: hsl(var(--accent-muted) / 0.15);
+    }
+
+    .bg-accent-dark {
+        background-color: hsl(var(--accent-dark));
+        color: white;
+    }
+
+    .border-accent {
+        border-color: hsl(var(--accent));
+    }
+
+    .border-accent-subtle {
+        border-color: hsl(var(--accent) / 0.25);
+    }
+
+    /* Accent hover effects */
+    .hover\:bg-accent:hover {
+        background-color: hsl(var(--accent));
+        color: white;
+    }
+
+    .hover\:text-accent:hover {
+        color: hsl(var(--accent));
+    }
+
+    .underline-accent-hover:hover {
+        text-decoration: underline;
+        text-decoration-color: hsl(var(--accent));
+        text-decoration-thickness: 2px;
+    }
+
+    /* Consistent text color utilities */
+    .text-primary {
+        color: hsl(var(--text-primary));
+    }
+
+    .text-secondary {
+        color: hsl(var(--text-secondary));
+    }
+
+    .text-muted {
+        color: hsl(var(--text-muted));
+    }
+
+    .text-inverted {
+        color: hsl(var(--text-inverted));
+    }
+
     /* Small helper for an underlined gold accent on hover */
     .underline-gold-hover:hover {
         text-decoration: underline;
@@ -153,9 +245,33 @@
     * {
         margin: 0;
         padding: 0;
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         box-sizing: border-box;
         color: hsl(var(--map-ink, 220 12% 96%)); /* Light text for dark background */
+    }
+
+    /* Typography base styles - bolder, more professional */
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+    }
+
+    h1 {
+        font-weight: 800;
+    }
+
+    h2 {
+        font-weight: 700;
+    }
+
+    p, span, li, a {
+        font-weight: 500;
+        line-height: 1.6;
+    }
+
+    strong, b {
+        font-weight: 700;
     }
 
     html, body, #root {
@@ -199,7 +315,7 @@
         color: hsl(var(--fg)); */
     }
 
-    /* Apply topographic pattern to body using pseudo-elements */
+    /* Apply topographic pattern to body using pseudo-elements - TONED DOWN */
     body::before,
     body::after {
         content: '';
@@ -211,82 +327,64 @@
         z-index: -1;
         pointer-events: none;
         background-image:
-            /* Contour lines - multiple layers for depth */
+            /* Contour lines - reduced opacity for subtlety */
             repeating-radial-gradient(
                 circle at 20% 30%,
                 transparent 0,
                 transparent 8px,
-                rgba(100, 150, 180, 0.08) 8px,
-                rgba(100, 150, 180, 0.08) 9px
+                rgba(100, 150, 180, 0.03) 8px,
+                rgba(100, 150, 180, 0.03) 9px
             ),
             repeating-radial-gradient(
                 circle at 80% 70%,
                 transparent 0,
                 transparent 12px,
-                rgba(80, 130, 160, 0.06) 12px,
-                rgba(80, 130, 160, 0.06) 13px
+                rgba(80, 130, 160, 0.025) 12px,
+                rgba(80, 130, 160, 0.025) 13px
             ),
             repeating-radial-gradient(
                 circle at 50% 50%,
                 transparent 0,
                 transparent 15px,
-                rgba(90, 140, 170, 0.05) 15px,
-                rgba(90, 140, 170, 0.05) 16px
+                rgba(90, 140, 170, 0.02) 15px,
+                rgba(90, 140, 170, 0.02) 16px
             ),
-            /* Additional elevation lines */
-            repeating-radial-gradient(
-                circle at 65% 40%,
-                transparent 0,
-                transparent 20px,
-                rgba(70, 120, 150, 0.04) 20px,
-                rgba(70, 120, 150, 0.04) 21px
-            ),
-            /* Noise texture for organic feel */
+            /* Subtle gradient overlay */
             linear-gradient(
                 135deg,
-                rgba(20, 40, 60, 0.4) 0%,
-                rgba(10, 25, 40, 0.6) 100%
+                rgba(20, 40, 60, 0.15) 0%,
+                rgba(10, 25, 40, 0.25) 100%
             );
         background-size:
             600px 600px,
             800px 800px,
             1000px 1000px,
-            1200px 1200px,
             100% 100%;
-        animation: topographicScroll 120s linear infinite;
+        animation: topographicScroll 180s linear infinite;
     }
 
-    /* Second layer for depth and complexity */
+    /* Second layer - much more subtle */
     body::after {
         background-image:
             repeating-radial-gradient(
                 circle at 40% 60%,
                 transparent 0,
                 transparent 10px,
-                rgba(60, 110, 140, 0.06) 10px,
-                rgba(60, 110, 140, 0.06) 11px
+                rgba(60, 110, 140, 0.02) 10px,
+                rgba(60, 110, 140, 0.02) 11px
             ),
             repeating-radial-gradient(
                 circle at 90% 20%,
                 transparent 0,
                 transparent 18px,
-                rgba(50, 100, 130, 0.04) 18px,
-                rgba(50, 100, 130, 0.04) 19px
-            ),
-            repeating-radial-gradient(
-                circle at 30% 80%,
-                transparent 0,
-                transparent 14px,
-                rgba(70, 120, 150, 0.05) 14px,
-                rgba(70, 120, 150, 0.05) 15px
+                rgba(50, 100, 130, 0.015) 18px,
+                rgba(50, 100, 130, 0.015) 19px
             );
         background-size:
             700px 700px,
-            900px 900px,
-            1100px 1100px;
-        animation: topographicScrollReverse 100s linear infinite,
-                   topographicPulse 8s ease-in-out infinite;
-        opacity: 0.7;
+            900px 900px;
+        animation: topographicScrollReverse 150s linear infinite;
+        opacity: 0.5;
     }
 
     /* make main grow to fill available space between header and footer */
@@ -335,7 +433,6 @@
                 400px 400px,
                 500px 500px,
                 600px 600px,
-                700px 700px,
                 100% 100%;
         }
     }

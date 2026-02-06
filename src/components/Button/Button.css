@@ -22,35 +22,35 @@
     transform: translateY(0px);
 }
 
-/* Primary button - Forest green with white text */
+/* Primary button - Neutral accent with white text */
 .btn-primary {
-    background-color: #047857;
-    color: #fff;
+    background-color: hsl(var(--accent));
+    color: hsl(var(--text-inverted));
 }
 
 .btn-primary:hover {
-    background-color: #065f46;
+    background-color: hsl(var(--accent-dark));
 }
 
 .btn-primary:focus {
-    box-shadow: 0 0 0 4px rgba(4, 120, 87, 0.2), 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 0 4px hsl(var(--accent) / 0.2), 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Secondary button - White with border */
 .btn-secondary {
-    background-color: #fff;
-    border: 2px solid #047857;
-    color: #047857;
+    background-color: hsl(var(--map-paper));
+    border: 2px solid hsl(var(--accent));
+    color: hsl(var(--accent));
 }
 
 .btn-secondary:hover {
-    background-color: #f0fdf4;
-    border-color: #065f46;
-    color: #065f46;
+    background-color: hsl(var(--accent-muted) / 0.1);
+    border-color: hsl(var(--accent-dark));
+    color: hsl(var(--accent-dark));
 }
 
 .btn-secondary:focus {
-    box-shadow: 0 0 0 4px rgba(4, 120, 87, 0.15), 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 4px hsl(var(--accent) / 0.2), 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Gold-accented primary for special calls-to-action */
