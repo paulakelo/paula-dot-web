@@ -18,33 +18,48 @@
     grid-template-columns: 1fr 280px;
     gap: 3rem;
     align-items: start;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 /* Left: Bio Content */
 .about-bio {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
-.bio-block h2 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #047857;
-    margin-bottom: 0.75rem;
-    line-height: 1.2;
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0 0 1.25rem 0;
+    line-height: 1.1;
 }
 
-.bio-block p {
-    font-size: 1.05rem;
+/* Professional Focus Pills */
+.focus-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.focus-pill {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #134e4a;
+    color: #5eead4;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 50px;
+    letter-spacing: 0.02em;
+}
+
+.bio-statement {
+    font-size: 1.15rem;
     line-height: 1.75;
     color: #475569;
-    margin-bottom: 0.75rem;
-}
-
-.bio-block p:last-child {
-    margin-bottom: 0;
+    margin: 0;
 }
 
 /* Right: SE Avatar Card */
@@ -97,12 +112,13 @@
 }
 
 /* ==========================================
-   SECTION 2: THE STACK (Skills + Interests)
+   SECTION 2: Technical Interests + Tech Stack
    ========================================== */
 .about-stack {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1fr 1.4fr;
     gap: 2rem;
+    margin-bottom: 3rem;
 }
 
 .stack-card {
@@ -133,46 +149,6 @@
     display: inline-block;
 }
 
-/* Core Skills Card */
-.skills-categories {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.skill-category h4 {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin-bottom: 0.75rem;
-}
-
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.skill-tag {
-    display: inline-block;
-    padding: 0.4rem 0.85rem;
-    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-    color: #065f46;
-    font-size: 0.875rem;
-    font-weight: 500;
-    border-radius: 6px;
-    border: 1px solid rgba(4, 120, 87, 0.15);
-    transition: all 0.2s ease;
-}
-
-.skill-tag:hover {
-    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(4, 120, 87, 0.1);
-}
-
 /* Technical Interests Card */
 .interests-list {
     list-style: none;
@@ -180,7 +156,7 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.6rem;
 }
 
 .interests-list li {
@@ -208,6 +184,249 @@
     color: #047857;
 }
 
+/* Technology Stack Card */
+.stack-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.stack-category h4 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+}
+
+.stack-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stack-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.5rem 0.75rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 8px;
+    border-left: 3px solid #047857;
+}
+
+.stack-item-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.stack-item-desc {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-style: italic;
+}
+
+/* ==========================================
+   SECTION 3: Academic Background + Philosophy
+   ========================================== */
+.about-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.detail-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(4, 120, 87, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.detail-card:hover {
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.08),
+        0 4px 8px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+}
+
+.detail-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border-radius: 12px;
+    color: #047857;
+}
+
+.detail-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.detail-content {
+    flex: 1;
+}
+
+.detail-content h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 0.75rem 0;
+}
+
+.detail-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #047857;
+    margin: 0 0 0.5rem 0;
+}
+
+.detail-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #475569;
+    margin: 0;
+}
+
+.philosophy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.philosophy-list li {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    color: #065f46;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid rgba(4, 120, 87, 0.15);
+}
+
+/* ==========================================
+   SECTION 4: Long-Term Goals
+   ========================================== */
+.about-goals {
+    margin-bottom: 3rem;
+}
+
+.goals-card {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow:
+        0 20px 40px rgba(4, 120, 87, 0.2),
+        0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.goals-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 1.75rem 0;
+}
+
+.goals-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.goal-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.goal-number {
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.3);
+    line-height: 1;
+    min-width: 2.5rem;
+}
+
+.goal-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* ==========================================
+   SECTION 5: Secondary Interests
+   ========================================== */
+.about-secondary {
+    margin-bottom: 2rem;
+}
+
+.secondary-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(4, 120, 87, 0.08);
+}
+
+.secondary-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 0.5rem 0;
+}
+
+.secondary-note {
+    font-size: 0.875rem;
+    color: #64748b;
+    font-style: italic;
+    margin: 0 0 1.25rem 0;
+}
+
+.secondary-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.secondary-tag {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #92400e;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: 1px solid rgba(146, 64, 14, 0.15);
+    transition: all 0.2s ease;
+}
+
+.secondary-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(146, 64, 14, 0.15);
+}
+
 /* ==========================================
    RESPONSIVE DESIGN
    ========================================== */
@@ -220,7 +439,7 @@
     .avatar-card {
         position: static;
         justify-self: center;
-        order: -1; /* Move avatar above bio on mobile */
+        order: -1;
     }
 
     .avatar-card-inner {
@@ -239,6 +458,22 @@
     .about-stack {
         grid-template-columns: 1fr;
     }
+
+    .about-details {
+        grid-template-columns: 1fr;
+    }
+
+    .page-title {
+        text-align: center;
+    }
+
+    .focus-pills {
+        justify-content: center;
+    }
+
+    .bio-statement {
+        text-align: center;
+    }
 }
 
 @media (max-width: 600px) {
@@ -247,23 +482,43 @@
     }
 
     .about-hero {
-        margin-bottom: 2.5rem;
+        margin-bottom: 2rem;
     }
 
-    .bio-block h2 {
-        font-size: 1.5rem;
+    .page-title {
+        font-size: 2rem;
     }
 
-    .bio-block p {
+    .focus-pill {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.85rem;
+    }
+
+    .bio-statement {
         font-size: 1rem;
     }
 
-    .stack-card {
+    .stack-card,
+    .detail-card,
+    .goals-card,
+    .secondary-card {
         padding: 1.5rem;
     }
 
-    .skill-tag {
-        padding: 0.35rem 0.7rem;
-        font-size: 0.8rem;
+    .detail-card {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .goals-card {
+        padding: 1.75rem;
+    }
+
+    .goal-number {
+        font-size: 1.25rem;
+    }
+
+    .goal-text {
+        font-size: 0.95rem;
     }
 }

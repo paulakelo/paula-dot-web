@@ -1,107 +1,372 @@
 .hero-section {
-    /* full-width section to allow container to stretch near page edges */
     position: relative;
     width: 100%;
-    padding: 2.5rem 0; /* vertical spacing only; horizontal spacing handled by the container */
+    padding: 4rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent; /* actual background (image/gradients) is handled at page level or inline */
+    background: transparent;
+    min-height: 70vh;
 }
 
-/* The content container sits inside the full-width hero and stretches to almost the full page width
-   while keeping a small horizontal gutter. This is where overlays should be anchored so they don't
-   bleed to the absolute page edges. */
+/* Two-column grid container */
 .hero-container {
-    position: relative; /* anchor for overlays */
-    width: min(1200px, calc(100% - 48px)); /* max width but allow it to grow close to edges */
-    margin: 0 auto;
-    padding: 0 24px; /* small horizontal gutters */
-    box-sizing: border-box;
-}
-
-/* Placeholder overlay element (empty, pointer-events: none) — add visual effects later. */
-.hero-overlay {
-    position: absolute;
-    inset: 0; /* cover the container */
-    pointer-events: none;
-    /* example: rgba black overlay at low opacity (commented); enable when needed */
-    /* background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0)); */
-}
-
-/* Glassmorphism card container for hero content */
-.hero-content-card {
     position: relative;
-    z-index: 1;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 16px;
-    padding: 3rem 2.8rem;
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.08),
-        0 2px 8px rgba(0, 0, 0, 0.04),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    max-width: 900px;
+    width: min(1200px, calc(100% - 48px));
     margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
 }
 
-@media (max-width: 600px) {
-    .hero-content-card {
-        padding: 2rem 1.5rem;
-        border-radius: 20px;
+/* ==========================================
+   LEFT COLUMN: TEXT CONTENT
+   ========================================== */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Badge: "Open to opportunities" */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    background: #134e4a;
+    color: #5eead4;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 50px;
+    letter-spacing: 0.02em;
+}
+
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+}
+
+/* Headline */
+.hero-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.title-line {
+    color: #1e293b;
+}
+
+.title-accent {
+    background: linear-gradient(135deg, #047857 0%, #0d9488 50%, #14b8a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Subtext */
+.hero-subtext {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #475569;
+    max-width: 520px;
+}
+
+/* CTAs */
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #047857;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(4, 120, 87, 0.25);
+}
+
+.btn-primary:hover {
+    background: #065f46;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(4, 120, 87, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    color: #1e293b;
+    border: 2px solid #334155;
+}
+
+.btn-outline:hover {
+    background: #334155;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   RIGHT COLUMN: NODE GRAPH VISUAL
+   ========================================== */
+.hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.node-graph {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 1;
+}
+
+/* SVG connection lines */
+.node-connections {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.node-line {
+    stroke: rgba(4, 120, 87, 0.3);
+    stroke-width: 2;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 4px rgba(4, 120, 87, 0.4));
+}
+
+/* Individual nodes */
+.node {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0f172a;
+    border-radius: 16px;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.node svg {
+    width: 32px;
+    height: 32px;
+}
+
+.node:hover {
+    transform: scale(1.1);
+}
+
+/* Node positions (5-node layout) */
+.node-server {
+    top: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #14b8a6;
+    box-shadow:
+        0 0 20px rgba(20, 184, 166, 0.4),
+        0 0 40px rgba(20, 184, 166, 0.2),
+        inset 0 0 20px rgba(20, 184, 166, 0.1);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+}
+
+.node-database {
+    top: 45%;
+    left: 10%;
+    color: #a78bfa;
+    box-shadow:
+        0 0 20px rgba(167, 139, 250, 0.4),
+        0 0 40px rgba(167, 139, 250, 0.2),
+        inset 0 0 20px rgba(167, 139, 250, 0.1);
+    border: 1px solid rgba(167, 139, 250, 0.3);
+}
+
+.node-security {
+    top: 45%;
+    right: 10%;
+    color: #f472b6;
+    box-shadow:
+        0 0 20px rgba(244, 114, 182, 0.4),
+        0 0 40px rgba(244, 114, 182, 0.2),
+        inset 0 0 20px rgba(244, 114, 182, 0.1);
+    border: 1px solid rgba(244, 114, 182, 0.3);
+}
+
+.node-api {
+    top: 75%;
+    left: 25%;
+    color: #facc15;
+    box-shadow:
+        0 0 20px rgba(250, 204, 21, 0.4),
+        0 0 40px rgba(250, 204, 21, 0.2),
+        inset 0 0 20px rgba(250, 204, 21, 0.1);
+    border: 1px solid rgba(250, 204, 21, 0.3);
+}
+
+.node-cloud {
+    top: 75%;
+    right: 25%;
+    color: #38bdf8;
+    box-shadow:
+        0 0 20px rgba(56, 189, 248, 0.4),
+        0 0 40px rgba(56, 189, 248, 0.2),
+        inset 0 0 20px rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* Hover state for nodes - brighter glow */
+.node-server:hover {
+    box-shadow:
+        0 0 30px rgba(20, 184, 166, 0.6),
+        0 0 60px rgba(20, 184, 166, 0.3),
+        inset 0 0 30px rgba(20, 184, 166, 0.15);
+}
+
+.node-database:hover {
+    box-shadow:
+        0 0 30px rgba(167, 139, 250, 0.6),
+        0 0 60px rgba(167, 139, 250, 0.3),
+        inset 0 0 30px rgba(167, 139, 250, 0.15);
+}
+
+.node-security:hover {
+    box-shadow:
+        0 0 30px rgba(244, 114, 182, 0.6),
+        0 0 60px rgba(244, 114, 182, 0.3),
+        inset 0 0 30px rgba(244, 114, 182, 0.15);
+}
+
+.node-api:hover {
+    box-shadow:
+        0 0 30px rgba(250, 204, 21, 0.6),
+        0 0 60px rgba(250, 204, 21, 0.3),
+        inset 0 0 30px rgba(250, 204, 21, 0.15);
+}
+
+.node-cloud:hover {
+    box-shadow:
+        0 0 30px rgba(56, 189, 248, 0.6),
+        0 0 60px rgba(56, 189, 248, 0.3),
+        inset 0 0 30px rgba(56, 189, 248, 0.15);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 900px) {
+    .hero-section {
+        min-height: auto;
+        padding: 3rem 0;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .hero-content {
+        align-items: center;
+    }
+
+    .hero-subtext {
+        max-width: 100%;
+    }
+
+    .hero-cta {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        order: -1; /* Move visual above text on mobile */
+    }
+
+    .node-graph {
+        max-width: 280px;
+    }
+
+    .node {
+        width: 52px;
+        height: 52px;
+    }
+
+    .node svg {
+        width: 26px;
+        height: 26px;
     }
 }
 
 @media (max-width: 600px) {
     .hero-section {
-        padding: 1.75rem 0; /* slightly tighter vertical spacing on mobile */
+        padding: 2rem 0;
     }
-    .hero-container { padding: 0 16px; }
+
+    .hero-container {
+        padding: 0 16px;
+        gap: 2rem;
+    }
+
     .hero-title {
-        font-size: clamp(1.75rem, 6vw, 2.25rem);
-        margin-bottom: 0.75rem;
+        font-size: clamp(2rem, 8vw, 2.5rem);
     }
-    .hero-lede {
+
+    .hero-subtext {
         font-size: 1rem;
     }
-    .hero-subtext {
-        font-size: 0.95rem;
+
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
     }
-}
 
-/* keep existing typography rules unchanged */
-.hero-title {
-    /* slightly smaller headline so the hero occupies less vertical space */
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 700;
-    color: #0f172a;
-    margin-bottom: 1rem;
-}
+    .btn {
+        width: 100%;
+    }
 
-.hero-accent {
-    color: #0ea5e9;
-}
+    .node-graph {
+        max-width: 220px;
+    }
 
-.hero-lede {
-    /* tighter lead copy to save space while remaining readable */
-    color: #475569;
-    font-size: 1.05rem;
-    line-height: 1.6;
-}
+    .node {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+    }
 
-.hero-subtext {
-    margin-top: 1rem;
-    color: #4b5563;
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-.hero-cta {
-    margin-top: 1.25rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
+    .node svg {
+        width: 22px;
+        height: 22px;
+    }
 }
