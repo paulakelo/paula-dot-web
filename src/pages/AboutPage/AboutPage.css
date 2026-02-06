@@ -63,53 +63,6 @@
 }
 
 /* Right: SE Avatar Card */
-.avatar-card {
-    position: sticky;
-    top: 2rem;
-}
-
-.avatar-card-inner {
-    width: 280px;
-    height: 320px;
-    background: linear-gradient(135deg, #047857 0%, #065f46 50%, #064e3b 100%);
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    box-shadow:
-        0 20px 40px rgba(4, 120, 87, 0.2),
-        0 8px 16px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.avatar-card-inner:hover {
-    transform: translateY(-4px);
-    box-shadow:
-        0 24px 48px rgba(4, 120, 87, 0.25),
-        0 12px 24px rgba(0, 0, 0, 0.12);
-}
-
-.avatar-initials {
-    font-size: 5rem;
-    font-weight: 800;
-    color: #ffffff;
-    letter-spacing: 0.1em;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.avatar-label {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    padding: 0.5rem 1.25rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    backdrop-filter: blur(4px);
-}
 
 /* ==========================================
    SECTION 2: Technical Interests + Tech Stack
@@ -149,7 +102,11 @@
     display: inline-block;
 }
 
-/* Technical Interests Card */
+/* Technical Interests Card - Individual styling */
+.interests-card {
+    /* Override base stack-card styles here for this specific card */
+}
+
 .interests-list {
     list-style: none;
     padding: 0;
@@ -184,7 +141,11 @@
     color: #047857;
 }
 
-/* Technology Stack Card */
+/* Technology Stack Card - Individual styling */
+.tech-stack-card {
+    /* Override base stack-card styles here for this specific card */
+}
+
 .stack-categories {
     display: flex;
     flex-direction: column;
@@ -319,6 +280,16 @@
     font-weight: 500;
     border-radius: 6px;
     border: 1px solid rgba(4, 120, 87, 0.15);
+}
+
+/* Academic Background Card - Individual styling */
+.academic-card {
+    /* Override base detail-card styles here for this specific card */
+}
+
+/* Project Philosophy Card - Individual styling */
+.philosophy-card {
+    /* Override base detail-card styles here for this specific card */
 }
 
 /* ==========================================

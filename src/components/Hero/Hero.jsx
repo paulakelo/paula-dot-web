@@ -4,7 +4,8 @@ import "./Hero.css"
 export default function Hero() {
     return (
         <section className="hero-section" id="hero">
-            <div className="hero-container">
+            <div className="hero-card">
+                <div className="hero-container">
                 {/* LEFT COLUMN: Text Content */}
                 <div className="hero-content">
                     {/* Open to Opportunities Badge */}
@@ -13,15 +14,18 @@ export default function Hero() {
                         Open to opportunities
                     </div>
 
+                    {/* Name */}
+                    <p className="hero-name">Paul Akelo</p>
+
                     {/* Headline */}
                     <h1 className="hero-title">
                         <span className="title-line">Software Engineer</span>
-                        <span className="title-line title-accent">Backend Developer</span>
+                        <span className="title-line title-accent">Backend & Data Engineering</span>
                     </h1>
 
                     {/* Subtext */}
                     <p className="hero-subtext">
-                        Building scalable backend systems and REST APIs with a focus on
+                        Building scalable backend systems, data pipelines, and REST APIs with a focus on
                         performance, reliability, and clean architecture. Specializing in
                         Go, Python, and PostgreSQL for high-throughput applications.
                     </p>
@@ -42,11 +46,15 @@ export default function Hero() {
                     <div className="node-graph">
                         {/* Connection Lines */}
                         <svg className="node-connections" viewBox="0 0 300 300" aria-hidden="true">
-                            <line x1="150" y1="80" x2="80" y2="180" className="node-line" />
-                            <line x1="150" y1="80" x2="220" y2="180" className="node-line" />
-                            <line x1="80" y1="180" x2="150" y2="250" className="node-line" />
-                            <line x1="220" y1="180" x2="150" y2="250" className="node-line" />
-                            <line x1="80" y1="180" x2="220" y2="180" className="node-line" />
+                            <line x1="150" y1="60" x2="60" y2="150" className="node-line" />
+                            <line x1="150" y1="60" x2="240" y2="150" className="node-line" />
+                            <line x1="60" y1="150" x2="150" y2="150" className="node-line" />
+                            <line x1="150" y1="150" x2="240" y2="150" className="node-line" />
+                            <line x1="60" y1="150" x2="100" y2="240" className="node-line" />
+                            <line x1="240" y1="150" x2="200" y2="240" className="node-line" />
+                            <line x1="100" y1="240" x2="200" y2="240" className="node-line" />
+                            <line x1="150" y1="150" x2="100" y2="240" className="node-line" />
+                            <line x1="150" y1="150" x2="200" y2="240" className="node-line" />
                         </svg>
 
                         {/* Node Icons */}
@@ -59,6 +67,12 @@ export default function Hero() {
                         <div className="node node-database" title="Database">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 3C7.58 3 4 4.79 4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7c0-2.21-3.58-4-8-4m0 2c3.87 0 6 1.5 6 2s-2.13 2-6 2-6-1.5-6-2 2.13-2 6-2M6 17v-2.42c1.23.79 3.36 1.34 6 1.42 2.64-.08 4.77-.63 6-1.42V17c0 .5-2.13 2-6 2s-6-1.5-6-2m0-5v-2.42c1.23.79 3.36 1.34 6 1.42 2.64-.08 4.77-.63 6-1.42V12c0 .5-2.13 2-6 2s-6-1.5-6-2"/>
+                            </svg>
+                        </div>
+
+                        <div className="node node-pipeline" title="Data Pipeline">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22 13V9l-4-4H8V3H6v2H2v4l4 4v4H2v4h4v-2h12v2h4v-4h-4v-4m-4-6.17L19.17 8H18V6.83M4 7h12v2H4V7m16 12h-2v-2H6v2H4v-2h2v-4h12v4h2v2m-4-4H6v-2h10v2"/>
                             </svg>
                         </div>
 
@@ -81,6 +95,7 @@ export default function Hero() {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
     );

@@ -30,7 +30,16 @@
 
 /* Category Sections */
 .project-category {
-    margin-bottom: 3.5rem;
+    margin-bottom: 3rem;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.06),
+        0 1px 4px rgba(0, 0, 0, 0.04);
+    padding: 2rem;
 }
 
 .project-category:last-child {
@@ -38,13 +47,12 @@
 }
 
 .category-heading {
-    font-size: 1.35rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 600;
     color: #047857;
     margin: 0 0 1.5rem 0;
     padding-bottom: 0.75rem;
     border-bottom: 2px solid rgba(4, 120, 87, 0.15);
-    display: inline-block;
 }
 
 /* ==========================================
@@ -249,6 +257,11 @@
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 1.5rem;
     }
+
+    .project-category {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -262,6 +275,17 @@
 
     .projects-intro {
         font-size: 1rem;
+    }
+
+    .project-category {
+        padding: 1.25rem;
+        border-radius: 14px;
+        margin-bottom: 2rem;
+    }
+
+    .category-heading {
+        font-size: 1.1rem;
+        margin-bottom: 1.25rem;
     }
 
     .projects-grid {
