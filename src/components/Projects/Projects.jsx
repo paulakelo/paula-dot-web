@@ -22,7 +22,7 @@ export default function Projects({ limit }) {
     });
 
     return (
-        <section className="projects-section">
+        <section className="projects-section" id="projects">
             <div className="projects-header">
                 <h1 className="projects-title">Projects</h1>
                 <p className="projects-intro">

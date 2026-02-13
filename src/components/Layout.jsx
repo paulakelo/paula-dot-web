@@ -10,7 +10,7 @@ export function Layout() {
   return (
     <>
       <Header />
-      <main>
+      <main className="main-content">
         <Outlet />
       </main>
       <Footer />

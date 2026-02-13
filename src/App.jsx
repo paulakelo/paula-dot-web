@@ -1,21 +1,21 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Layout from './components/Layout.jsx'
-import { HomePage } from './pages/HomePage/HomePage.jsx'
-import { ProjectsPage} from "./pages/ProjectsPage/ProjectsPage.jsx";
-import { AboutPage } from './pages/AboutPage/AboutPage.jsx'
-import { ContactPage } from "./pages/ContactPage/ContactPage.jsx";
+import { Header } from './components/Header/Header.jsx'
+import { Footer } from './components/Footer/Footer.jsx'
+import Hero from './components/Hero/Hero.jsx'
+import AboutSection from './components/AboutSection/AboutSection.jsx'
+import Projects from './components/Projects/Projects.jsx'
 import '../styles/main.css'
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route path="projects" element={<ProjectsPage />} />
-        <Route path="about" element={<AboutPage />} />
-        <Route path="contact" element={<ContactPage />} />
-      </Route>
-    </Routes>
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <AboutSection />
+        <Projects />
+      </main>
+      <Footer />
+    </>
   )
 }

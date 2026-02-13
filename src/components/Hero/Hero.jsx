@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "./Hero.css"
 
 export default function Hero() {
@@ -32,12 +31,12 @@ export default function Hero() {
 
                     {/* CTAs */}
                     <div className="hero-cta">
-                        <Link to="/projects" className="btn btn-primary">
+                        <a href="#projects" className="btn btn-primary">
                             View Projects
-                        </Link>
-                        <Link to="/contact" className="btn btn-outline">
+                        </a>
+                        <a href="#contact" className="btn btn-outline">
                             Contact
-                        </Link>
+                        </a>
                     </div>
                 </div>
 

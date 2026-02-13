@@ -13,21 +13,12 @@
 header {
     position: relative;
     padding: 12px 0;
-    margin-bottom: 16px;
-    border: 1px solid rgba(0, 229, 255, 0.15);
-    border-bottom: none;
-    border-radius: 0 0 12px 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(
-        -45deg,
-        hsl(var(--map-water)),
-        hsl(var(--primary)),
-        hsl(var(--map-forest)),
-        hsl(var(--primary-dark)),
-        hsl(var(--map-moss)),
-        hsl(var(--map-water-deep))
-    );
-    background-size: 400% 400%;
+    margin-bottom: 0;
+    border: none;
+    border-bottom: 1px solid rgba(191, 161, 129, 0.15);
+    border-radius: 0;
+    box-shadow: none;
+    background: var(--bg-primary);
     animation: none !important;
 }
 
@@ -37,7 +28,7 @@ header .container {
 }
 
 header .navbar {
-    padding: 2px 80px 2px 30px;
+    padding: 8px 24px;
 }
 
 .navbar {
@@ -49,104 +40,68 @@ header .navbar {
     background: transparent;
 }
 
-/* --- Moved from styles/main.css: theme-driven header class + presets --- */
-/* merged/expanded .header: preserve existing rules and add transition and overlay from main.css */
+/* Header styling */
 .header {
-    /* keep header content readable and use a static gradient background */
     position: relative;
     z-index: 1;
     overflow: visible;
-    color: hsl(var(--map-paper));
-    /* animate color & background changes smoothly when theme toggles */
-    transition: background-color 300ms ease, background-image 300ms ease, color 300ms ease;
-    background: hsl(var(--map-water)) linear-gradient(135deg, hsl(var(--map-water)), hsl(var(--map-fern)));
-    /* ensure no transform/animation */
+    color: var(--text-primary);
+    transition: background-color 300ms ease, color 300ms ease;
+    background: var(--bg-primary);
     animation: none !important;
 }
 
-/* subtle overlay to improve text contrast across backgrounds */
+/* Remove overlay */
 .header::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0));
-    border-radius: inherit;
-    mix-blend-mode: multiply;
-    transition: opacity 300ms ease;
+    display: none;
 }
 
-/* Per-preset static backgrounds (override default background when using presets) */
-.header--water {
-    background-image: linear-gradient(135deg, hsl(var(--map-water)) 0%, hsl(var(--map-fern)) 100%);
-    background-color: hsl(var(--map-water));
-}
-
-.header--water-deep {
-    background-image: linear-gradient(135deg, hsl(var(--map-water-deep)) 0%, hsl(var(--map-moss)) 100%);
-    background-color: hsl(var(--map-water-deep));
-}
-
-.header--forest {
-    background-image: linear-gradient(135deg, hsl(var(--map-forest)) 0%, hsl(var(--map-stone)) 60%, hsl(var(--map-sand)) 100%);
-    background-color: hsl(var(--map-forest));
-}
+/* Remove header presets - not needed with new minimal design */
 
 .header a, .header .nav-links a, .header .logo {
     color: inherit;
 }
 
-/* Small overlay modifier kept for opt-in usage */
-.header--overlay::after {
-    background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0));
-    mix-blend-mode: multiply;
-}
-
-/* Header nav link styling: bases and interactive states */
+/* Header nav link styling */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 24px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: hsl(var(--text-primary));
-    padding: 0.25rem 0.375rem;
-    transition: color 0.15s ease;
+    color: var(--text-primary);
+    padding: 8px 12px;
+    transition: color 0.2s ease;
     cursor: pointer;
+    font-weight: 500;
 }
 
 .nav-links a.active {
     font-weight: 600;
+    color: var(--accent-primary);
 }
 
 .nav-links a:hover {
-    color: hsl(var(--primary));
+    color: var(--accent-primary);
 }
 
-/* Slightly more visible nav link styles when header backgrounds are used */
 .header .nav-links a {
-    color: inherit;
-    padding: 0.25rem 0.5rem;
+    color: var(--text-primary);
+    padding: 8px 12px;
     border-radius: 6px;
-    transition: color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+    transition: color 180ms ease, background-color 180ms ease;
 }
 
 .header .nav-links a:hover,
 .header .nav-links a:focus {
-    color: hsl(var(--primary));
-    background: rgba(0, 229, 255, 0.1);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    color: var(--accent-primary);
+    background: rgba(191, 161, 129, 0.1);
     outline: none;
 }
 
-.header .nav-links a:focus {
-    /* strong focus ring for keyboard users */
-    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.2), 0 4px 12px rgba(0,0,0,0.15);
-}
-
-/* Logo helpers moved from main.css */
+/* Logo helpers */
 .logo {
     position: static;
     top: auto;
@@ -154,7 +109,7 @@ header .navbar {
     transform: none;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;
     margin-left: 0;
 }
 
@@ -168,35 +123,27 @@ header .navbar {
 .logo .brand {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    color: inherit;
+    gap: 8px;
+    color: var(--text-primary);
     text-decoration: none;
     margin-left: 0;
+    font-weight: 600;
 }
 
-/* Subtle cyan treatment for the brand on hover/focus */
 .logo .brand:hover,
 .logo .brand:focus {
-    color: hsl(var(--primary));
-    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+    color: var(--accent-primary);
 }
 
 .logo img {
-    /* small soft drop shadow for better contrast on various backgrounds */
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12));
 }
 
-/* Respect reduced motion preference */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
     header,
-    .header,
-    .header::before,
-    .header::after {
+    .header {
         animation: none !important;
         transition: none !important;
-    }
-    .header::before,
-    .header::after {
-        opacity: 1;
     }
 }

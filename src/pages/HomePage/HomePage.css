@@ -15,4 +15,5 @@
     flex: 1 0 auto; /* grow to fill the available space inside <main> */
     min-height: 0;   /* allow children to scroll/overflow inside flex container */
     background: transparent; /* Let global topographic background show through */
+    gap: 0; /* ensure no extra space is added between children by flex gap */
 }

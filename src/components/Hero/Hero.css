@@ -1,27 +1,25 @@
 .hero-section {
     position: relative;
     width: 100%;
-    padding: 4rem 0;
+    padding: 48px 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: transparent;
-    min-height: 70vh;
+    min-height: auto;
 }
 
-/* Hero Card - Glassmorphism container - Dark Mode 2025 */
+/* Hero Card - Glassmorphism container */
 .hero-card {
-    background: rgba(10, 17, 40, 0.75);
+    background: rgba(28, 28, 28, 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-radius: 24px;
-    border: 1px solid rgba(0, 229, 255, 0.15);
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        0 2px 8px rgba(0, 0, 0, 0.2);
-    padding: 3rem;
+    border-radius: 16px;
+    border: 1px solid rgba(191, 161, 129, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    padding: 48px;
     max-width: 100%;
-    width: calc(100% - 48px);
+    width: calc(100% - 32px);
     margin: 0 auto;
 }
 
@@ -31,7 +29,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1.4fr 1fr;
-    gap: 2rem;
+    gap: 32px;
     align-items: center;
 }
 
@@ -41,28 +39,29 @@
 .hero-content {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 16px;
 }
 
 /* Badge: "Open to opportunities" */
 .hero-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 8px;
     width: fit-content;
-    padding: 0.5rem 1rem;
-    background: hsl(var(--primary-dark));
-    color: hsl(var(--primary-light));
+    padding: 8px 16px;
+    background: rgba(191, 161, 129, 0.15);
+    color: var(--accent-primary);
     font-size: 0.875rem;
     font-weight: 500;
     border-radius: 50px;
     letter-spacing: 0.02em;
+    border: 1px solid rgba(191, 161, 129, 0.2);
 }
 
 .badge-dot {
     width: 8px;
     height: 8px;
-    background: hsl(var(--accent));
+    background: var(--accent-primary);
     border-radius: 50%;
     animation: pulse-dot 2s ease-in-out infinite;
 }
@@ -85,19 +84,19 @@
 .hero-title {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    gap: 4px;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 800;
     line-height: 1.1;
     margin: 0;
 }
 
 .title-line {
-    color: hsl(var(--text-primary));
+    color: var(--text-primary);
 }
 
 .title-accent {
-    background: linear-gradient(135deg, hsl(var(--primary-dark)) 0%, hsl(var(--primary)) 50%, hsl(var(--primary-light)) 100%);
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--surface-secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -114,15 +113,15 @@
 /* CTAs */
 .hero-cta {
     display: flex;
-    gap: 1rem;
-    margin-top: 0.5rem;
+    gap: 16px;
+    margin-top: 8px;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.875rem 1.75rem;
+    padding: 12px 24px;
     font-size: 1rem;
     font-weight: 600;
     border-radius: 8px;
@@ -132,28 +131,28 @@
 }
 
 .btn-primary {
-    background: hsl(var(--primary));
-    color: #0A1128;
+    background: var(--accent-primary);
+    color: var(--bg-primary);
     border: none;
-    box-shadow: 0 4px 12px rgba(0, 229, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(191, 161, 129, 0.25);
 }
 
 .btn-primary:hover {
     background: hsl(var(--primary-light));
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 229, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(191, 161, 129, 0.35);
 }
 
 .btn-outline {
     background: transparent;
-    color: hsl(var(--text-primary));
-    border: 2px solid hsl(var(--text-secondary));
+    color: var(--text-primary);
+    border: 2px solid rgba(191, 161, 129, 0.3);
 }
 
 .btn-outline:hover {
-    background: hsl(var(--primary));
-    color: #0A1128;
-    border-color: hsl(var(--primary));
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+    border-color: var(--accent-primary);
     transform: translateY(-2px);
 }
 
@@ -164,13 +163,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 1rem;
+    padding-right: 16px;
 }
 
 .node-graph {
     position: relative;
     width: 100%;
-    max-width: 380px;
+    max-width: 320px;
     aspect-ratio: 1;
     animation: rotate-graph 60s linear infinite;
 }
@@ -187,13 +186,13 @@
 /* Counter-rotate nodes so icons stay upright */
 .node {
     position: absolute;
-    width: 64px;
-    height: 64px;
+    width: 56px;
+    height: 56px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #0A1128;
-    border-radius: 16px;
+    background: var(--bg-primary);
+    border-radius: 12px;
     z-index: 2;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: counter-rotate 60s linear infinite;
@@ -218,10 +217,10 @@
 }
 
 .node-line {
-    stroke: rgba(4, 120, 87, 0.3);
+    stroke: rgba(191, 161, 129, 0.2);
     stroke-width: 2;
     stroke-linecap: round;
-    filter: drop-shadow(0 0 4px rgba(4, 120, 87, 0.4));
+    filter: drop-shadow(0 0 4px rgba(191, 161, 129, 0.2));
 }
 
 
@@ -239,111 +238,69 @@
     top: 8%;
     left: 50%;
     transform: translateX(-50%);
-    color: #14b8a6;
+    color: var(--accent-primary);
     box-shadow:
-        0 0 20px rgba(20, 184, 166, 0.4),
-        0 0 40px rgba(20, 184, 166, 0.2),
-        inset 0 0 20px rgba(20, 184, 166, 0.1);
-    border: 1px solid rgba(20, 184, 166, 0.3);
+        0 0 16px rgba(191, 161, 129, 0.3),
+        0 0 32px rgba(191, 161, 129, 0.15);
+    border: 1px solid rgba(191, 161, 129, 0.3);
 }
 
 .node-database {
     top: 45%;
     left: 10%;
-    color: #a78bfa;
+    color: var(--surface-secondary);
     box-shadow:
-        0 0 20px rgba(167, 139, 250, 0.4),
-        0 0 40px rgba(167, 139, 250, 0.2),
-        inset 0 0 20px rgba(167, 139, 250, 0.1);
-    border: 1px solid rgba(167, 139, 250, 0.3);
+        0 0 16px rgba(212, 197, 176, 0.3),
+        0 0 32px rgba(212, 197, 176, 0.15);
+    border: 1px solid rgba(212, 197, 176, 0.3);
 }
 
 .node-security {
     top: 45%;
     right: 10%;
-    color: #f472b6;
+    color: var(--text-primary);
     box-shadow:
-        0 0 20px rgba(244, 114, 182, 0.4),
-        0 0 40px rgba(244, 114, 182, 0.2),
-        inset 0 0 20px rgba(244, 114, 182, 0.1);
-    border: 1px solid rgba(244, 114, 182, 0.3);
+        0 0 16px rgba(244, 244, 244, 0.2),
+        0 0 32px rgba(244, 244, 244, 0.1);
+    border: 1px solid rgba(244, 244, 244, 0.2);
 }
 
 .node-api {
     top: 75%;
     left: 25%;
-    color: #facc15;
+    color: var(--accent-primary);
     box-shadow:
-        0 0 20px rgba(250, 204, 21, 0.4),
-        0 0 40px rgba(250, 204, 21, 0.2),
-        inset 0 0 20px rgba(250, 204, 21, 0.1);
-    border: 1px solid rgba(250, 204, 21, 0.3);
+        0 0 16px rgba(191, 161, 129, 0.3),
+        0 0 32px rgba(191, 161, 129, 0.15);
+    border: 1px solid rgba(191, 161, 129, 0.3);
 }
 
 .node-cloud {
     top: 75%;
     right: 25%;
-    color: #38bdf8;
+    color: var(--surface-secondary);
     box-shadow:
-        0 0 20px rgba(56, 189, 248, 0.4),
-        0 0 40px rgba(56, 189, 248, 0.2),
-        inset 0 0 20px rgba(56, 189, 248, 0.1);
-    border: 1px solid rgba(56, 189, 248, 0.3);
+        0 0 16px rgba(212, 197, 176, 0.3),
+        0 0 32px rgba(212, 197, 176, 0.15);
+    border: 1px solid rgba(212, 197, 176, 0.3);
 }
 
 .node-pipeline {
     top: 45%;
     left: 50%;
     transform: translateX(-50%);
-    color: #fb923c;
+    color: var(--accent-primary);
     box-shadow:
-        0 0 20px rgba(251, 146, 60, 0.4),
-        0 0 40px rgba(251, 146, 60, 0.2),
-        inset 0 0 20px rgba(251, 146, 60, 0.1);
-    border: 1px solid rgba(251, 146, 60, 0.3);
+        0 0 16px rgba(191, 161, 129, 0.3),
+        0 0 32px rgba(191, 161, 129, 0.15);
+    border: 1px solid rgba(191, 161, 129, 0.3);
 }
 
-/* Hover state for nodes - brighter glow */
-.node-server:hover {
+/* Hover state for nodes */
+.node:hover {
     box-shadow:
-        0 0 30px rgba(20, 184, 166, 0.6),
-        0 0 60px rgba(20, 184, 166, 0.3),
-        inset 0 0 30px rgba(20, 184, 166, 0.15);
-}
-
-.node-database:hover {
-    box-shadow:
-        0 0 30px rgba(167, 139, 250, 0.6),
-        0 0 60px rgba(167, 139, 250, 0.3),
-        inset 0 0 30px rgba(167, 139, 250, 0.15);
-}
-
-.node-security:hover {
-    box-shadow:
-        0 0 30px rgba(244, 114, 182, 0.6),
-        0 0 60px rgba(244, 114, 182, 0.3),
-        inset 0 0 30px rgba(244, 114, 182, 0.15);
-}
-
-.node-api:hover {
-    box-shadow:
-        0 0 30px rgba(250, 204, 21, 0.6),
-        0 0 60px rgba(250, 204, 21, 0.3),
-        inset 0 0 30px rgba(250, 204, 21, 0.15);
-}
-
-.node-cloud:hover {
-    box-shadow:
-        0 0 30px rgba(56, 189, 248, 0.6),
-        0 0 60px rgba(56, 189, 248, 0.3),
-        inset 0 0 30px rgba(56, 189, 248, 0.15);
-}
-
-.node-pipeline:hover {
-    box-shadow:
-        0 0 30px rgba(251, 146, 60, 0.6),
-        0 0 60px rgba(251, 146, 60, 0.3),
-        inset 0 0 30px rgba(251, 146, 60, 0.15);
+        0 0 24px rgba(191, 161, 129, 0.4),
+        0 0 48px rgba(191, 161, 129, 0.2);
 }
 
 /* ==========================================
@@ -352,18 +309,18 @@
 @media (max-width: 900px) {
     .hero-section {
         min-height: auto;
-        padding: 3rem 0;
+        padding: 32px 16px;
     }
 
     .hero-card {
-        padding: 2rem;
+        padding: 32px;
         width: calc(100% - 32px);
-        border-radius: 20px;
+        border-radius: 16px;
     }
 
     .hero-container {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 32px;
         text-align: center;
     }
 
@@ -380,38 +337,38 @@
     }
 
     .hero-visual {
-        order: -1; /* Move visual above text on mobile */
+        order: -1;
     }
 
     .node-graph {
-        max-width: 280px;
+        max-width: 240px;
     }
 
     .node {
-        width: 52px;
-        height: 52px;
+        width: 48px;
+        height: 48px;
     }
 
     .node svg {
-        width: 26px;
-        height: 26px;
+        width: 24px;
+        height: 24px;
     }
 }
 
 @media (max-width: 600px) {
     .hero-section {
-        padding: 2rem 0;
+        padding: 24px 16px;
     }
 
     .hero-card {
-        padding: 1.5rem;
+        padding: 24px;
         width: calc(100% - 24px);
-        border-radius: 16px;
+        border-radius: 12px;
     }
 
     .hero-container {
         padding: 0;
-        gap: 2rem;
+        gap: 24px;
     }
 
     .hero-title {
@@ -432,17 +389,17 @@
     }
 
     .node-graph {
-        max-width: 220px;
+        max-width: 200px;
     }
 
     .node {
-        width: 44px;
-        height: 44px;
-        border-radius: 12px;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
     }
 
     .node svg {
-        width: 22px;
-        height: 22px;
+        width: 20px;
+        height: 20px;
     }
 }
