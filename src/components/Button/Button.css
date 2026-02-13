@@ -22,52 +22,50 @@
     transform: translateY(0px);
 }
 
-/* Primary button - Neutral accent with white text */
+/* Primary button - Teal with white text */
 .btn-primary {
-    background-color: hsl(var(--accent));
+    background-color: hsl(var(--primary));
     color: hsl(var(--text-inverted));
 }
 
 .btn-primary:hover {
-    background-color: hsl(var(--accent-dark));
+    background-color: hsl(var(--primary-dark));
 }
 
 .btn-primary:focus {
-    box-shadow: 0 0 0 4px hsl(var(--accent) / 0.2), 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.25), 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Secondary button - White with border */
+/* Secondary button - White with teal border */
 .btn-secondary {
     background-color: hsl(var(--map-paper));
-    border: 2px solid hsl(var(--accent));
-    color: hsl(var(--accent));
+    border: 2px solid hsl(var(--primary));
+    color: hsl(var(--primary));
 }
 
 .btn-secondary:hover {
-    background-color: hsl(var(--accent-muted) / 0.1);
-    border-color: hsl(var(--accent-dark));
-    color: hsl(var(--accent-dark));
+    background-color: hsl(var(--primary-muted));
+    border-color: hsl(var(--primary-dark));
+    color: hsl(var(--primary-dark));
 }
 
 .btn-secondary:focus {
-    box-shadow: 0 0 0 4px hsl(var(--accent) / 0.2), 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 0 4px hsl(var(--primary) / 0.2), 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Accent-styled primary for special calls-to-action */
-.btn-primary--gold {
-    background-color: hsl(var(--brand-black));
-    color: hsl(var(--accent-light));
-    border: 2px solid hsl(var(--accent-light) / 0.3);
+/* Accent button for special calls-to-action (coral) */
+.btn-accent {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--text-inverted));
+    border: none;
 }
 
-.btn-primary--gold:hover {
-    background-color: hsl(var(--brand-black));
-    color: hsl(var(--accent-light));
-    border-color: hsl(var(--accent-light) / 0.5);
+.btn-accent:hover {
+    background-color: hsl(var(--accent-dark));
 }
 
-.btn-primary--gold:focus {
-    box-shadow: 0 0 0 4px hsl(var(--accent) / 0.15), 0 8px 20px rgba(0, 0, 0, 0.15);
+.btn-accent:focus {
+    box-shadow: 0 0 0 4px hsl(var(--accent) / 0.25), 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 600px) {

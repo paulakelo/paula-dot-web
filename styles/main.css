@@ -9,75 +9,122 @@
 @layer base {
     /* styles/main.css   Global variables and helpers (palette, utilities, layout) */
     :root {
-        /* Map / Earth tones (H S% L%) */
-        --map-water-deep: 200 75% 22%; /* deep ocean / navy-teal */
-        --map-water: 195 80% 40%; /* river / teal-blue */
-        --map-river: 190 85% 52%; /* lighter water */
+        /* ===========================================
+           MODERN COLOR PALETTE - Light Theme
+           Inspired by nature with contemporary vibrancy
+           =========================================== */
 
-        --map-forest: 140 40% 22%; /* dark forest green */
-        --map-moss: 110 30% 36%; /* mossy olive */
-        --map-fern: 150 45% 46%; /* bright fern */
+        /* Primary Brand Colors - Teal/Cyan family */
+        --primary: 175 84% 32%; /* vibrant teal - main brand color */
+        --primary-light: 175 76% 45%; /* lighter teal for hover states */
+        --primary-dark: 175 90% 22%; /* deep teal for emphasis */
+        --primary-muted: 175 40% 85%; /* soft teal for backgrounds */
 
-        --map-sand: 35 30% 68%; /* warm sand / beige */
-        --map-stone: 220 6% 56%; /* cool stone / muted grey-blue */
+        /* Secondary/Accent - Warm Coral */
+        --accent: 12 76% 61%; /* coral/salmon - CTAs, highlights */
+        --accent-light: 12 82% 72%; /* soft coral for hover */
+        --accent-dark: 12 70% 48%; /* deep coral for active states */
+        --accent-muted: 12 50% 92%; /* blush background */
+
+        /* Tertiary - Indigo for depth */
+        --tertiary: 230 65% 50%; /* indigo - links, secondary actions */
+        --tertiary-light: 230 60% 65%;
+        --tertiary-dark: 230 70% 38%;
+
+        /* Map / Earth tones (refreshed for better harmony) */
+        --map-water-deep: 200 70% 25%; /* deep ocean */
+        --map-water: 190 75% 38%; /* teal-blue water */
+        --map-river: 185 80% 48%; /* bright river */
+
+        --map-forest: 160 45% 25%; /* rich forest green */
+        --map-moss: 130 35% 40%; /* mossy green */
+        --map-fern: 155 50% 50%; /* vibrant fern */
+
+        --map-sand: 38 40% 75%; /* warm sand */
+        --map-stone: 220 12% 60%; /* cool stone gray */
 
         /* Neutrals */
-        --map-muted: 210 10% 46%; /* mid grey */
-        --map-ink: 220 14% 8%; /* dark text / ink */
-        --map-paper: 30 10% 98%; /* very light paper */
+        --map-muted: 215 15% 50%; /* balanced gray */
+        --map-ink: 220 20% 10%; /* rich dark text */
+        --map-paper: 40 20% 98%; /* warm white paper */
 
-        /* Brand accents - subtle black token
-           - --brand-black: near-pure black for headings and strong accents
-        */
-        --brand-black: 220 8% 6%; /* H S% L% for HSL-like usage with hsl(var(--brand-black)) */
-
-        /* Neutral accent palette (slate) */
-        --accent: 215 16% 42%; /* balanced slate accent */
-        --accent-light: 215 18% 58%; /* lighter slate for hover/accents */
-        --accent-dark: 215 22% 26%; /* deeper slate for contrast */
-        --accent-muted: 215 14% 72%; /* softer slate for backgrounds */
+        /* Brand utility */
+        --brand-black: 220 15% 8%;
 
         /* Consistent text colors (light theme) */
-        --text-primary: 220 14% 10%; /* near-black for headings */
-        --text-secondary: 215 16% 35%; /* dark gray for body text */
-        --text-muted: 215 12% 50%; /* muted gray for captions/secondary */
-        --text-inverted: 30 10% 98%; /* light text on dark backgrounds */
+        --text-primary: 220 25% 12%; /* near-black for headings */
+        --text-secondary: 220 15% 35%; /* dark gray for body text */
+        --text-muted: 220 10% 55%; /* muted gray for captions */
+        --text-inverted: 40 20% 98%; /* light text on dark backgrounds */
+
+        /* Surface colors */
+        --surface: 40 15% 99%; /* main background */
+        --surface-raised: 0 0% 100%; /* cards, elevated elements */
+        --surface-sunken: 220 15% 96%; /* inset areas */
+
+        /* Borders */
+        --border: 220 15% 88%;
+        --border-light: 220 10% 92%;
+        --border-focus: 175 84% 32%; /* matches primary */
     }
 
-    /* Dark-theme palette adjusts lightness for readability */
+    /* ===========================================
+       DARK THEME - Rich, sophisticated palette
+       =========================================== */
     [data-theme="dark"] {
-        --map-water-deep: 200 70% 18%;
-        --map-water: 195 75% 30%;
-        --map-river: 190 80% 40%;
+        /* Primary - adjusted for dark backgrounds */
+        --primary: 175 70% 50%; /* brighter teal for visibility */
+        --primary-light: 175 65% 60%;
+        --primary-dark: 175 75% 38%;
+        --primary-muted: 175 30% 20%;
 
-        --map-forest: 140 30% 18%;
-        --map-moss: 110 25% 28%;
-        --map-fern: 150 35% 34%;
+        /* Accent - warmer coral for dark theme */
+        --accent: 15 80% 60%;
+        --accent-light: 15 75% 70%;
+        --accent-dark: 15 70% 50%;
+        --accent-muted: 15 40% 18%;
 
-        --map-sand: 35 20% 24%;
-        --map-stone: 220 8% 42%;
+        /* Tertiary */
+        --tertiary: 230 60% 65%;
+        --tertiary-light: 230 55% 75%;
+        --tertiary-dark: 230 65% 52%;
 
-        --map-muted: 210 10% 68%;
-        --map-ink: 220 12% 96%;
-        --map-paper: 220 10% 6%;
+        /* Map tones for dark */
+        --map-water-deep: 200 65% 22%;
+        --map-water: 190 70% 35%;
+        --map-river: 185 75% 45%;
 
+        --map-forest: 160 35% 20%;
+        --map-moss: 130 30% 30%;
+        --map-fern: 155 40% 38%;
 
-        /* Neutral accent palette (slate) */
-        --accent: 215 14% 68%;
-        --accent-light: 215 16% 76%;
-        --accent-dark: 215 18% 52%;
-        --accent-muted: 215 12% 64%;
+        --map-sand: 38 25% 22%;
+        --map-stone: 220 10% 45%;
 
-        /* Consistent text colors (dark theme) */
-        --text-primary: 220 12% 96%; /* near-white for headings */
-        --text-secondary: 215 10% 80%; /* light gray for body text */
-        --text-muted: 215 8% 60%; /* muted for captions/secondary */
-        --text-inverted: 220 14% 10%; /* dark text on light backgrounds */
+        --map-muted: 215 12% 65%;
+        --map-ink: 220 15% 95%;
+        --map-paper: 220 15% 8%;
+
+        /* Text colors (dark theme) */
+        --text-primary: 220 15% 95%;
+        --text-secondary: 220 12% 75%;
+        --text-muted: 220 10% 55%;
+        --text-inverted: 220 20% 10%;
+
+        /* Surface colors */
+        --surface: 220 18% 8%;
+        --surface-raised: 220 16% 12%;
+        --surface-sunken: 220 20% 6%;
+
+        /* Borders */
+        --border: 220 15% 20%;
+        --border-light: 220 12% 16%;
+        --border-focus: 175 70% 50%;
     }
 
-    /* Apply even darker background to dark theme */
+    /* Apply dark theme background */
     [data-theme="dark"] body {
-        background-color: hsl(220, 20%, 6%);
+        background-color: hsl(var(--surface));
     }
 
     /* Small helpers / preview swatches */
@@ -126,12 +173,34 @@
         color: hsl(var(--map-water-deep));
     }
 
-
     .text-black-strong {
         color: hsl(var(--brand-black));
     }
 
-    /* Neutral accent utilities */
+    /* Primary color utilities (teal) */
+    .text-primary-color {
+        color: hsl(var(--primary));
+    }
+
+    .bg-primary {
+        background-color: hsl(var(--primary));
+        color: white;
+    }
+
+    .bg-primary-light {
+        background-color: hsl(var(--primary-light));
+        color: white;
+    }
+
+    .bg-primary-muted {
+        background-color: hsl(var(--primary-muted));
+    }
+
+    .border-primary {
+        border-color: hsl(var(--primary));
+    }
+
+    /* Accent color utilities (coral) */
     .text-accent {
         color: hsl(var(--accent));
     }
@@ -150,7 +219,7 @@
     }
 
     .bg-accent-subtle {
-        background-color: hsl(var(--accent-muted) / 0.15);
+        background-color: hsl(var(--accent-muted));
     }
 
     .bg-accent-dark {

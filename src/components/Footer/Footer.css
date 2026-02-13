@@ -4,7 +4,7 @@
     text-align: center;
     padding: 1rem 0;
     margin-top: auto;
-    border-top: 1px solid hsl(var(--brand-gold) / 0.06);
+    border-top: 1px solid hsl(var(--primary) / 0.15);
 }
 
 .footer .container {

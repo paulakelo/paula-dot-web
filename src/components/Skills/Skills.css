@@ -44,8 +44,8 @@
 .skills-list-item {
     padding: 0.45rem 0.85rem;
     border-radius: 0.75rem;
-    /* subtle gold wash for skill chips to tie with brand (low opacity) */
-    background: hsl(var(--brand-gold) / 0.10);
+    /* subtle teal wash for skill chips to tie with brand */
+    background: hsl(var(--primary) / 0.10);
     color: hsl(var(--brand-black));
     font-size: 0.9rem;
     display: flex;
@@ -60,9 +60,9 @@
     max-width: 100%;
 }
 
-/* compact modifier keeps items tighter but still uses gold wash */
+/* compact modifier keeps items tighter */
 .skills-section--compact .skills-list-item {
-    background: hsl(var(--brand-gold) / 0.08);
+    background: hsl(var(--primary) / 0.08);
     color: hsl(var(--brand-black));
     font-size: 0.85rem;
     padding: 0.35rem 0.6rem;
