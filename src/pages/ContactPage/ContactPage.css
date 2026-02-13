@@ -59,14 +59,14 @@
 }
 
 .contact-page .contact-info a {
-    color: hsl(var(--brand-gold));
+    color: hsl(var(--accent-light));
     font-weight: 600;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .contact-page .contact-info a:hover {
-    color: hsl(var(--brand-gold-muted));
+    color: hsl(var(--accent));
     text-decoration: underline;
 }
 
@@ -116,8 +116,8 @@
 .contact-page .contact-form input:focus,
 .contact-page .contact-form textarea:focus {
     outline: none;
-    border-color: hsl(var(--brand-gold));
-    box-shadow: 0 0 0 2px hsl(var(--brand-gold) / 0.2);
+    border-color: hsl(var(--accent-light));
+    box-shadow: 0 0 0 2px hsl(var(--accent-light) / 0.2);
 }
 
 .contact-page .contact-form textarea {
@@ -133,7 +133,7 @@
     gap: 0.5rem;
     margin-top: 1rem;
     padding: 0.875rem 1.5rem;
-    background-color: hsl(var(--brand-gold));
+    background-color: hsl(var(--accent));
     color: hsl(var(--text-inverted));
     font-size: 1rem;
     font-weight: 600;
@@ -145,7 +145,7 @@
 
 .contact-page .contact-form button:hover {
     background-color: hsl(var(--accent-dark));
-    box-shadow: 0 0 20px hsl(var(--brand-gold) / 0.3);
+    box-shadow: 0 0 20px hsl(var(--accent) / 0.3);
 }
 
 .contact-page .contact-form button svg {

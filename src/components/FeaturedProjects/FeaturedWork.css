@@ -51,20 +51,20 @@
     gap: 0.5rem;
     padding: 1rem 2rem;
     background: transparent;
-    color: hsl(var(--brand-gold));
+    color: hsl(var(--accent-light));
     font-size: 1.125rem;
     font-weight: 600;
     text-decoration: none;
     border-radius: 12px;
-    border: 2px solid hsl(var(--brand-gold));
+    border: 2px solid hsl(var(--accent-light));
     transition: all 0.3s ease;
 }
 
 .view-all-link:hover {
-    background: hsl(var(--brand-gold));
+    background: hsl(var(--accent));
     color: hsl(var(--text-inverted));
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px hsl(var(--brand-gold) / 0.3);
+    box-shadow: 0 8px 24px hsl(var(--accent) / 0.3);
 }
 
 .view-all-link svg {

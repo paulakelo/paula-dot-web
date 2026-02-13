@@ -53,21 +53,21 @@
     box-shadow: 0 0 0 4px hsl(var(--accent) / 0.2), 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Gold-accented primary for special calls-to-action */
+/* Accent-styled primary for special calls-to-action */
 .btn-primary--gold {
     background-color: hsl(var(--brand-black));
-    color: hsl(var(--brand-gold));
-    border: 2px solid hsl(var(--brand-gold) / 0.3);
+    color: hsl(var(--accent-light));
+    border: 2px solid hsl(var(--accent-light) / 0.3);
 }
 
 .btn-primary--gold:hover {
     background-color: hsl(var(--brand-black));
-    color: hsl(var(--brand-gold));
-    border-color: hsl(var(--brand-gold) / 0.5);
+    color: hsl(var(--accent-light));
+    border-color: hsl(var(--accent-light) / 0.5);
 }
 
 .btn-primary--gold:focus {
-    box-shadow: 0 0 0 4px hsl(var(--brand-gold) / 0.15), 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 0 4px hsl(var(--accent) / 0.15), 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 600px) {
