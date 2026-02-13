@@ -10,121 +10,70 @@
     /* styles/main.css   Global variables and helpers (palette, utilities, layout) */
     :root {
         /* ===========================================
-           MODERN COLOR PALETTE - Light Theme
-           Inspired by nature with contemporary vibrancy
+           2025 MODERN DEVELOPER DARK MODE THEME
            =========================================== */
 
-        /* Primary Brand Colors - Teal/Cyan family */
-        --primary: 175 84% 32%; /* vibrant teal - main brand color */
-        --primary-light: 175 76% 45%; /* lighter teal for hover states */
-        --primary-dark: 175 90% 22%; /* deep teal for emphasis */
-        --primary-muted: 175 40% 85%; /* soft teal for backgrounds */
+        /* Base Background: #0A1128 → HSL 224 64% 10% */
+        --base-bg: 224 64% 10%;
 
-        /* Secondary/Accent - Warm Coral */
-        --accent: 12 76% 61%; /* coral/salmon - CTAs, highlights */
-        --accent-light: 12 82% 72%; /* soft coral for hover */
-        --accent-dark: 12 70% 48%; /* deep coral for active states */
-        --accent-muted: 12 50% 92%; /* blush background */
+        /* Text/Surface: #C8ABE6 → HSL 270 52% 78% */
+        --text-surface: 270 52% 78%;
 
-        /* Tertiary - Indigo for depth */
-        --tertiary: 230 65% 50%; /* indigo - links, secondary actions */
-        --tertiary-light: 230 60% 65%;
-        --tertiary-dark: 230 70% 38%;
+        /* Accent/CTAs: #00E5FF → HSL 186 100% 50% */
+        --accent-cta: 186 100% 50%;
 
-        /* Map / Earth tones (refreshed for better harmony) */
-        --map-water-deep: 200 70% 25%; /* deep ocean */
-        --map-water: 190 75% 38%; /* teal-blue water */
-        --map-river: 185 80% 48%; /* bright river */
+        /* Primary Brand Colors - Cyan accent */
+        --primary: 186 100% 50%; /* #00E5FF */
+        --primary-light: 186 100% 60%;
+        --primary-dark: 186 100% 40%;
+        --primary-muted: 186 40% 20%;
 
-        --map-forest: 160 45% 25%; /* rich forest green */
-        --map-moss: 130 35% 40%; /* mossy green */
-        --map-fern: 155 50% 50%; /* vibrant fern */
-
-        --map-sand: 38 40% 75%; /* warm sand */
-        --map-stone: 220 12% 60%; /* cool stone gray */
-
-        /* Neutrals */
-        --map-muted: 215 15% 50%; /* balanced gray */
-        --map-ink: 220 20% 10%; /* rich dark text */
-        --map-paper: 40 20% 98%; /* warm white paper */
-
-        /* Brand utility */
-        --brand-black: 220 15% 8%;
-
-        /* Consistent text colors (light theme) */
-        --text-primary: 220 25% 12%; /* near-black for headings */
-        --text-secondary: 220 15% 35%; /* dark gray for body text */
-        --text-muted: 220 10% 55%; /* muted gray for captions */
-        --text-inverted: 40 20% 98%; /* light text on dark backgrounds */
-
-        /* Surface colors */
-        --surface: 40 15% 99%; /* main background */
-        --surface-raised: 0 0% 100%; /* cards, elevated elements */
-        --surface-sunken: 220 15% 96%; /* inset areas */
-
-        /* Borders */
-        --border: 220 15% 88%;
-        --border-light: 220 10% 92%;
-        --border-focus: 175 84% 32%; /* matches primary */
-    }
-
-    /* ===========================================
-       DARK THEME - Rich, sophisticated palette
-       =========================================== */
-    [data-theme="dark"] {
-        /* Primary - adjusted for dark backgrounds */
-        --primary: 175 70% 50%; /* brighter teal for visibility */
-        --primary-light: 175 65% 60%;
-        --primary-dark: 175 75% 38%;
-        --primary-muted: 175 30% 20%;
-
-        /* Accent - warmer coral for dark theme */
-        --accent: 15 80% 60%;
-        --accent-light: 15 75% 70%;
-        --accent-dark: 15 70% 50%;
-        --accent-muted: 15 40% 18%;
+        /* Secondary/Accent - Lavender from text-surface */
+        --accent: 270 52% 78%;
+        --accent-light: 270 52% 85%;
+        --accent-dark: 270 52% 65%;
+        --accent-muted: 270 30% 20%;
 
         /* Tertiary */
-        --tertiary: 230 60% 65%;
-        --tertiary-light: 230 55% 75%;
-        --tertiary-dark: 230 65% 52%;
+        --tertiary: 186 80% 45%;
+        --tertiary-light: 186 75% 55%;
+        --tertiary-dark: 186 85% 35%;
 
-        /* Map tones for dark */
-        --map-water-deep: 200 65% 22%;
-        --map-water: 190 70% 35%;
-        --map-river: 185 75% 45%;
+        /* Map tones - adapted for dark theme */
+        --map-water-deep: 224 64% 8%;
+        --map-water: 186 100% 50%;
+        --map-river: 186 80% 55%;
 
-        --map-forest: 160 35% 20%;
-        --map-moss: 130 30% 30%;
-        --map-fern: 155 40% 38%;
+        --map-forest: 224 50% 15%;
+        --map-moss: 224 40% 20%;
+        --map-fern: 186 60% 40%;
 
-        --map-sand: 38 25% 22%;
-        --map-stone: 220 10% 45%;
+        --map-sand: 270 30% 25%;
+        --map-stone: 224 30% 35%;
 
-        --map-muted: 215 12% 65%;
-        --map-ink: 220 15% 95%;
-        --map-paper: 220 15% 8%;
+        /* Neutrals */
+        --map-muted: 270 20% 55%;
+        --map-ink: 270 52% 78%; /* #C8ABE6 */
+        --map-paper: 224 64% 10%; /* #0A1128 */
 
-        /* Text colors (dark theme) */
-        --text-primary: 220 15% 95%;
-        --text-secondary: 220 12% 75%;
-        --text-muted: 220 10% 55%;
-        --text-inverted: 220 20% 10%;
+        /* Brand utility */
+        --brand-black: 224 64% 6%;
+
+        /* Text colors - 2025 dark mode */
+        --text-primary: 270 52% 78%; /* #C8ABE6 */
+        --text-secondary: 270 40% 70%;
+        --text-muted: 270 25% 55%;
+        --text-inverted: 224 64% 10%; /* #0A1128 */
 
         /* Surface colors */
-        --surface: 220 18% 8%;
-        --surface-raised: 220 16% 12%;
-        --surface-sunken: 220 20% 6%;
+        --surface: 224 64% 10%; /* #0A1128 */
+        --surface-raised: 224 50% 14%;
+        --surface-sunken: 224 64% 6%;
 
         /* Borders */
-        --border: 220 15% 20%;
-        --border-light: 220 12% 16%;
-        --border-focus: 175 70% 50%;
-    }
-
-    /* Apply dark theme background */
-    [data-theme="dark"] body {
-        background-color: hsl(var(--surface));
+        --border: 224 40% 20%;
+        --border-light: 224 35% 16%;
+        --border-focus: 186 100% 50%; /* #00E5FF */
     }
 
     /* Small helpers / preview swatches */
@@ -287,14 +236,15 @@
         padding: 0;
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         box-sizing: border-box;
-        color: hsl(var(--map-ink, 220 12% 96%)); /* Light text for dark background */
+        color: hsl(var(--text-primary)); /* #C8ABE6 lavender text */
     }
 
-    /* Typography base styles - bolder, more professional */
+    /* Typography base styles - 2025 dark mode */
     h1, h2, h3, h4, h5, h6 {
         font-weight: 700;
         line-height: 1.2;
         letter-spacing: -0.02em;
+        color: hsl(var(--text-primary));
     }
 
     h1 {
@@ -305,13 +255,46 @@
         font-weight: 700;
     }
 
-    p, span, li, a {
+    p, span, li {
         font-weight: 500;
         line-height: 1.6;
+        color: hsl(var(--text-secondary));
+    }
+
+    a {
+        font-weight: 500;
+        line-height: 1.6;
+        color: hsl(var(--primary)); /* #00E5FF cyan accent */
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    a:hover {
+        color: hsl(var(--primary-light));
+    }
+
+    button {
+        font-family: inherit;
+        background: hsl(var(--primary));
+        color: hsl(var(--text-inverted));
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    button:hover {
+        background: hsl(var(--primary-dark));
     }
 
     strong, b {
         font-weight: 700;
+    }
+
+    html {
+        max-width: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: none;
     }
 
     html, body, #root {
@@ -340,22 +323,17 @@
 
     body {
         min-height: 100vh;
+        max-width: 100%;
         display: flex;
         flex-direction: column;
-        /* Topographic background applied globally */
         position: relative;
-        background-color: hsl(220, 20%, 8%); /* Deep dark base */
+        background-color: #0A1128; /* Base Background */
         overflow-x: hidden;
-        /* background-image was removed here so the SVG can be applied per-page instead of globally */
-        /*background: linear-gradient(180deg, #a8c9e6 0%, #d4e5f2 100%);*/
-        /* font-family: 'Roboto', sans-serif;
-        background-color: #ffffff; */
-
-       /* background-color: hsl(var(--bg));
-        color: hsl(var(--fg)); */
+        overflow-y: auto;
+        overscroll-behavior: none;
     }
 
-    /* Apply topographic pattern to body using pseudo-elements - TONED DOWN */
+    /* Apply topographic pattern to body using pseudo-elements - 2025 DARK THEME */
     body::before,
     body::after {
         content: '';
@@ -367,33 +345,33 @@
         z-index: -1;
         pointer-events: none;
         background-image:
-            /* Contour lines - reduced opacity for subtlety */
+            /* Contour lines - cyan/lavender tones */
             repeating-radial-gradient(
                 circle at 20% 30%,
                 transparent 0,
                 transparent 8px,
-                rgba(100, 150, 180, 0.03) 8px,
-                rgba(100, 150, 180, 0.03) 9px
+                rgba(0, 229, 255, 0.03) 8px,
+                rgba(0, 229, 255, 0.03) 9px
             ),
             repeating-radial-gradient(
                 circle at 80% 70%,
                 transparent 0,
                 transparent 12px,
-                rgba(80, 130, 160, 0.025) 12px,
-                rgba(80, 130, 160, 0.025) 13px
+                rgba(200, 171, 230, 0.025) 12px,
+                rgba(200, 171, 230, 0.025) 13px
             ),
             repeating-radial-gradient(
                 circle at 50% 50%,
                 transparent 0,
                 transparent 15px,
-                rgba(90, 140, 170, 0.02) 15px,
-                rgba(90, 140, 170, 0.02) 16px
+                rgba(0, 229, 255, 0.02) 15px,
+                rgba(0, 229, 255, 0.02) 16px
             ),
             /* Subtle gradient overlay */
             linear-gradient(
                 135deg,
-                rgba(20, 40, 60, 0.15) 0%,
-                rgba(10, 25, 40, 0.25) 100%
+                rgba(10, 17, 40, 0.15) 0%,
+                rgba(10, 17, 40, 0.25) 100%
             );
         background-size:
             600px 600px,
@@ -403,22 +381,22 @@
         animation: topographicScroll 180s linear infinite;
     }
 
-    /* Second layer - much more subtle */
+    /* Second layer - lavender tones */
     body::after {
         background-image:
             repeating-radial-gradient(
                 circle at 40% 60%,
                 transparent 0,
                 transparent 10px,
-                rgba(60, 110, 140, 0.02) 10px,
-                rgba(60, 110, 140, 0.02) 11px
+                rgba(200, 171, 230, 0.02) 10px,
+                rgba(200, 171, 230, 0.02) 11px
             ),
             repeating-radial-gradient(
                 circle at 90% 20%,
                 transparent 0,
                 transparent 18px,
-                rgba(50, 100, 130, 0.015) 18px,
-                rgba(50, 100, 130, 0.015) 19px
+                rgba(0, 229, 255, 0.015) 18px,
+                rgba(0, 229, 255, 0.015) 19px
             );
         background-size:
             700px 700px,

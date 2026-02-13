@@ -1,8 +1,8 @@
-/* Featured Work Section */
+/* Featured Work Section - Dark Mode 2025 */
 .featured-work-section {
     width: 100%;
     padding: 4rem 1.5rem;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(248, 250, 252, 0.8) 100%);
+    background: linear-gradient(180deg, rgba(10, 17, 40, 0.5) 0%, rgba(10, 17, 40, 0.8) 100%);
 }
 
 .featured-work-container {

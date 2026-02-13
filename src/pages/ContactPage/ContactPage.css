@@ -46,7 +46,7 @@
 .contact-page .contact-info h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: hsl(var(--text-inverted));
+    color: hsl(var(--text-primary));
     letter-spacing: -0.025em;
     margin: 0;
 }
@@ -92,19 +92,19 @@
 .contact-page .contact-form label {
     font-size: 0.875rem;
     font-weight: 700;
-    color: hsl(var(--text-inverted));
+    color: hsl(var(--text-primary));
 }
 
 .contact-page .contact-form input,
 .contact-page .contact-form textarea {
     width: 100%;
     box-sizing: border-box;
-    background-color: hsl(220 18% 14%);
-    border: 1px solid hsl(220 15% 25%);
+    background-color: rgba(10, 17, 40, 0.75);
+    border: 1px solid rgba(0, 229, 255, 0.2);
     border-radius: 0.5rem;
     padding: 0.875rem 1rem;
     font-size: 1rem;
-    color: hsl(var(--text-inverted));
+    color: hsl(var(--text-primary));
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -134,7 +134,7 @@
     margin-top: 1rem;
     padding: 0.875rem 1.5rem;
     background-color: hsl(var(--primary));
-    color: hsl(var(--text-inverted));
+    color: #0A1128;
     font-size: 1rem;
     font-weight: 600;
     border: none;
@@ -144,8 +144,8 @@
 }
 
 .contact-page .contact-form button:hover {
-    background-color: hsl(var(--primary-dark));
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.35);
+    background-color: hsl(var(--primary-light));
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.35);
 }
 
 .contact-page .contact-form button svg {

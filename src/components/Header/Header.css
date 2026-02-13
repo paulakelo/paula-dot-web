@@ -14,16 +14,16 @@ header {
     position: relative;
     padding: 12px 0;
     margin-bottom: 16px;
-    border: 1px solid #e5e7eb;
+    border: 1px solid rgba(0, 229, 255, 0.15);
     border-bottom: none;
     border-radius: 0 0 12px 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     background: linear-gradient(
         -45deg,
         hsl(var(--map-water)),
-        hsl(var(--map-river)),
+        hsl(var(--primary)),
         hsl(var(--map-forest)),
-        hsl(var(--map-fern)),
+        hsl(var(--primary-dark)),
         hsl(var(--map-moss)),
         hsl(var(--map-water-deep))
     );
@@ -122,7 +122,7 @@ header .navbar {
 }
 
 .nav-links a:hover {
-    color: hsl(var(--brand-gold));
+    color: hsl(var(--primary));
 }
 
 /* Slightly more visible nav link styles when header backgrounds are used */
@@ -135,17 +135,15 @@ header .navbar {
 
 .header .nav-links a:hover,
 .header .nav-links a:focus {
-    /* warm sand for visible contrast on teal/green backgrounds */
-    /* use brand gold for hover to reflect the logo without overpowering the palette */
-    color: hsl(var(--brand-gold));
-    background: hsl(var(--brand-gold-muted) / 0.06);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    color: hsl(var(--primary));
+    background: rgba(0, 229, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     outline: none;
 }
 
 .header .nav-links a:focus {
     /* strong focus ring for keyboard users */
-    box-shadow: 0 0 0 3px hsl(var(--brand-gold) / 0.12), 0 4px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.2), 0 4px 12px rgba(0,0,0,0.15);
 }
 
 /* Logo helpers moved from main.css */
@@ -176,11 +174,11 @@ header .navbar {
     margin-left: 0;
 }
 
-/* Subtle gold/black treatment for the brand on hover/focus */
+/* Subtle cyan treatment for the brand on hover/focus */
 .logo .brand:hover,
 .logo .brand:focus {
-    color: hsl(var(--brand-gold));
-    text-shadow: 0 1px 0 rgba(0,0,0,0.08);
+    color: hsl(var(--primary));
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
 }
 
 .logo img {

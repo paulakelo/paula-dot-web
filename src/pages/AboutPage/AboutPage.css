@@ -75,20 +75,20 @@
 }
 
 .stack-card {
-    background: #ffffff;
+    background: rgba(10, 17, 40, 0.75);
     border-radius: 16px;
     padding: 2rem;
     box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.05),
-        0 1px 3px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(4, 120, 87, 0.08);
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        0 1px 3px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 229, 255, 0.12);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .stack-card:hover {
     box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.08),
-        0 4px 8px rgba(0, 0, 0, 0.06);
+        0 8px 24px rgba(0, 0, 0, 0.25),
+        0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
 }
 
@@ -172,7 +172,7 @@
     flex-direction: column;
     gap: 0.15rem;
     padding: 0.5rem 0.75rem;
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    background: linear-gradient(135deg, rgba(10, 17, 40, 0.6) 0%, rgba(0, 229, 255, 0.08) 100%);
     border-radius: 8px;
     border-left: 3px solid hsl(var(--primary));
 }
@@ -200,23 +200,23 @@
 }
 
 .detail-card {
-    background: hsl(var(--map-paper));
+    background: rgba(10, 17, 40, 0.75);
     border-radius: 16px;
     padding: 2rem;
     display: flex;
     gap: 1.5rem;
     align-items: flex-start;
     box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.05),
-        0 1px 3px rgba(0, 0, 0, 0.08);
-    border: 1px solid hsl(var(--primary) / 0.1);
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        0 1px 3px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 229, 255, 0.12);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .detail-card:hover {
     box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.08),
-        0 4px 8px rgba(0, 0, 0, 0.06);
+        0 8px 24px rgba(0, 0, 0, 0.25),
+        0 4px 8px rgba(0, 0, 0, 0.2);
     transform: translateY(-2px);
 }
 
@@ -227,7 +227,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, hsl(var(--primary-muted)) 0%, hsl(var(--primary-light) / 0.2) 100%);
+    background: linear-gradient(135deg, rgba(0, 229, 255, 0.15) 0%, rgba(200, 171, 230, 0.1) 100%);
     border-radius: 12px;
     color: hsl(var(--primary));
 }
@@ -274,12 +274,12 @@
 .philosophy-list li {
     display: inline-block;
     padding: 0.35rem 0.75rem;
-    background: linear-gradient(135deg, hsl(var(--primary-muted)) 0%, hsl(var(--primary-light) / 0.15) 100%);
-    color: hsl(var(--primary-dark));
+    background: linear-gradient(135deg, rgba(0, 229, 255, 0.15) 0%, rgba(200, 171, 230, 0.1) 100%);
+    color: hsl(var(--primary));
     font-size: 0.85rem;
     font-weight: 500;
     border-radius: 6px;
-    border: 1px solid hsl(var(--primary) / 0.15);
+    border: 1px solid rgba(0, 229, 255, 0.2);
 }
 
 /* Academic Background Card - Individual styling */
