@@ -311,86 +311,6 @@
 }
 
 /* ==========================================
-   SECTION 5: Secondary Interests
-   ========================================== */
-.about-secondary {
-    margin-bottom: 0;
-}
-
-.secondary-card {
-    background: rgba(28, 28, 28, 0.6);
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border: 1px solid hsla(35, 92%, 50%, 0.12);
-}
-
-.secondary-card h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: 0 0 8px 0;
-}
-
-.secondary-note {
-    font-size: 0.875rem;
-    color: hsl(var(--text-secondary));
-    font-style: italic;
-    margin: 0 0 16px 0;
-}
-
-.secondary-items {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-}
-
-.secondary-tag {
-    display: inline-block;
-    padding: 8px 16px;
-    background: hsla(35, 92%, 50%, 0.1);
-    color: var(--accent-primary);
-    font-size: 0.9rem;
-    font-weight: 500;
-    border-radius: 8px;
-    border: 1px solid hsla(35, 92%, 50%, 0.2);
-    transition: all 0.2s ease;
-}
-
-.secondary-tag:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px hsla(35, 92%, 50%, 0.15);
-}
-
-/* === Secondary interests visual tweaks (added) === */
-.secondary-items[role="list"] {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 12px;
-}
-
-.secondary-tag[role="listitem"] {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: hsla(35, 92%, 50%, 0.06);
-    color: var(--accent-primary);
-    border: 1px solid hsla(35, 92%, 50%, 0.12);
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-.secondary-tag[role="listitem"]:focus {
-    outline: 3px solid hsla(35, 92%, 50%, 0.16);
-    outline-offset: 2px;
-}
-
-
-/* ==========================================
    RESPONSIVE DESIGN
    ========================================== */
 @media (max-width: 900px) {
@@ -463,8 +383,7 @@
 
     .stack-card,
     .detail-card,
-    .goals-card,
-    .secondary-card {
+    .goals-card {
         padding: 20px;
     }
 
