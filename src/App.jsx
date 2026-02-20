@@ -4,9 +4,8 @@ import { Footer } from './components/Footer/Footer.jsx'
 import Hero from './components/Hero/Hero.jsx'
 import AboutSection from './components/AboutSection/AboutSection.jsx'
 import Projects from './components/Projects/Projects.jsx'
-import '../styles/main.css'
 import ContactSection from './components/ContactSection/ContactSection.jsx'
-import '../styles/main.css'
+import './styles/main.css'
 
 export default function App() {
   return (

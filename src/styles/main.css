@@ -1,4 +1,335 @@
-/* Global layout: ensure footer stays at bottom, main grows to fill viewport */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Combined global variables and helpers (merged from styles/main.css and original src/styles/main.css) */
+  :root {
+    /* Core palette and semantic tokens (from styles/main.css) */
+    --bg-primary: #1C1C1C;
+    --text-primary: #F4F4F4;
+
+    /* New 3-color palette (accessible cool accents) */
+    --palette-cyan: #5FFBF1;
+    --palette-cyan-rgb: 95,251,241;
+    --palette-teal: #3CC2B6;
+    --palette-teal-rgb: 60,194,182;
+    --palette-periwinkle: #86A8E7;
+    --palette-periwinkle-rgb: 134,168,231;
+
+    /* Primary accent (amber) */
+    --accent-primary: #C47E1C;
+
+    /* Semantic colours (legacy & adjusted) */
+    --sem-amber: #C47E1C;
+    --sem-amber-rgb: 196,126,28;
+    --sem-cyan: var(--palette-cyan);
+    --sem-cyan-rgb: var(--palette-cyan-rgb);
+    --sem-green: var(--palette-teal);
+    --sem-green-rgb: var(--palette-teal-rgb);
+    --sem-blue: #4A85D9;
+    --sem-blue-rgb: 74,133,217;
+    --sem-magenta: #EC3C85;
+    --sem-magenta-rgb: 236,60,133;
+
+    /* HSL compatibility tokens (legacy) */
+    --primary: 35 92% 50%;
+    --primary-light: 35 96% 62%;
+    --primary-dark: 35 85% 40%;
+    --primary-muted: 35 40% 16%;
+
+    --accent: 35 92% 50%;
+    --accent-light: 35 96% 62%;
+    --accent-dark: 35 85% 40%;
+    --accent-muted: 35 32% 18%;
+
+    --accent-secondary: #7FBF9A;
+    --accent-secondary-hsl: 140 25% 60%;
+
+    /* Text and surface tokens */
+    --text-primary-hsl: 0 0% 96%;
+    --text-secondary: 0 0% 80%;
+    --text-muted: 0 0% 60%;
+    --text-inverted: 0 0% 11%;
+
+    --surface: 0 0% 11%;
+    --surface-raised: 0 0% 15%;
+    --surface-sunken: 0 0% 8%;
+    --surface-card: 38 20% 76%;
+
+    --border: 0 0% 20%;
+    --border-light: 0 0% 25%;
+    --border-focus: 35 92% 50%;
+
+    /* Legacy map tones (remapped) */
+    --map-water: 35 92% 50%;
+    --map-water-deep: 0 0% 8%;
+    --map-forest: 0 0% 15%;
+    --map-moss: 0 0% 18%;
+    --map-sand: 38 20% 76%;
+    --map-stone: 0 0% 35%;
+    --map-muted: 0 0% 55%;
+    --map-ink: 0 0% 96%;
+    --map-paper: 0 0% 11%;
+    --brand-black: 0 0% 8%;
+    --brand-gold: 35 92% 50%;
+
+    /* --- Tokens from src/styles/main.css (preserved and mapped) --- */
+    --header-offset: 72px;
+
+    /* New semantic variables for the src theme (higher specificity, keep them after legacy tokens so they can override if needed) */
+    --color-bg-main: #0B1120;
+    --color-bg-card: #171E2E;
+    --color-bg-input: #1F2937;
+
+    --color-text-heading: #F9FAFB;
+    --color-text-body: #9CA3AF;
+    --color-text-dark: #0B1120;
+
+    --color-accent-cyan: #22D3EE;
+    --color-accent-gold: #F59E0B;
+    --color-accent-cyan-hover: #06B6D4;
+
+    /* Backwards compatibility mapping */
+    --card-bg: var(--color-bg-card);
+    --palette-cyan-rgb: 34,211,238; /* prefer the rgb from src theme for some gradients */
+    --palette-cyan: var(--color-accent-cyan);
+    --accent-primary: var(--color-accent-cyan);
+    --palette-teal: #3CC2B6;
+    --palette-periwinkle: #86A8E7;
+
+    --sem-cyan: var(--palette-cyan);
+    --sem-cyan-rgb: var(--palette-cyan-rgb);
+    --sem-green: var(--palette-teal);
+    --sem-green-rgb: var(--palette-teal-rgb);
+    --sem-blue-rgb: 74,133,217;
+
+    --sem-magenta-rgb: 196,28,98; /* keep a magenta rgb mapping for older rules */
+
+    /* Accent gradient (keeps both styles' approaches) */
+    --accent-gradient: linear-gradient(90deg, var(--palette-cyan) 0%, var(--palette-teal) 50%, var(--palette-periwinkle) 100%);
+
+    /* Additional semantic fallbacks */
+    --sem-amber-rgb: 196,126,28;
+  }
+
+  /* Ambient "LED" glow per section (deduplicated and consolidated) */
+  .hero-section,
+  .page-about,
+  .projects-section,
+  .contact-section {
+    position: relative;
+  }
+
+  .hero-section::before,
+  .page-about::before,
+  .projects-section::before,
+  .contact-section::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    height: 700px;
+    filter: blur(120px);
+    z-index: -1;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  .hero-section::before {
+    background: radial-gradient(circle at 30% 30%, rgba(var(--sem-cyan-rgb), 0.05) 0%, rgba(var(--sem-cyan-rgb), 0.02) 30%, transparent 60%);
+  }
+
+  .page-about::before {
+    background: radial-gradient(circle at 30% 40%, rgba(var(--sem-green-rgb), 0.05) 0%, rgba(var(--sem-green-rgb), 0.02) 30%, transparent 60%);
+  }
+
+  .projects-section::before {
+    background: radial-gradient(circle at 40% 30%, rgba(var(--sem-blue-rgb), 0.05) 0%, rgba(var(--sem-blue-rgb), 0.02) 30%, transparent 60%);
+  }
+
+  .contact-section::before {
+    background: radial-gradient(circle at 60% 40%, rgba(var(--sem-magenta-rgb), 0.05) 0%, rgba(var(--sem-magenta-rgb), 0.02) 30%, transparent 60%);
+  }
+
+  @media (max-width: 900px) {
+    .hero-section::before,
+    .page-about::before,
+    .projects-section::before,
+    .contact-section::before {
+      display: none;
+    }
+  }
+
+  /* Small helpers / preview swatches */
+  .palette-row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0.5rem 0;
+  }
+
+  .palette-swatch {
+    width: 40px;
+    height: 28px;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  /* Utility classes for quick use (preserved) */
+  .bg-water { background-color: hsl(var(--map-water)); color: white; }
+  .bg-forest { background-color: hsl(var(--map-forest)); color: white; }
+  .bg-moss { background-color: hsl(var(--map-moss)); color: white; }
+  .bg-sand { background-color: hsl(var(--map-sand)); color: var(--map-ink); }
+
+  .text-stone { color: hsl(var(--map-stone)); }
+  .text-water-deep { color: hsl(var(--map-water-deep)); }
+  .text-black-strong { color: hsl(var(--brand-black)); }
+
+  .text-primary-color { color: hsl(var(--primary)); }
+  .bg-primary { background-color: hsl(var(--primary)); color: white; }
+  .bg-primary-light { background-color: hsl(var(--primary-light)); color: white; }
+  .bg-primary-muted { background-color: hsl(var(--primary-muted)); }
+  .border-primary { border-color: hsl(var(--primary)); }
+
+  .text-accent { color: hsl(var(--accent)); }
+  .text-accent-light { color: hsl(var(--accent-light)); }
+  .text-accent-dark { color: hsl(var(--accent-dark)); }
+  .bg-accent { background-color: hsl(var(--accent)); color: white; }
+  .bg-accent-subtle { background-color: hsl(var(--accent-muted)); }
+  .bg-accent-dark { background-color: hsl(var(--accent-dark)); color: white; }
+  .border-accent { border-color: hsl(var(--accent)); }
+  .border-accent-subtle { border-color: hsl(var(--accent) / 0.25); }
+
+  .hover\:bg-accent:hover { background-color: hsl(var(--accent)); color: white; }
+  .hover\:text-accent:hover { color: hsl(var(--accent)); }
+  .underline-accent-hover:hover {
+    text-decoration: underline;
+    text-decoration-color: hsl(var(--accent));
+    text-decoration-thickness: 2px;
+  }
+
+  .text-primary { color: var(--text-primary); }
+  .text-secondary { color: hsl(var(--text-secondary)); }
+  .text-muted { color: hsl(var(--text-muted)); }
+  .text-inverted { color: var(--bg-primary); }
+
+  /* Global reset and base typography (from styles/main.css) */
+  * { margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; box-sizing: border-box; color: var(--text-primary); }
+
+  h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--text-primary); }
+  h1 { font-weight: 800; }
+  h2 { font-weight: 700; }
+
+  p, span, li { font-weight: 500; line-height: 1.6; color: hsl(var(--text-secondary)); }
+
+  a { font-weight: 500; line-height: 1.6; color: var(--accent-primary); text-decoration: none; transition: color 0.2s ease; }
+  a:hover { color: hsl(var(--primary-light)); }
+
+  button { font-family: inherit; background: var(--accent-primary); color: var(--bg-primary); border: none; cursor: pointer; transition: all 0.2s ease; }
+  button:hover { background: hsl(var(--primary-dark)); }
+
+  strong, b { font-weight: 700; }
+
+  html { max-width: 100%; overflow-x: hidden; overflow-y: auto; overscroll-behavior: none; scroll-behavior: smooth; }
+
+  html, body, #root { height: 100%; }
+
+  /* Root-level layout helpers (merge of both files) */
+  #root { display: flex; flex-direction: column; min-height: 100vh; position: relative; z-index: 0; }
+
+  .page-root { display: flex; flex-direction: column; flex: 1 0 auto; min-height: 0; position: relative; z-index: 1; }
+
+  body {
+    min-height: 100vh;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--bg-primary);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: none;
+    /* allow src-specific override for background and body color tokens */
+    background: var(--color-bg-main, var(--bg-primary));
+    color: var(--color-text-body, hsl(var(--text-secondary)));
+  }
+
+  /* Subtle background texture (from styles/main.css) */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(191, 158, 11, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 100%, rgba(212, 197, 176, 0.02) 0%, transparent 50%);
+  }
+
+  body::after { display: none; }
+
+  /* make main grow to fill available space between header and footer */
+  main { flex: 1 0 auto; display: flex; flex-direction: column; }
+
+  main.page, .page { flex: 1 0 auto; min-height: 0; background: transparent; color: inherit; }
+
+  /* Shared page inner container */
+  .page-inner { padding: 48px 16px; max-width: 1100px; margin: 0 auto; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+  /* Accessibility: Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    body::before, body::after { animation: none; }
+  }
+
+  /* Responsive adjustments for topographic background */
+  @media (max-width: 768px) {
+    body::before, body::after {
+      background-size:
+        400px 400px,
+        500px 500px,
+        600px 600px,
+        100% 100%;
+    }
+  }
+
+  /* Global heading styles to ensure accessible contrast */
+  h1, h2, h3 { color: var(--color-text-heading, #F9FAFB); }
+
+  /* Helper class for highlighted name usage */
+  .highlight-name { color: var(--color-accent-gold); }
+
+  /* Accessibility: Skip link */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-accent-cyan);
+    color: var(--color-text-dark, #0B1120);
+    font-weight: bold;
+    border-radius: 6px;
+    z-index: 9999;
+    transition: top 0.3s ease, opacity 0.2s ease;
+    box-shadow: 0 6px 20px rgba(2,6,23,0.35);
+  }
+
+  .skip-link:focus { top: 0; outline: none; }
+
+  /* Small helpers: keep them in the base layer so Tailwind's utilities can coexist */
+}
+
+/* ------------------ src/styles/main.css specific additions (section card layout & glows) ------------------ */
+
+/* Global layout: ensure footer stays at bottom, main grows to fill viewport (src original) */
 html, body, #root, .app-root {
   height: 100%;
   min-height: 100vh;
@@ -6,27 +337,13 @@ html, body, #root, .app-root {
   padding: 0;
 }
 
-body {
-  width: 100vw;
-  overflow-x: hidden;
-  /* Use the new semantic variable for the global page background */
-  background: var(--color-bg-main, var(--bg-primary, #181818));
-  /* Body text color controlled via new token */
-  color: var(--color-text-body, #9CA3AF);
-}
-
-#root {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+#root { display: flex; flex-direction: column; min-height: 100vh; }
 
 .app-root {
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
   min-height: 100vh;
-  /* background: rgba(255,0,0,0.05);  // DEBUG: Remove after verifying */
 }
 
 .main-content {
@@ -34,200 +351,55 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 0;
-  /* background: rgba(0,255,0,0.05);  // DEBUG: Remove after verifying */
 }
 
-footer.footer {
-  margin-top: 0;
-}
+footer.footer { margin-top: 0; }
 
 /* Remove excessive vertical spacing between sections */
-section {
-  margin-bottom: 0;
-  /* default fallback offset if --header-offset is not set */
-  scroll-margin-top: var(--header-offset, 72px);
-}
+section { margin-bottom: 0; scroll-margin-top: var(--header-offset, 72px); }
 
-/* New: structure to create card-like sections
-   Usage in HTML:
-   <section class="section-wrapper">
-     <div class="section-container hero-container">
-       ...content...
-     </div>
-   </section>
-*/
+/* Section wrapper / card layout from src/styles/main.css */
 .section-wrapper {
   display: flex;
-  justify-content: center; /* center the card horizontally */
-  padding: 48px 16px;      /* generous outer spacing */
+  justify-content: center;
+  padding: 48px 16px;
   box-sizing: border-box;
 }
 
 .section-container {
   width: 100%;
-  max-width: 1100px;       /* constrain content width */
-  /* Use the new card background token for consistent theming */
+  max-width: 1100px;
   background: var(--color-bg-card, var(--card-bg, rgba(15,23,42,0.95)));
   border-radius: 12px;
   padding: 48px;
   box-shadow: 0 8px 30px rgba(3,6,12,0.6);
-  border: 1px solid rgba(255,255,255,0.03); /* subtle edge to separate from background */
+  border: 1px solid rgba(255,255,255,0.03);
   box-sizing: border-box;
 }
 
-/* Make inner padding smaller on small screens */
 @media (max-width: 640px) {
-  .section-wrapper {
-    padding: 32px 12px;
-  }
-  .section-container {
-    padding: 24px;
-    border-radius: 10px;
-  }
+  .section-wrapper { padding: 32px 12px; }
+  .section-container { padding: 24px; border-radius: 10px; }
 }
 
-/* Enable smooth scrolling for user agents (respected by most browsers) */
-html {
-  scroll-behavior: smooth;
-}
+/* Smooth scrolling */
+html { scroll-behavior: smooth; }
 
-:root {
-  /* default header offset for scroll-margin-top; updated at runtime by Header component */
-  --header-offset: 72px;
-
-  /* --- Custom theme variables (terminal-inspired) --- */
-  /* Backgrounds */
-  --color-bg-main: #0B1120;     /* The deep navy/almost black for the main page body */
-  --color-bg-card: #171E2E;     /* Slightly lighter slate for cards */
-  --color-bg-input: #1F2937;    /* For input fields */
-
-  /* Typography */
-  --color-text-heading: #F9FAFB; /* High contrast headings */
-  --color-text-body: #9CA3AF;    /* Muted gray for body text */
-  --color-text-dark: #0B1120;    /* Dark text (for light button text) */
-
-  /* Accents */
-  --color-accent-cyan: #22D3EE;  /* Bright cyan/teal for CTAs */
-  --color-accent-gold: #F59E0B;  /* Secondary gold/orange for highlights */
-  --color-accent-cyan-hover: #06B6D4; /* Hover state for cyan buttons */
-
-  /* --- End custom theme variables --- */
-
-  /* Preserve existing tokens but map them to the new variables for backward compatibility */
-  --bg-primary: var(--color-bg-main);
-  --card-bg: var(--color-bg-card);
-  --accent-primary: var(--color-accent-cyan);
-  --palette-cyan: var(--color-accent-cyan);
-  --palette-cyan-rgb: 34,211,238; /* rgb for the cyan above */
-
-  /* 3-color palette (legacy entries also kept) */
-  --palette-teal: #3CC2B6; /* Teal - secondary accents */
-  --palette-periwinkle: #86A8E7; /* Periwinkle - ambient elements */
-
-  /* full 3-color gradient for typography highlights / decorative borders */
-  --accent-gradient: linear-gradient(90deg, var(--palette-cyan) 0%, var(--palette-teal) 50%, var(--palette-periwinkle) 100%);
-
-  /* Preserve old semantic tokens but map them to the new palette where appropriate */
-  --sem-amber: #C47E1C; /* CTA amber (reserved for legacy actions) */
-  --sem-amber-rgb: 196,126,28;
-
-  /* Remap semantic tokens to the new cool palette for accents */
-  --sem-cyan: var(--palette-cyan);
-  --sem-cyan-rgb: var(--palette-cyan-rgb);
-
-  --sem-green: var(--palette-teal);
-  --sem-green-rgb: var(--palette-teal-rgb);
-
-  --sem-blue: var(--palette-periwinkle);
-  --sem-blue-rgb: var(--palette-periwinkle-rgb);
-
-  --sem-magenta: #C41C62; /* keep existing magenta for contact if needed */
-  --sem-magenta-rgb: 196,28,98;
-
-  /* Primary accent exposed globally (use this for CTAs) */
-  /* (mapped earlier to --color-accent-cyan; duplicate removed) */
-
-}
-
-/* Global heading styles to ensure accessible contrast */
-h1, h2, h3 {
-  color: var(--color-text-heading, #F9FAFB);
-}
-
-/* Helper class for highlighted name usage */
-.highlight-name {
-  color: var(--color-accent-gold);
-}
-
-/* Accessibility: Skip link — hidden off-screen by default, visible on keyboard focus */
-.skip-link {
-  position: absolute;
-  top: -100px; /* Push it completely out of view for mouse users */
-  left: 1rem; /* keep aligned with header content */
-  padding: 0.5rem 1rem;
-  background-color: var(--color-accent-cyan); /* use theme cyan */
-  color: var(--color-text-dark, #0B1120); /* dark text for contrast */
-  font-weight: bold;
-  border-radius: 6px;
-  z-index: 9999; /* ensure it appears above everything when focused */
-  transition: top 0.3s ease, opacity 0.2s ease; /* smooth sliding animation */
-  box-shadow: 0 6px 20px rgba(2,6,23,0.35);
-}
-
-/* Bring it onto the screen ONLY when focused (keyboard users) */
-.skip-link:focus {
-  top: 0;
-  outline: none;
-}
-
-/* Ambient "LED" glow per section (very faint, large radial gradients) */
-.hero-section,
-.page-about,
-.projects-section,
-.contact-section {
-  position: relative; /* ensure pseudo-elements are positioned properly */
-}
-
+/* Ambient glows - keep them (consolidated earlier but repeating here is safe) */
 .hero-section::before,
 .page-about::before,
 .projects-section::before,
 .contact-section::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 1200px;
-  height: 700px;
-  filter: blur(120px);
-  z-index: -1;
-  pointer-events: none;
-  mix-blend-mode: screen;
+  /* defined in base layer already */
 }
 
-/* Per-section color mappings (very low opacity to keep them subtle) */
-.hero-section::before {
-  background: radial-gradient(circle at 30% 30%, rgba(var(--sem-cyan-rgb), 0.05) 0%, rgba(var(--sem-cyan-rgb), 0.02) 30%, transparent 60%);
-}
-
-.page-about::before {
-  background: radial-gradient(circle at 30% 40%, rgba(var(--sem-green-rgb), 0.05) 0%, rgba(var(--sem-green-rgb), 0.02) 30%, transparent 60%);
-}
-
-.projects-section::before {
-  background: radial-gradient(circle at 40% 30%, rgba(var(--sem-blue-rgb), 0.05) 0%, rgba(var(--sem-blue-rgb), 0.02) 30%, transparent 60%);
-}
-
-.contact-section::before {
-  background: radial-gradient(circle at 60% 40%, rgba(var(--sem-magenta-rgb), 0.05) 0%, rgba(var(--sem-magenta-rgb), 0.02) 30%, transparent 60%);
-}
-
-/* Hide heavy glows on small screens for performance and visual clarity */
+/* Hide heavy glows on small screens for performance and clarity (reaffirm) */
 @media (max-width: 900px) {
   .hero-section::before,
   .page-about::before,
   .projects-section::before,
-  .contact-section::before {
-    display: none;
-  }
+  .contact-section::before { display: none; }
 }
+
+/* end of merged stylesheet */
+

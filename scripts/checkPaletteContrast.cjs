@@ -6,7 +6,7 @@ function contrast(a,b){ const L1=lum(a),L2=lum(b); const light=Math.max(L1,L2), 
 function rgbToHex(r,g,b){return '#'+((1<<24)+(r<<16)+(g<<8)+b).toString(16).slice(1)}
 function composite(fgHex,alpha,bgHex){const f=hexToRgb(fgHex), b=hexToRgb(bgHex); const r=Math.round(alpha*f[0]+(1-alpha)*b[0]); const g=Math.round(alpha*f[1]+(1-alpha)*b[1]); const bl=Math.round(alpha*f[2]+(1-alpha)*b[2]); return rgbToHex(r,g,bl)}
 
-const css = fs.readFileSync('./styles/main.css','utf8');
+const css = fs.readFileSync('./src/styles/main.css','utf8');
 const re = /--([a-z0-9-]+)\s*:\s*(#[0-9A-Fa-f]{6})/g;
 let m; const vars = {};
 while((m=re.exec(css)) !== null){ vars[m[1]] = m[2]; }
@@ -40,5 +40,3 @@ results.cta = { paletteCyan: palette.paletteCyan, contrast_textDark: contrast(pa
 
 fs.writeFileSync('./contrast-results.json', JSON.stringify(results, null, 2),'utf8');
 console.log(JSON.stringify(results, null, 2));
-
-
