@@ -5,6 +5,7 @@
     padding: 32px 0 16px;
     margin-top: 0;
     position: relative;
+    overflow: visible; /* allow full-bleed divider to be visible */
 }
 
 /* thin divider aligned with central container */
@@ -12,7 +13,18 @@
     border: none;
     border-top: 1px solid hsla(35, 92%, 50%, 0.1);
     opacity: 0.6;
-    margin: 0 0 20px;
+    /* stretch edge-to-edge while avoiding scrollbar-driven overflow issues */
+    width: 100vw;
+    max-width: 100%;
+    margin: 0 calc(50% - 50vw) 20px;
+    box-sizing: border-box;
+}
+
+/* center the content inside the container */
+.footer .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Contact section in footer */
@@ -58,38 +70,6 @@
     width: 100%;
     padding-top: 0;
     gap: 16px;
-}
-
-/* Social links */
-.social-links {
-    display: flex;
-    gap: 12px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    align-items: center;
-}
-
-.social-links a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    color: var(--color-text-heading);
-    text-decoration: none;
-    background: rgba(245,158,11,0.12);
-    transition: all 200ms ease;
-    border: 1px solid rgba(255,255,255,0.03);
-}
-
-.social-links a:hover,
-.social-links a:focus {
-    background: rgba(245,158,11,0.18);
-    border-color: var(--color-accent-cyan);
-    transform: translateY(-2px);
-    outline: none;
 }
 
 /* keep paragraph centered and constrained */

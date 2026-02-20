@@ -141,12 +141,12 @@ export function Header() {
 
     return (
         <header role="banner" className={open ? 'open' : ''}>
-            <a className="skip-link" href="#main">Skip to content</a>
+            <a className="skip-link" href="/#main">Skip to content</a>
 
             <div className="container">
                 <nav className="navbar" role="navigation" aria-label="Primary">
                     {/* Visually hidden brand for accessibility; logo removed per request */}
-                    <a href="#hero" className="brand sr-only" onClick={(e) => onNavClick(e, 'hero')}>Paul Akelo</a>
+                    <a href="/#hero" className="brand sr-only" onClick={(e) => onNavClick(e, 'hero')}>Paul Akelo</a>
 
                     <button
                         ref={menuButtonRef}
@@ -163,7 +163,7 @@ export function Header() {
                         {NAV_ITEMS.map(item => (
                             <li key={item.id}>
                                 <a
-                                    href={`#${item.id}`}
+                                    href={`/#${item.id}`}
                                     onClick={(e) => onNavClick(e, item.id)}
                                     className={active === item.id ? 'active' : ''}
                                     aria-current={active === item.id ? 'page' : undefined}

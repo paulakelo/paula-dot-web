@@ -23,8 +23,8 @@ header {
     border-bottom: 1px solid hsla(35, 92%, 50%, 0.15);
     border-radius: 0;
     box-shadow: none;
-    /* Restore original header color using the project's CSS variable */
-    background: var(--bg-primary);
+    /* Use project's canonical variables for background and fallbacks */
+    background: var(--color-bg-main, #0B1120);
     animation: none !important;
     backdrop-filter: saturate(120%) blur(6px);
     -webkit-backdrop-filter: saturate(120%) blur(6px);
@@ -59,9 +59,10 @@ header .navbar {
     /* ensure header content is above page content */
     z-index: 1001;
     overflow: visible;
-    color: var(--text-primary);
+    /* map to project text color token */
+    color: var(--color-text-heading, #F9FAFB);
     transition: background-color 300ms ease, color 300ms ease;
-    background: var(--bg-primary);
+    background: var(--color-bg-main, #0B1120);
     animation: none !important;
 }
 
@@ -70,8 +71,7 @@ header .navbar {
     display: none;
 }
 
-/* Remove header presets - not needed with new minimal design */
-
+/* Header links inherit color */
 .header a, .header .nav-links a, .header .logo {
     color: inherit;
 }
@@ -87,26 +87,27 @@ header .navbar {
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-primary);
+    color: var(--color-text-heading, #F9FAFB);
     padding: 8px 12px;
     transition: color 0.2s ease;
     cursor: pointer;
     font-weight: 500;
+    position: relative; /* required so the ::after underline positions relative to each link */
 }
 
-/* Active link styling: cyan (#2dd4bf) + underline */
+/* Active link styling: cyan + underline */
 .nav-links a.active {
     font-weight: 600;
-    color: #2dd4bf; /* cyan */
-    border-bottom: 2px solid #2dd4bf;
+    color: var(--color-accent-cyan, #22D3EE); /* accent color defined in main.css */
+    border-bottom: 2px solid transparent; /* keep layout stable; visual underline handled by ::after */
     padding-bottom: 6px; /* space for the underline */
 }
 
 .nav-links a:hover {
-    color: var(--accent-primary);
+    color: var(--color-accent-cyan, #22D3EE);
 }
 
-/* Animated underline for nav links */
+/* Animated underline for nav links - positioned relative to the link itself */
 .nav-links a::after {
     content: "";
     position: absolute;
@@ -114,7 +115,7 @@ header .navbar {
     right: 12px;
     bottom: 6px; /* sit just under the link text */
     height: 2px;
-    background: var(--accent-primary);
+    background: var(--color-accent-cyan, #22D3EE);
     border-radius: 2px;
     transform: scaleX(0);
     transform-origin: left;
@@ -135,19 +136,14 @@ header .navbar {
     opacity: 0.9;
 }
 
-.nav-links a.active {
-    font-weight: 600;
-    color: var(--accent-primary);
-}
-
+/* Inactive links gracefully transition on hover */
 .nav-links a:not(.active):hover {
-    /* Inactive links gracefully transition from muted/dark grey to white on hover to indicate interactivity */
     color: #ffffff;
     background: transparent;
 }
 
 .header .nav-links a {
-    color: var(--text-primary);
+    color: var(--color-text-heading, #F9FAFB);
     padding: 8px 12px;
     border-radius: 6px;
     transition: color 180ms ease, background-color 180ms ease;
@@ -155,8 +151,8 @@ header .navbar {
 
 .header .nav-links a:hover,
 .header .nav-links a:focus {
-    color: var(--accent-primary);
-    background: hsla(35, 92%, 50%, 0.1);
+    color: var(--color-accent-cyan, #22D3EE);
+    background: hsla(35, 92%, 50%, 0.06);
     outline: none;
 }
 
@@ -183,7 +179,7 @@ header .navbar {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: var(--text-primary);
+    color: var(--color-text-heading, #F9FAFB);
     text-decoration: none;
     margin-left: 0;
     font-weight: 600;
@@ -191,15 +187,12 @@ header .navbar {
 
 .logo .brand:hover,
 .logo .brand:focus {
-    color: var(--accent-primary);
+    color: var(--color-accent-cyan, #22D3EE);
 }
 
 .logo img {
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12));
 }
-
-/* Accessibility: Skip link */
-/* (moved to global stylesheet src/styles/main.css to centralize styles) */
 
 /* Nav toggle (hamburger) - hidden on desktop */
 .nav-toggle {
@@ -219,7 +212,7 @@ header .navbar {
     display: block;
     width: 22px;
     height: 2px;
-    background: var(--text-primary);
+    background: var(--color-text-heading, #F9FAFB);
     border-radius: 2px;
     transition: transform 180ms ease, opacity 180ms ease;
     content: '';
@@ -268,7 +261,7 @@ header .navbar {
         position: absolute;
         right: 16px;
         top: 64px; /* sits below header */
-        background: var(--bg-primary);
+        background: var(--color-bg-main, #0B1120);
         flex-direction: column;
         gap: 0;
         padding: 8px;
@@ -303,9 +296,6 @@ button:focus {
     outline: 3px solid rgba(99, 102, 241, 0.12);
     outline-offset: 2px;
 }
-
-/* Active link stronger visual -- handled above with cyan color and underline */
-/* Removed duplicate .nav-links a.active rules to avoid conflicts */
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
