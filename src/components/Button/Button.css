@@ -22,14 +22,14 @@
     transform: translateY(0px);
 }
 
-/* Primary button - Muted Gold (#BFA181) */
+/* Primary button - use the new cyan accent and dark text for accessibility */
 .btn-primary {
-    background-color: var(--accent-primary);
-    color: var(--bg-primary);
+    background-color: var(--color-accent-cyan, var(--accent-primary));
+    color: var(--color-text-dark, var(--bg-primary));
 }
 
 .btn-primary:hover {
-    background-color: hsl(var(--primary-light));
+    background-color: var(--color-accent-cyan-hover, hsl(var(--primary-light)));
 }
 
 .btn-primary:focus {
@@ -55,7 +55,8 @@
 
 /* Accent button - Warm Beige (#D4C5B0) */
 .btn-accent {
-    background-color: var(--surface-secondary);
+    /* Use existing surface token if present, otherwise fall back to the gold accent */
+    background-color: var(--surface-secondary, var(--color-accent-gold));
     color: var(--bg-primary);
     border: none;
 }

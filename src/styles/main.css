@@ -9,7 +9,10 @@ html, body, #root, .app-root {
 body {
   width: 100vw;
   overflow-x: hidden;
-  background: var(--bg-primary, #181818);
+  /* Use the new semantic variable for the global page background */
+  background: var(--color-bg-main, var(--bg-primary, #181818));
+  /* Body text color controlled via new token */
+  color: var(--color-text-body, #9CA3AF);
 }
 
 #root {
@@ -63,7 +66,8 @@ section {
 .section-container {
   width: 100%;
   max-width: 1100px;       /* constrain content width */
-  background: var(--card-bg, rgba(15,23,42,0.95));
+  /* Use the new card background token for consistent theming */
+  background: var(--color-bg-card, var(--card-bg, rgba(15,23,42,0.95)));
   border-radius: 12px;
   padding: 48px;
   box-shadow: 0 8px 30px rgba(3,6,12,0.6);
@@ -91,15 +95,34 @@ html {
   /* default header offset for scroll-margin-top; updated at runtime by Header component */
   --header-offset: 72px;
 
-  /* 3-color palette (new) */
-  --palette-cyan: #5FFBF1; /* Bright Cyan - primary action */
-  --palette-cyan-rgb: 95,251,241;
+  /* --- Custom theme variables (terminal-inspired) --- */
+  /* Backgrounds */
+  --color-bg-main: #0B1120;     /* The deep navy/almost black for the main page body */
+  --color-bg-card: #171E2E;     /* Slightly lighter slate for cards */
+  --color-bg-input: #1F2937;    /* For input fields */
 
+  /* Typography */
+  --color-text-heading: #F9FAFB; /* High contrast headings */
+  --color-text-body: #9CA3AF;    /* Muted gray for body text */
+  --color-text-dark: #0B1120;    /* Dark text (for light button text) */
+
+  /* Accents */
+  --color-accent-cyan: #22D3EE;  /* Bright cyan/teal for CTAs */
+  --color-accent-gold: #F59E0B;  /* Secondary gold/orange for highlights */
+  --color-accent-cyan-hover: #06B6D4; /* Hover state for cyan buttons */
+
+  /* --- End custom theme variables --- */
+
+  /* Preserve existing tokens but map them to the new variables for backward compatibility */
+  --bg-primary: var(--color-bg-main);
+  --card-bg: var(--color-bg-card);
+  --accent-primary: var(--color-accent-cyan);
+  --palette-cyan: var(--color-accent-cyan);
+  --palette-cyan-rgb: 34,211,238; /* rgb for the cyan above */
+
+  /* 3-color palette (legacy entries also kept) */
   --palette-teal: #3CC2B6; /* Teal - secondary accents */
-  --palette-teal-rgb: 60,194,182;
-
   --palette-periwinkle: #86A8E7; /* Periwinkle - ambient elements */
-  --palette-periwinkle-rgb: 134,168,231;
 
   /* full 3-color gradient for typography highlights / decorative borders */
   --accent-gradient: linear-gradient(90deg, var(--palette-cyan) 0%, var(--palette-teal) 50%, var(--palette-periwinkle) 100%);
@@ -122,13 +145,18 @@ html {
   --sem-magenta-rgb: 196,28,98;
 
   /* Primary accent exposed globally (use this for CTAs) */
-  --accent-primary: var(--palette-cyan);
-  --accent-primary-rgb: var(--palette-cyan-rgb);
+  /* (mapped earlier to --color-accent-cyan; duplicate removed) */
 
-  /* Keep the page background token available */
-  --bg-primary: #090D14; /* Deepest navy global background per design */
-  /* Card/container background should be slightly lighter than the global background so containers read as "cards" */
-  --card-bg: #0F172A;
+}
+
+/* Global heading styles to ensure accessible contrast */
+h1, h2, h3 {
+  color: var(--color-text-heading, #F9FAFB);
+}
+
+/* Helper class for highlighted name usage */
+.highlight-name {
+  color: var(--color-accent-gold);
 }
 
 /* Ambient "LED" glow per section (very faint, large radial gradients) */
