@@ -41,3 +41,4 @@ results.cta = { paletteCyan: palette.paletteCyan, contrast_textDark: contrast(pa
 fs.writeFileSync('./contrast-results.json', JSON.stringify(results, null, 2),'utf8');
 console.log(JSON.stringify(results, null, 2));
 
+
