@@ -187,10 +187,9 @@
 }
 
 .project-tag--go {
-    /* cyan tint */
-    background-color: rgba(28, 196, 196, 0.08);
-    color: #1CC4C4; /* cyan text */
-    border-color: rgba(28, 196, 196, 0.12);
+    background-color: rgba(0, 173, 216, 0.08); /* faint Go blue/cyan */
+    color: #00ADD8; /* Go's typical color */
+    border-color: rgba(0, 173, 216, 0.12);
 }
 
 /* Ensure tag text remains legible on hover */

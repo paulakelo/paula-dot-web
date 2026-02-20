@@ -81,8 +81,8 @@
 
 .social-link:hover {
     transform: translateY(-3px);
-    background: rgba(255,176,0,0.12);
-    color: #fff;
+    background: rgba(255,255,255,0.06); /* neutral hover */
+    color: var(--text-light);
 }
 
 .email-block {
@@ -96,6 +96,13 @@
     flex: 0 0 auto;
     width: 56px;
     height: 56px;
+    /* Make the icon inherit a color so we can override stroke via CSS */
+    color: #00ADD8; /* default cyan for the email icon */
+}
+
+/* Override inline SVG stroke colors for the email icon to use cyan (Go color) */
+.email-icon path {
+    stroke: #00ADD8 !important;
 }
 
 .email-link {
@@ -167,8 +174,8 @@
     justify-content: center;
     width: 100%;
     padding: 0.9rem 1rem;
-    background-color: var(--accent-primary);
-    color: var(--bg-primary);
+    background-color: #C47E1C; /* primary amber */
+    color: var(--bg-primary, #0f1115);
     font-weight: 800;
     font-size: 1rem;
     border: none;
@@ -179,7 +186,12 @@
 
 .send-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(255,176,0,0.14);
+    box-shadow: 0 8px 30px rgba(196,126,28,0.14);
+}
+
+.send-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(196,126,28,0.12);
 }
 
 /* Responsive: stack columns on small screens */
