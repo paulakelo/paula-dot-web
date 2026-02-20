@@ -1,14 +1,1 @@
-[
-  {
-    "id": "kenya-counties-api",
-    "title": "Kenya Counties API",
-    "subtitle": "Geospatial Data Service",
-    "description": "Fast and reliable REST API serving demographic, economic, and spatial data for all 47 counties in Kenya. Enables data-driven applications with sub-100ms response times.",
-    "tags": ["Go", "Gin", "PostGIS", "Docker"],
-    "github": "https://github.com/paula-dot/kenya-counties-api",
-    "demo": null,
-    "status": "In Development",
-    "category": "Data & APIs"
-  }
-]
-
+[]
