@@ -22,8 +22,8 @@ export default function Projects({ limit }) {
     });
 
     return (
-        <section className="projects-section" id="projects">
-            <div className="projects-header">
+        <section className="section-wrapper projects-section" id="projects">
+            <div className="section-container projects-header">
                 <h1 className="projects-title">Projects</h1>
                 <p className="projects-intro">
                     Case studies showcasing backend systems, APIs, and data engineering work.

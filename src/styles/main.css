@@ -45,6 +45,43 @@ section {
   scroll-margin-top: var(--header-offset, 72px);
 }
 
+/* New: structure to create card-like sections
+   Usage in HTML:
+   <section class="section-wrapper">
+     <div class="section-container hero-container">
+       ...content...
+     </div>
+   </section>
+*/
+.section-wrapper {
+  display: flex;
+  justify-content: center; /* center the card horizontally */
+  padding: 48px 16px;      /* generous outer spacing */
+  box-sizing: border-box;
+}
+
+.section-container {
+  width: 100%;
+  max-width: 1100px;       /* constrain content width */
+  background: var(--card-bg, rgba(15,23,42,0.95));
+  border-radius: 12px;
+  padding: 48px;
+  box-shadow: 0 8px 30px rgba(3,6,12,0.6);
+  border: 1px solid rgba(255,255,255,0.03); /* subtle edge to separate from background */
+  box-sizing: border-box;
+}
+
+/* Make inner padding smaller on small screens */
+@media (max-width: 640px) {
+  .section-wrapper {
+    padding: 32px 12px;
+  }
+  .section-container {
+    padding: 24px;
+    border-radius: 10px;
+  }
+}
+
 /* Enable smooth scrolling for user agents (respected by most browsers) */
 html {
   scroll-behavior: smooth;
@@ -89,7 +126,9 @@ html {
   --accent-primary-rgb: var(--palette-cyan-rgb);
 
   /* Keep the page background token available */
-  --bg-primary: #0F172A; /* Deep navy global background per design */
+  --bg-primary: #090D14; /* Deepest navy global background per design */
+  /* Card/container background should be slightly lighter than the global background so containers read as "cards" */
+  --card-bg: #0F172A;
 }
 
 /* Ambient "LED" glow per section (very faint, large radial gradients) */

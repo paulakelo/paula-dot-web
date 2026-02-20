@@ -8,8 +8,8 @@ export default function ContactSection() {
     };
 
     return (
-        <section className="contact-section" id="contact">
-            <div className="contact-card">
+        <section className="section-wrapper contact-section" id="contact">
+            <div className="section-container contact-card">
                 <div className="contact-left" aria-hidden="false">
                     <div className="left-cta">
                         <h3>Let’s build something great together</h3>

@@ -9,9 +9,8 @@ export default function Hero() {
     useParallax(visualRef)
 
     return (
-        <section className="hero-section" id="hero">
-            <div className="hero-card">
-                <div className="hero-container">
+        <section className="section-wrapper hero-section" id="hero">
+            <div className="section-container hero-card hero-container">
                 {/* LEFT COLUMN: Text Content */}
                 <div className="hero-content">
 
@@ -100,7 +99,6 @@ export default function Hero() {
                     </div>
                 </div>
 
-                </div>
             </div>
         </section>
     );

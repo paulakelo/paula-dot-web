@@ -4,49 +4,6 @@ import TechStack from '../TechStack/TechStack'
 import skillsData from '../../data/skills.json'
 
 export default function AboutSection() {
-    /*
-    const technicalInterests = [
-        "Distributed Systems",
-        "API and Microservice Architecture",
-        "Data Pipeline Development (ETL/ELT)",
-        "Database Design and Optimization",
-        "Event-Driven Systems",
-        "Infrastructure Automation and CI/CD",
-        "Observability and System Reliability"
-    ];
-
-    const techStack = {
-        languages: [
-            { name: "Go", desc: "Backend systems and high-performance services" },
-            { name: "Python", desc: "Data engineering, automation, and analytics" }
-        ],
-        databases: [
-            { name: "PostgreSQL", desc: null },
-            { name: "Redis", desc: null },
-            { name: "OLAP/Warehousing", desc: "Analytical data storage concepts" }
-        ],
-        infrastructure: [
-            { name: "Docker & Containerization", desc: null },
-            { name: "CI/CD Pipelines", desc: null },
-            { name: "Infrastructure as Code", desc: null },
-            { name: "Monitoring & Observability Tools", desc: null }
-        ]
-    };
-
-    const projectPhilosophy = [
-        "Scalable backend architectures",
-        "Data engineering workflows",
-        "Automated deployment pipelines",
-        "Real-world problem solving"
-    ];
-
-    const longTermGoals = [
-        "Become a Backend / Platform Engineer specializing in distributed data systems",
-        "Build open-source infrastructure and developer tools",
-        "Contribute to scalable financial and analytical technology systems"
-    ];
-    */
-
     // Map skills.json structure to TechStack's expected prop shape
     const techCategories = skillsData.map((cat) => ({
         id: (cat.category || cat.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-'),
@@ -55,10 +12,10 @@ export default function AboutSection() {
     }))
 
     return (
-        <section className="page-about" id="about">
+        <section className="section-wrapper page-about" id="about">
             {/* Non-visible anchor to support links that target #letsAbout */}
             <a id="letsAbout" style={{ display: 'block', height: 0, width: 0, overflow: 'hidden' }} aria-hidden="true" />
-            <div className="page-inner">
+            <div className="section-container page-inner">
                 {/* SECTION 1: HERO - About Me + Avatar */}
                 <div className="about-hero">
                     <div className="about-bio">
