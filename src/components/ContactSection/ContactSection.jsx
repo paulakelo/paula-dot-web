@@ -85,7 +85,7 @@ export default function ContactSection() {
                              ></textarea>
                          </div>
 
-                         <button type="submit" className="send-button">
+                         <button type="submit" className="btn btn-primary send-button">
                              <span>Send Message</span>
                          </button>
                      </form>

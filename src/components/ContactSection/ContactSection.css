@@ -201,38 +201,33 @@
 }
 
 .send-button {
+    /* Structural/layout-only: let .btn and .btn-primary provide colors and interactive styles */
+    width: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    padding: 0.9rem 1rem;
-    background-color: var(--color-accent-cyan, #22D3EE);
+}
+
+/* Ensure send-button text is white for sufficient contrast on the cyan background */
+.btn.btn-primary.send-button,
+.btn.btn-primary.send-button * {
     color: var(--color-text-dark, #0B1120);
-    border: none;
-    border-radius: 0.6rem;
-    cursor: pointer;
-    transition: all 200ms ease; /* match .btn transition timing */
 }
 
-.send-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    background-color: var(--color-accent-cyan-hover, #06B6D4);
+.btn.btn-primary.send-button:hover,
+.btn.btn-primary.send-button:focus {
+    color: var(--color-text-dark, #0B1120);
 }
 
-.send-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(245,158,11,0.25), 0 8px 20px rgba(0, 0, 0, 0.15);
+.btn.btn-primary.send-button:active {
+   color: var(--color-text-dark, #0B1120);
 }
 
-.send-button:active {
-    transform: translateY(0);
-}
-
-/* Neutralize the global magenta glow for this section (override) */
+/* Neutralize the global magenta glow for this section (override)
 .contact-section::before {
     display: none !important;
 }
+*/
 
 /* Responsive: stack columns on small screens */
 @media (max-width: 820px) {
