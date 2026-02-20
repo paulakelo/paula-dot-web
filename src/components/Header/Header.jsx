@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Header.css'
+import useActiveSection from '../../hooks/useActiveSection';
 
 export function Header() {
     const NAV_ITEMS = [
@@ -15,7 +16,7 @@ export function Header() {
     };
 
     const [open, setOpen] = useState(false);
-    const [active, setActive] = useState('hero');
+    const [active, setActive] = useActiveSection(NAV_ITEMS.map(i => i.id), { idFallback: ID_FALLBACK });
     const menuButtonRef = useRef(null);
 
     useEffect(() => {
@@ -55,29 +56,7 @@ export function Header() {
         };
     }, [open]);
 
-    useEffect(() => {
-        // Observe sections to update active nav item
-        const observerOptions = {
-            root: null,
-            rootMargin: '-40% 0px -50% 0px',
-            threshold: 0
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && entry.target.id) {
-                    setActive(entry.target.id);
-                }
-            });
-        }, observerOptions);
-
-        NAV_ITEMS.forEach(item => {
-            const el = document.getElementById(item.id) || document.getElementById(ID_FALLBACK[item.id]);
-            if (el) observer.observe(el);
-        });
-
-        return () => observer.disconnect();
-    }, []);
+    // useActiveSection hook handles observing and updating `active`
 
     const scrollToSection = (id) => {
         // try direct id, then fallback map if present

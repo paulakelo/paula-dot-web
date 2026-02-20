@@ -1,11 +1,18 @@
 .footer {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
+    background-color: var(--color-bg-main);
+    color: var(--color-text-body);
     text-align: center;
     padding: 32px 0 16px;
     margin-top: 0;
-    border-top: 1px solid hsla(35, 92%, 50%, 0.15);
     position: relative;
+}
+
+/* thin divider aligned with central container */
+.footer-divider {
+    border: none;
+    border-top: 1px solid hsla(35, 92%, 50%, 0.1);
+    opacity: 0.6;
+    margin: 0 0 20px;
 }
 
 /* Contact section in footer */
@@ -19,7 +26,7 @@
 .footer-heading {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--color-text-heading);
     margin: 0;
 }
 
@@ -28,8 +35,8 @@
     align-items: center;
     justify-content: center;
     padding: 12px 32px;
-    background-color: var(--accent-primary);
-    color: var(--bg-primary);
+    background-color: var(--color-accent-cyan);
+    color: var(--color-text-dark);
     font-size: 1rem;
     font-weight: 600;
     border-radius: 8px;
@@ -38,7 +45,7 @@
 }
 
 .footer-cta:hover {
-    background-color: hsl(var(--primary-light));
+    background-color: var(--color-accent-cyan-hover);
     transform: translateY(-2px);
     box-shadow: 0 4px 16px hsla(35, 92%, 50%, 0.3);
 }
@@ -46,11 +53,11 @@
 /* Footer bottom with copyright and socials */
 .footer-bottom {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* center content within the container */
     align-items: center;
     width: 100%;
-    padding-top: 20px;
-    border-top: 1px solid hsla(35, 92%, 50%, 0.1);
+    padding-top: 0;
+    gap: 16px;
 }
 
 /* Social links */
@@ -63,10 +70,6 @@
     align-items: center;
 }
 
-.social-links li {
-    display: inline-flex;
-}
-
 .social-links a {
     display: inline-flex;
     align-items: center;
@@ -74,31 +77,27 @@
     width: 40px;
     height: 40px;
     border-radius: 8px;
-    color: var(--text-primary);
+    color: var(--color-text-heading);
     text-decoration: none;
-    background: hsla(35, 92%, 50%, 0.1);
+    background: rgba(245,158,11,0.12);
     transition: all 200ms ease;
-    border: 1px solid hsla(35, 92%, 50%, 0.2);
+    border: 1px solid rgba(255,255,255,0.03);
 }
 
 .social-links a:hover,
 .social-links a:focus {
-    background: hsla(35, 92%, 50%, 0.2);
-    border-color: var(--accent-primary);
+    background: rgba(245,158,11,0.18);
+    border-color: var(--color-accent-cyan);
     transform: translateY(-2px);
     outline: none;
 }
 
-.social-links svg {
-    fill: currentColor;
-    width: 20px;
-    height: 20px;
-}
-
-.footer p {
+/* keep paragraph centered and constrained */
+.footer-bottom p {
     margin: 0;
     font-size: 0.875rem;
-    color: hsl(var(--text-muted));
+    color: var(--color-text-muted);
+    text-align: center;
 }
 
 /* Responsive */
