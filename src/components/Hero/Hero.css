@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     background: transparent;
-    min-height: 68vh; /* slightly reduced hero height to tighten section spacing */
+    min-height: 69vh; /* slightly reduced hero height to tighten section spacing */
 }
 
 /* Hero Card - borderless / full-width look */
@@ -28,7 +28,7 @@
 .hero-container {
     position: relative;
     /* width: 100%; */
-    width: 1600px;
+    width: 1400px;
     display: grid;
     grid-template-columns: 1.4fr 1fr;
     gap: 32px;

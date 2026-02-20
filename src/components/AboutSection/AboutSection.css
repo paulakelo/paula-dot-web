@@ -2,11 +2,27 @@
     color: inherit;
     background: transparent;
     /* further reduce top padding to tighten gap with hero */
-    padding: 0 16px 40px; /* top: 8px, right/left: 16px, bottom: 40px */
+    padding: 0 16px 34px; /* top: 8px, right/left: 16px, bottom: 40px */
     /* match hero card width/centering for consistent layout */
     max-width: 1700px;
     width: calc(100% - 32px);
     margin: 0 auto;
+}
+
+/* Ensure inner content doesn't grow too wide and stays centered */
+.page-about .page-inner {
+    max-width: 1100px; /* keep readable line-length */
+    margin: 0 auto;
+}
+
+/* Expand the outer container on very large viewports without changing inner centering */
+@media (min-width: 1600px) {
+    .page-about {
+        max-width: 2200px; /* allow more negative space on either side */
+    }
+    .page-about .page-inner {
+        max-width: 1400px; /* a wider reading column for very large screens */
+    }
 }
 
 /* Expose semantic tokens locally for About Section */

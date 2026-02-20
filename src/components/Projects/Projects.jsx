@@ -8,7 +8,7 @@ export default function Projects({ limit }) {
     return (
         <section className="section-wrapper projects-section" id="projects">
             {/* Put the entire two-column layout inside the shared section-container */}
-            <div className="section-container projects-container">
+            <div className="section-container page-inner">
                 <div className="projects-layout">
                     <div className="projects-left">
                         <div className="projects-header">

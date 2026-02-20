@@ -9,6 +9,22 @@
     margin: 0 auto;
 }
 
+/* Ensure inner content doesn't grow too wide and stays centered */
+.projects-section .page-inner {
+    max-width: 1100px; /* keep readable line-length */
+    margin: 0 auto;
+}
+
+/* Expand the outer container on very large viewports without changing inner centering */
+@media (min-width: 1600px) {
+    .projects-section {
+        max-width: 2200px;
+    }
+    .projects-section .page-inner {
+        max-width: 1400px; /* wider reading column for very large screens */
+    }
+}
+
 /* Expose semantic tokens locally */
 .projects-section {
     --sec-color: var(--sem-blue);
