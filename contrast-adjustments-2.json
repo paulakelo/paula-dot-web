@@ -1,0 +1,23 @@
+{
+  "bg": "#1C1C1C",
+  "results": {
+    "blue": {
+      "original": "#1C62C4",
+      "hsl": {
+        "h": 215,
+        "s": 75,
+        "l": 44
+      },
+      "found": null
+    },
+    "magenta": {
+      "original": "#C41C62",
+      "hsl": {
+        "h": 335,
+        "s": 75,
+        "l": 44
+      },
+      "found": null
+    }
+  }
+}

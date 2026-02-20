@@ -4,8 +4,7 @@ export default function ProjectCard({
     description,
     tags,
     github,
-    demo,
-    status
+    demo
 }) {
     return (
         <article className="project-card">
@@ -22,9 +21,12 @@ export default function ProjectCard({
 
                 {/* Tech Stack Tags */}
                 <div className="project-tags">
-                    {tags.map((tag, index) => (
-                        <span key={index} className="project-tag">{tag}</span>
-                    ))}
+                    {tags.map((tag, index) => {
+                        const slug = String(tag || '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                        return (
+                            <span key={index} className={`project-tag project-tag--${slug}`}>{tag}</span>
+                        )
+                    })}
                 </div>
 
                 {/* Links */}

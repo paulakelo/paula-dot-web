@@ -1,0 +1,38 @@
+{
+  "background": "#1C1C1C",
+  "pairs": {
+    "textPrimary": {
+      "hex": "#F4F4F4",
+      "contrast": 15.49
+    },
+    "textSecondary": {
+      "hex": "#CCCCCC",
+      "contrast": 10.61
+    },
+    "amber": {
+      "hex": "#C47E1C",
+      "contrast": 5.15
+    },
+    "green": {
+      "hex": "#1CC47E",
+      "contrast": 7.5
+    },
+    "cyan": {
+      "hex": "#1CB6C4",
+      "contrast": 6.93
+    },
+    "blue": {
+      "hex": "#1C62C4",
+      "contrast": 2.92
+    },
+    "magenta": {
+      "hex": "#C41C62",
+      "contrast": 2.99
+    }
+  },
+  "button": {
+    "amber": "#C47E1C",
+    "darkText": "#1C1C1C",
+    "contrast": 5.15
+  }
+}

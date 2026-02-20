@@ -350,7 +350,6 @@
 .service-card:hover {
     transform: translateY(-6px) scale(1.01);
     box-shadow: 0 20px 40px rgba(3,3,3,0.35);
-    border-color: rgba(255,255,255,0.06);
 }
 
 .service-card:active {
@@ -375,7 +374,43 @@
 .service-svg {
     width: 44px;
     height: 44px;
-    stroke: var(--accent-primary);
+    stroke: currentColor; /* inherit color from the parent for flexible accents */
+}
+
+/* New per-service accent colors */
+.service-card--backend-engineering {
+    color: #1C62C4; /* Blue for Backend Engineering */
+}
+
+.service-card--api-development {
+    color: #C41C62; /* Magenta for API Development */
+}
+
+.service-card--data-engineering {
+    color: #1CC47E; /* Green for Data Engineering */
+}
+
+/* hover glow effect per card using the card's color */
+.service-card {
+    position: relative; /* create stacking context for pseudo-element */
+    transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease, border-color 220ms ease;
+}
+
+/* subtle colored glow on hover */
+.service-card:hover::after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 30px currentColor; /* glow using the card's color */
+    opacity: 0.18;
+    transition: opacity 220ms ease, box-shadow 220ms ease;
+}
+
+/* strengthen border color slightly on hover to match accent */
+.service-card:hover {
+    border-color: rgba(255,255,255,0.06);
 }
 
 /* Responsive padding and spacing refinements */
@@ -497,4 +532,3 @@
         font-size: 0.95rem;
     }
 }
-

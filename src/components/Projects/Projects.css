@@ -173,6 +173,34 @@
     border: 1px solid hsla(35, 92%, 50%, 0.15);
 }
 
+/* Color-coded tag variants */
+.project-tag--docker {
+    background-color: rgba(28, 98, 196, 0.08); /* faint blue */
+    color: #1C62C4; /* vibrant blue text */
+    border-color: rgba(28, 98, 196, 0.12);
+}
+
+.project-tag--postgis {
+    background-color: rgba(28, 196, 126, 0.08); /* faint green */
+    color: #1CC47E; /* vibrant green text */
+    border-color: rgba(28, 196, 126, 0.12);
+}
+
+.project-tag--go {
+    /* cyan tint */
+    background-color: rgba(28, 196, 196, 0.08);
+    color: #1CC4C4; /* cyan text */
+    border-color: rgba(28, 196, 196, 0.12);
+}
+
+/* Ensure tag text remains legible on hover */
+.project-tag--docker:hover,
+.project-tag--postgis:hover,
+.project-tag--go:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
 /* Key Metric */
 .project-metric {
     display: flex;

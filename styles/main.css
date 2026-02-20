@@ -14,11 +14,27 @@
         --text-primary: #F4F4F4;
         --surface-secondary: #D4C5B0;
         /* Primary accent shifted to a more vibrant amber/burnt-orange for better contrast */
-        --accent-primary: #F59E0B; /* Amber */
+        --accent-primary: #C47E1C; /* Amber (semantic primary CTA) */
 
-        /* HSL variants for compatibility */
-        /* HSL values tuned for the new amber accent (approx values for #F59E0B) */
-        --primary: 35 92% 50%; /* Amber */
+        /* Semantic double split-complementary palette
+           - amber: primary CTA
+           - green, cyan, blue, magenta: categorical accents
+        */
+        --sem-amber: #C47E1C; /* Primary CTA */
+        --sem-green:  #1CC47E; /* Category: Green */
+        --sem-cyan:   #1CB6C4; /* Category: Cyan/Teal */
+        /* NOTE: original sem-blue (#1C62C4) failed WCAG contrast against dark background.
+           Replaced by an AA-accessible variant below. AAA candidate is provided as fallback. */
+        --sem-blue:   #4A85D9; /* adjusted for WCAG AA (contrast ~4.58) */
+        --sem-blue-aaa: #81AAE4; /* AAA candidate (contrast ~7.14) */
+        /* NOTE: original sem-magenta (#C41C62) failed WCAG contrast against dark background.
+           Replaced by an AA-accessible variant below. AAA candidate is provided as fallback. */
+        --sem-magenta:#EC3C85; /* adjusted for WCAG AA (contrast ~4.51) */
+        --sem-magenta-aaa: #E78DB3; /* AAA candidate (contrast ~7.19) */
+
+        /* HSL variants for compatibility (legacy references) */
+        /* Keep existing primary HSL as-is to avoid surprising global shifts; adjust only if desired later */
+        --primary: 35 92% 50%; /* approximate amber HSL (kept for compatibility) */
         --primary-light: 35 96% 62%;
         --primary-dark: 35 85% 40%;
         --primary-muted: 35 40% 16%;

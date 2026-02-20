@@ -51,8 +51,8 @@ export default function Hero() {
                         <svg viewBox="0 0 480 320" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="g1" x1="0" x2="1">
-                                    <stop offset="0%" stopColor="#FFB86C" stopOpacity="0.95" />
-                                    <stop offset="100%" stopColor="#F59E0B" stopOpacity="0.95" />
+                                    <stop offset="0%" stopColor="#F59E0B" stopOpacity="0.95" />
+                                    <stop offset="100%" stopColor="#C47E1C" stopOpacity="0.95" />
                                 </linearGradient>
                                 <filter id="s1" x="-50%" y="-50%" width="200%" height="200%">
                                     <feDropShadow dx="0" dy="8" stdDeviation="12" floodColor="#000" floodOpacity="0.25" />
@@ -69,27 +69,32 @@ export default function Hero() {
                             {/* main nodes (wrapped so pointer transforms compose with animation) */}
                             <g>
                                 <g className="node-wrap node-wrap-1" filter="url(#s1)">
-                                    <circle className="node node-1" cx="100" cy="80" r="16" fill="url(#g1)" />
+                                    {/* node-1: green fill */}
+                                    <circle className="node node-1 sem-green" cx="100" cy="80" r="16" />
                                 </g>
                                 <g className="node-wrap node-wrap-2" filter="url(#s1)">
-                                    <circle className="node node-2" cx="380" cy="80" r="12" fill="#0f172a" stroke="url(#g1)" strokeWidth="3" />
+                                    {/* node-2: dark fill with cyan stroke */}
+                                    <circle className="node node-2 fill-dark stroke-cyan" cx="380" cy="80" r="12" strokeWidth="3" />
                                 </g>
                                 <g className="node-wrap node-wrap-3" filter="url(#s1)">
-                                    <circle className="node node-3" cx="240" cy="150" r="14" fill="#0b1220" stroke="#374151" strokeWidth="2" />
+                                    {/* node-3: magenta fill with subtle stroke */}
+                                    <circle className="node node-3 sem-magenta" cx="240" cy="150" r="14" />
                                 </g>
                                 <g className="node-wrap node-wrap-4" filter="url(#s1)">
-                                    <circle className="node node-4" cx="60" cy="220" r="12" fill="#071025" stroke="#475569" strokeWidth="2" />
+                                    {/* node-4: dark fill with amber stroke */}
+                                    <circle className="node node-4 fill-dark stroke-amber" cx="60" cy="220" r="12" strokeWidth="2" />
                                 </g>
                                 <g className="node-wrap node-wrap-5" filter="url(#s1)">
-                                    <circle className="node node-5" cx="300" cy="220" r="14" fill="url(#g1)" />
+                                    {/* node-5: blue fill */}
+                                    <circle className="node node-5 sem-blue" cx="300" cy="220" r="14" />
                                 </g>
                             </g>
 
                             {/* accent points (animated subtly) */}
                             <g>
-                                <g className="accent-wrap accent-wrap-1"><circle className="accent accent-1" cx="160" cy="60" r="4" fill="#FFB86C" opacity="0.9" /></g>
-                                <g className="accent-wrap accent-wrap-2"><circle className="accent accent-2" cx="200" cy="200" r="5" fill="#F59E0B" opacity="0.85" /></g>
-                                <g className="accent-wrap accent-wrap-3"><circle className="accent accent-3" cx="320" cy="140" r="3" fill="#FBBF24" opacity="0.8" /></g>
+                                <g className="accent-wrap accent-wrap-1"><circle className="accent accent-1 sem-green" cx="160" cy="60" r="4" opacity="0.9" /></g>
+                                <g className="accent-wrap accent-wrap-2"><circle className="accent accent-2 sem-cyan" cx="200" cy="200" r="5" opacity="0.85" /></g>
+                                <g className="accent-wrap accent-wrap-3"><circle className="accent accent-3 sem-magenta" cx="320" cy="140" r="3" opacity="0.8" /></g>
                             </g>
                         </svg>
                     </div>

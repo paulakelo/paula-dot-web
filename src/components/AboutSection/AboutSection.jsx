@@ -1,5 +1,7 @@
 import './AboutSection.css'
 import services from './services'
+import TechStack from '../TechStack/TechStack'
+import skillsData from '../../data/skills.json'
 
 export default function AboutSection() {
     /*
@@ -45,6 +47,13 @@ export default function AboutSection() {
     ];
     */
 
+    // Map skills.json structure to TechStack's expected prop shape
+    const techCategories = skillsData.map((cat) => ({
+        id: (cat.category || cat.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+        title: cat.category || cat.title,
+        tech: (cat.skills || []).map((s) => ({ name: s.name, href: s.link || undefined, icon: s.logo || undefined }))
+    }))
+
     return (
         <section className="page-about" id="about">
             {/* Non-visible anchor to support links that target #letsAbout */}
@@ -67,16 +76,23 @@ export default function AboutSection() {
                 {/* Insert the services grid here (no title) */}
                 <div className="mt-12">
                     <div className="services-grid">
-                        {services.map((service, index) => (
-                            <div key={index} className="service-card">
-                                <div className="service-icon-wrap">
-                                    {service.icon}
+                        {services.map((service, index) => {
+                            // create a slug from the title to use as a per-service modifier class
+                            const slug = (service.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                            return (
+                                <div key={index} className={`service-card service-card--${slug}`}>
+                                    <div className="service-icon-wrap">
+                                        {service.icon}
+                                    </div>
+                                    <h3 className="service-title">{service.title}</h3>
+                                    <p className="service-desc">{service.description}</p>
                                 </div>
-                                <h3 className="service-title">{service.title}</h3>
-                                <p className="service-desc">{service.description}</p>
-                            </div>
-                        ))}
+                            )
+                        })}
                     </div>
+
+                    {/* Render TechStack directly under the services grid */}
+                    <TechStack categories={techCategories} />
                 </div>
 
             </div>

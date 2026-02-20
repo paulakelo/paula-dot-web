@@ -1,23 +1,23 @@
 .hero-section {
     position: relative;
     width: 100%;
-    padding: 80px 16px;
+    padding: 100px 16px; /* increased vertical padding for breathing room */
     display: flex;
     align-items: center;
     justify-content: center;
     background: transparent;
-    min-height: 80vh;
+    min-height: 80vh; /* keep the grand entrance height */
 }
 
-/* Hero Card - Glassmorphism container */
+/* Hero Card - borderless / full-width look */
 .hero-card {
     background: rgba(28, 28, 28, 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-radius: 16px;
-    border: 1px solid hsla(35, 92%, 50%, 0.15);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    padding: 48px;
+    border-radius: 0; /* remove rounded corners to break out of the box */
+    border: none; /* remove visible border */
+    box-shadow: none; /* remove card shadow */
+    padding: 64px; /* a bit more interior space */
     max-width: 100%;
     width: calc(100% - 32px);
     margin: 0 auto;
@@ -31,6 +31,15 @@
     grid-template-columns: 1.4fr 1fr;
     gap: 32px;
     align-items: center;
+}
+
+/* Expose semantic color CSS variables locally to simplify reference in this component */
+.hero-card {
+    --c-amber: var(--sem-amber, #C47E1C);
+    --c-green: var(--sem-green, #1CC47E);
+    --c-cyan: var(--sem-cyan, #1CB6C4);
+    --c-blue: var(--sem-blue, #1C62C4);
+    --c-magenta: var(--sem-magenta, #C41C62);
 }
 
 .hero-content {
@@ -48,7 +57,7 @@
 .hero-name {
     font-size: clamp(2rem, 5.2vw, 3rem);
     font-weight: 900;
-    color: var(--accent-primary);
+    color: var(--c-amber);
     margin: 0;
     line-height: 1;
     letter-spacing: 0.05em;
@@ -56,7 +65,7 @@
 
 /* Greeting */
 .hero-greeting {
-    font-size: 2rem;
+    font-size: 0.95rem; /* reduced to a subtle micro-label */
     color: hsl(var(--text-muted));
     margin: 0;
     font-weight: 600;
@@ -78,8 +87,9 @@
     color: var(--text-primary);
 }
 
+/* Use cyan -> blue gradient for the 'Backend & Data Engineering' semantic accent */
 .title-accent {
-    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--surface-secondary) 100%);
+    background: linear-gradient(90deg, var(--c-cyan) 0%, var(--c-blue) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -109,27 +119,51 @@
     font-weight: 600;
     border-radius: 8px;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease, background-color 220ms ease, border-color 220ms ease, filter 220ms ease;
     cursor: pointer;
 }
 
 .btn-primary {
-    background: var(--accent-primary);
+    background: var(--c-amber);
     color: var(--bg-primary);
     border: none;
     box-shadow: 0 4px 12px hsla(35, 92%, 50%, 0.25);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus {
     background: hsl(var(--primary-light));
     transform: translateY(-2px);
-    box-shadow: 0 6px 16px hsla(35, 92%, 50%, 0.35);
+    box-shadow: 0 8px 22px hsla(35, 92%, 50%, 0.35);
+    filter: brightness(1.04);
 }
 
+.btn-primary:active {
+    transform: translateY(-1px) scale(0.997);
+}
+
+/* Secondary (outline) button: brighter border and subtle amber hover */
 .btn-outline {
     background: transparent;
     color: var(--text-primary);
-    border: 2px solid hsla(35, 92%, 50%, 0.3);
+    border: 2px solid hsla(35, 92%, 50%, 0.45); /* brighter outline */
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+    background: rgba(245,158,11,0.08); /* ~8-10% amber */
+    border-color: hsla(35, 92%, 50%, 0.65);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(245,158,11,0.06);
+}
+
+.btn-outline:active {
+    transform: translateY(-1px) scale(0.997);
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(245,158,11,0.09); /* accessible focus ring */
 }
 
 /* Right column visual */
@@ -153,7 +187,7 @@
 
 .node-graph svg { display: block; width: 100%; height: auto; }
 
-/* ambient glow behind the graph */
+/* ambient glow behind the graph - shift to amber semantic color */
 .node-graph::before {
     content: "";
     position: absolute;
@@ -162,13 +196,31 @@
     transform: translate(-50%, -50%);
     width: 220px;
     height: 140px;
-    background: radial-gradient(circle at center, rgba(245,158,11,0.12) 0%, rgba(245,158,11,0.05) 30%, transparent 60%);
+    background: radial-gradient(circle at center, rgba(196,126,28,0.14) 0%, rgba(196,126,28,0.06) 30%, transparent 60%);
     filter: blur(26px);
     z-index: -1;
     pointer-events: none;
 }
 
-.hero-visual:hover .node-graph { transform: translateY(-4px); }
+/* allow SVG nodes to use CSS variables for their fills via currentColor helpers */
+.node-graph svg .node { transition: fill 200ms ease, stroke 200ms ease; }
+
+/* helper classes for sem colors (apply by class or use inline style) */
+.sem-amber { fill: var(--c-amber) !important; }
+.sem-green  { fill: var(--c-green) !important; }
+.sem-cyan   { fill: var(--c-cyan) !important; }
+.sem-blue   { fill: var(--c-blue) !important; }
+.sem-magenta{ fill: var(--c-magenta) !important; }
+
+/* Stroke helpers use same semantic tokens */
+.stroke-amber { stroke: var(--c-amber) !important; }
+.stroke-green { stroke: var(--c-green) !important; }
+.stroke-cyan  { stroke: var(--c-cyan) !important; }
+.stroke-blue  { stroke: var(--c-blue) !important; }
+.stroke-magenta { stroke: var(--c-magenta) !important; }
+
+/* Dark fill helper for nodes that intentionally use a dark interior */
+.fill-dark { fill: #0f172a !important; }
 
 /* Node animations */
 @keyframes floatY {
@@ -220,7 +272,7 @@
 
 /* Slight color brighten on hover for the whole visual */
 .hero-visual:hover .node-graph svg .node-1, .hero-visual:hover .node-graph svg .node-5 {
-    filter: drop-shadow(0 6px 14px rgba(245,158,11,0.22));
+    filter: drop-shadow(0 6px 14px rgba(196,126,28,0.22));
 }
 
 /* Ensure transforms are smooth */

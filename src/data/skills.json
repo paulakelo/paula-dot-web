@@ -13,7 +13,10 @@
       { "name": "Django", "logo": "https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white", "link": "https://www.djangoproject.com/" },
       { "name": "FastAPI", "logo": "https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white", "link": "https://fastapi.tiangolo.com/" },
       { "name": "REST", "logo": "https://img.shields.io/badge/REST-FF6F00?style=for-the-badge&logo=api&logoColor=white", "link": "https://restfulapi.net/" },
-      { "name": "Docker", "logo": "https://img.shields.io/badge/Docker-1D63ED?style=for-the-badge&logo=docker&logoColor=white", "link": "https://www.docker.com/" }
+      { "name": "Docker", "logo": "https://img.shields.io/badge/Docker-1D63ED?style=for-the-badge&logo=docker&logoColor=white", "link": "https://www.docker.com/" },
+      { "name": "TypeScript" },
+      { "name": "SQL" },
+      { "name": "Git" }
     ]
   },
   {
@@ -39,6 +42,14 @@
       { "name": "QGIS", "logo": "https://img.shields.io/badge/QGIS-589632?style=for-the-badge&logo=qgis&logoColor=white", "link": "https://qgis.org/" },
       { "name": "GRASS GIS", "logo": "https://img.shields.io/badge/GRASS--GIS-77B829?style=for-the-badge", "link": "https://grass.osgeo.org/" },
       { "name": "PostGIS", "logo": "https://img.shields.io/badge/PostGIS-4288B0?style=for-the-badge&logo=postgresql&logoColor=white", "link": "https://postgis.net/" }
+    ]
+  },
+  {
+    "category": "DevOps & Infrastructure",
+    "skills": [
+      { "name": "Linux" },
+      { "name": "CI/CD" },
+      { "name": "AWS / GCP" }
     ]
   }
 ]
