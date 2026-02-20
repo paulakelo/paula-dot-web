@@ -1,12 +1,12 @@
 .hero-section {
     position: relative;
     width: 100%;
-    padding: 48px 16px;
+    padding: 80px 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: transparent;
-    min-height: auto;
+    min-height: 80vh;
 }
 
 /* Hero Card - Glassmorphism container */

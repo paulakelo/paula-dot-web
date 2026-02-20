@@ -4,7 +4,6 @@ export default function AboutSection() {
     const professionalFocus = [
         "Backend Software Engineering",
         "Data Engineering",
-        "DevOps & Platform Engineering"
     ];
 
     const technicalInterests = [

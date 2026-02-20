@@ -1,17 +1,5 @@
 [
   {
-    "id": "knbs-open-data-api",
-    "title": "KNBS Open Data API",
-    "subtitle": "RESTful Data Access Layer",
-    "description": "A high-performance RESTful API providing structured access to Kenya National Bureau of Statistics datasets. Built for data analysts and developers who need reliable, well-documented access to national statistics.",
-    "tags": ["Python", "FastAPI", "PostgreSQL", "Redis"],
-    "metric": { "value": "50+", "label": "Datasets Available" },
-    "github": "https://github.com/paula-dot/knbs-open-data-api",
-    "demo": null,
-    "status": "In Development",
-    "category": "Data & APIs"
-  },
-  {
     "id": "kenya-counties-api",
     "title": "Kenya Counties API",
     "subtitle": "Geospatial Data Service",
@@ -21,39 +9,6 @@
     "demo": null,
     "status": "In Development",
     "category": "Data & APIs"
-  },
-  {
-    "id": "geocoding-microservice",
-    "title": "Geocoding Microservice",
-    "subtitle": "Address Standardization Engine",
-    "description": "A containerized microservice that standardizes addresses and performs geocoding for accurate mapping. Features batch processing and caching for high-throughput scenarios.",
-    "tags": ["Go", "Redis", "Docker", "REST"],
-    "github": "https://github.com/paula-dot/geocoding-standardization-microservice",
-    "demo": null,
-    "status": "In Development",
-    "category": "Geospatial Services"
-  },
-  {
-    "id": "go-financial-aggregator",
-    "title": "Financial Aggregator",
-    "subtitle": "Personal Finance Backend",
-    "description": "A Go-based personal finance aggregator that consolidates transactions from multiple sources. Features AI-driven categorization and spending insights with event-driven architecture.",
-    "tags": ["Go", "PostgreSQL", "Redis", "AI"],
-    "github": "https://github.com/paula-dot/go-financial-aggregator",
-    "demo": null,
-    "status": "In Development",
-    "category": "Personal Projects"
-  },
-  {
-    "id": "echograph",
-    "title": "EchoGraph",
-    "subtitle": "Music Analytics Platform",
-    "description": "A personal music tracking and analytics platform inspired by Last.fm. Monitor listening habits, discover patterns, and receive smart recommendations powered by ML.",
-    "tags": ["Go", "React", "PostgreSQL", "ML"],
-    "github": "https://github.com/paula-dot/echoGraph",
-    "demo": null,
-    "status": "In Development",
-    "category": "Personal Projects"
   }
 ]
 
