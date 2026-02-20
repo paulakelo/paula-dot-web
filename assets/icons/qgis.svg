@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="QGIS logo">
+  <title>QGIS</title>
+  <rect width="128" height="128" rx="16" fill="#589632"/>
+  <text x="64" y="86" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#fff">QGIS</text>
+</svg>

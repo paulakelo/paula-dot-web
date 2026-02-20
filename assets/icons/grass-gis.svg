@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="GRASS GIS logo">
+  <title>GRASS GIS</title>
+  <rect width="128" height="128" rx="16" fill="#77B829"/>
+  <text x="64" y="86" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#fff">GRASS</text>
+</svg>

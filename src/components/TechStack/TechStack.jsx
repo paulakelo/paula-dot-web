@@ -4,6 +4,12 @@ import './TechStack.css'
 export default function TechStack({ categories = [] }) {
   if (!categories || categories.length === 0) return null
 
+  const handleImgError = (e, fallback) => {
+    if (fallback && e.target.src !== fallback) {
+      e.target.src = fallback
+    }
+  }
+
   return (
     <section className="techstack-section" aria-labelledby="techstack-heading">
       <div className="techstack-inner">
@@ -24,9 +30,18 @@ export default function TechStack({ categories = [] }) {
                         aria-label={item.name}
                         title={item.name}
                       >
-                        {/* Show only the badge/icon; remove duplicate plain text for visual clarity */}
                         {item.icon ? (
-                          <img src={item.icon} alt={item.name} className="tech-pill-icon" />
+                          <img
+                            src={item.icon}
+                            alt={item.name}
+                            className="tech-pill-icon"
+                            loading="lazy"
+                            decoding="async"
+                            role="img"
+                            width="64"
+                            height="64"
+                            onError={(e) => handleImgError(e, item.externalIcon)}
+                          />
                         ) : (
                           <span className="tech-pill-fallback" aria-hidden="true">{item.name}</span>
                         )}
@@ -34,7 +49,17 @@ export default function TechStack({ categories = [] }) {
                     ) : (
                       <span className="tech-pill" tabIndex={0} aria-label={item.name} title={item.name}>
                         {item.icon ? (
-                          <img src={item.icon} alt={item.name} className="tech-pill-icon" />
+                          <img
+                            src={item.icon}
+                            alt={item.name}
+                            className="tech-pill-icon"
+                            loading="lazy"
+                            decoding="async"
+                            role="img"
+                            width="64"
+                            height="64"
+                            onError={(e) => handleImgError(e, item.externalIcon)}
+                          />
                         ) : (
                           <span className="tech-pill-fallback" aria-hidden="true">{item.name}</span>
                         )}

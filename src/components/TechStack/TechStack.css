@@ -12,11 +12,24 @@
   color: #e6e6e6;
 }
 
+/* Grid: keep up to 3 columns on wide screens, 2 on medium, 1 on small */
 .techstack-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .techstack-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .techstack-grid {
+    grid-template-columns: 1fr; /* stack categories vertically on mobile */
+  }
 }
 
 .tech-category__title {
@@ -40,8 +53,8 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 9999px;
-  font-size: 0.9rem;
+  border-radius: 8px; /* reduced from fully pill to slightly rounded to better host square icons */
+  font-size: 0.95rem;
   line-height: 1;
   background: rgba(var(--palette-teal-rgb), 0.06); /* subtle wash */
   color: var(--text-primary);
@@ -49,15 +62,29 @@
   text-decoration: none;
   transition: border-color .16s ease, box-shadow .16s ease, transform .14s ease, background .16s ease;
   width: auto;
-  height: 40px; /* consistent pill height to show single badge */
-  padding: 0.4rem 0.5rem; /* consistent padding */
+  height: 64px; /* larger square-friendly height */
+  padding: 0.5rem 0.75rem; /* consistent padding */
 }
 
 .tech-pill-icon {
-  width: 28px;
-  height: 28px;
+  width: 48px;
+  height: 48px;
   display: block;
   object-fit: contain;
+  /* Ensure crisp rendering on high-DPI displays */
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Increase icon size a touch on small screens to aid tap targets */
+@media (max-width: 640px) {
+  .tech-pill {
+    height: 72px; /* slightly larger tap target on mobile */
+    padding: 0.6rem 0.8rem;
+  }
+  .tech-pill-icon {
+    width: 56px;
+    height: 56px;
+  }
 }
 
 .tech-pill-fallback {

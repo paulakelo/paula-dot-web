@@ -8,13 +8,26 @@
     font-size: 2.25rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 2.75rem;
+   margin-bottom: 2.75rem;
 }
 
+/* Desktop: 3 columns, Tablet: 2, Mobile: 1 */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.75rem;
+}
+
+@media (max-width: 1024px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .skills-grid {
+        grid-template-columns: 1fr; /* stack to single column on small screens */
+    }
 }
 
 .skills-card {
@@ -50,8 +63,23 @@
     font-size: 0.9rem;
     display: flex;
     justify-content: flex-start;
-    align-items: inherit;
+    align-items: center;
     border: 1px solid rgba(var(--palette-teal-rgb),0.16);
+}
+
+/* Make the badges square and larger */
+.skill-badge {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    display: block;
+}
+
+@media (max-width: 640px) {
+    .skill-badge {
+        width: 72px;
+        height: 72px;
+    }
 }
 
 /* compact modifier keeps items tighter */

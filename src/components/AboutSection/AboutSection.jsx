@@ -8,7 +8,16 @@ export default function AboutSection() {
     const techCategories = skillsData.map((cat) => ({
         id: (cat.category || cat.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-'),
         title: cat.category || cat.title,
-        tech: (cat.skills || []).map((s) => ({ name: s.name, href: s.link || undefined, icon: s.logo || undefined }))
+        tech: (cat.skills || []).map((s) => {
+            const slug = (s.name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-')
+            return {
+                name: s.name,
+                href: s.link || undefined,
+                // prefer a local svg at /assets/icons/{slug}.svg; fall back to the original logo URL at runtime
+                icon: `/assets/icons/${slug}.svg`,
+                externalIcon: s.logo || undefined
+            }
+        })
     }))
 
     return (
@@ -22,9 +31,9 @@ export default function AboutSection() {
                         <div className="bio-block">
                             <h2 className="page-title">About Me</h2>
                             <p className="bio-statement">
-                                I specialize in designing and building scalable backend systems,
-                                data pipelines, and infrastructure automation tools. My work emphasizes
-                                reliability, performance, and clean system architecture. Outside of backend engineering, I have a passion for Geospatial Data Science and GIS.
+                                I'm a backend engineer who transforms complex data into reliable, scalable systems.
+                                I specialize in building robust data pipelines, infrastructure automation, and clean architectures that drive performance.
+                                When I'm not optimizing databases, I'm diving into Geospatial Data Science and GIS, exploring the intersection of spatial data and software.
                             </p>
                         </div>
                     </div>
@@ -35,7 +44,7 @@ export default function AboutSection() {
                     <div className="services-grid">
                         {services.map((service, index) => {
                             // create a slug from the title to use as a per-service modifier class
-                            const slug = (service.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+                            const slug = (service.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-')
                             return (
                                 <div key={index} className={`service-card service-card--${slug}`}>
                                     <div className="service-icon-wrap">
