@@ -1,15 +1,26 @@
-@tailwind base;
-@tailwind components;
+@import "tailwindcss/preflight";
 @tailwind utilities;
 
 @layer base {
-  /* Combined global variables and helpers (merged from styles/main.css and original src/styles/main.css) */
+  /* Combined global variables and helpers (new semantic names only) */
   :root {
-    /* Core palette and semantic tokens (from styles/main.css) */
-    --bg-primary: #1C1C1C;
-    --text-primary: #F4F4F4;
+    /* Page & surface */
+    --color-bg-main: #0B1120;
+    --color-bg-card: #171E2E;
+    --color-bg-input: #1F2937;
 
-    /* New 3-color palette (accessible cool accents) */
+    /* Typography */
+    --color-text-heading: #F9FAFB; /* headings */
+    --color-text-body: #9CA3AF;    /* body text */
+    --color-text-muted: #6B7280;
+    --color-text-dark: #0B1120;    /* dark ink for light elements */
+
+    /* Primary accent (cyan) and secondary gold */
+    --color-accent-cyan: #22D3EE;
+    --color-accent-cyan-hover: #06B6D4;
+    --color-accent-gold: #F59E0B;
+
+    /* Palette tokens used by decorative elements */
     --palette-cyan: #5FFBF1;
     --palette-cyan-rgb: 95,251,241;
     --palette-teal: #3CC2B6;
@@ -17,12 +28,7 @@
     --palette-periwinkle: #86A8E7;
     --palette-periwinkle-rgb: 134,168,231;
 
-    /* Primary accent (amber) */
-    --accent-primary: #C47E1C;
-
-    /* Semantic colours (legacy & adjusted) */
-    --sem-amber: #C47E1C;
-    --sem-amber-rgb: 196,126,28;
+    /* Semantic accents (RGB for subtle glows) */
     --sem-cyan: var(--palette-cyan);
     --sem-cyan-rgb: var(--palette-cyan-rgb);
     --sem-green: var(--palette-teal);
@@ -32,88 +38,14 @@
     --sem-magenta: #EC3C85;
     --sem-magenta-rgb: 236,60,133;
 
-    /* HSL compatibility tokens (legacy) */
-    --primary: 35 92% 50%;
-    --primary-light: 35 96% 62%;
-    --primary-dark: 35 85% 40%;
-    --primary-muted: 35 40% 16%;
-
-    --accent: 35 92% 50%;
-    --accent-light: 35 96% 62%;
-    --accent-dark: 35 85% 40%;
-    --accent-muted: 35 32% 18%;
-
-    --accent-secondary: #7FBF9A;
-    --accent-secondary-hsl: 140 25% 60%;
-
-    /* Text and surface tokens */
-    --text-primary-hsl: 0 0% 96%;
-    --text-secondary: 0 0% 80%;
-    --text-muted: 0 0% 60%;
-    --text-inverted: 0 0% 11%;
-
-    --surface: 0 0% 11%;
-    --surface-raised: 0 0% 15%;
-    --surface-sunken: 0 0% 8%;
-    --surface-card: 38 20% 76%;
-
-    --border: 0 0% 20%;
-    --border-light: 0 0% 25%;
-    --border-focus: 35 92% 50%;
-
-    /* Legacy map tones (remapped) */
-    --map-water: 35 92% 50%;
-    --map-water-deep: 0 0% 8%;
-    --map-forest: 0 0% 15%;
-    --map-moss: 0 0% 18%;
-    --map-sand: 38 20% 76%;
-    --map-stone: 0 0% 35%;
-    --map-muted: 0 0% 55%;
-    --map-ink: 0 0% 96%;
-    --map-paper: 0 0% 11%;
-    --brand-black: 0 0% 8%;
-    --brand-gold: 35 92% 50%;
-
-    /* --- Tokens from src/styles/main.css (preserved and mapped) --- */
+    /* Header offset used for scroll-margin-top */
     --header-offset: 72px;
 
-    /* New semantic variables for the src theme (higher specificity, keep them after legacy tokens so they can override if needed) */
-    --color-bg-main: #0B1120;
-    --color-bg-card: #171E2E;
-    --color-bg-input: #1F2937;
-
-    --color-text-heading: #F9FAFB;
-    --color-text-body: #9CA3AF;
-    --color-text-dark: #0B1120;
-
-    --color-accent-cyan: #22D3EE;
-    --color-accent-gold: #F59E0B;
-    --color-accent-cyan-hover: #06B6D4;
-
-    /* Backwards compatibility mapping */
-    --card-bg: var(--color-bg-card);
-    --palette-cyan-rgb: 34,211,238; /* prefer the rgb from src theme for some gradients */
-    --palette-cyan: var(--color-accent-cyan);
-    --accent-primary: var(--color-accent-cyan);
-    --palette-teal: #3CC2B6;
-    --palette-periwinkle: #86A8E7;
-
-    --sem-cyan: var(--palette-cyan);
-    --sem-cyan-rgb: var(--palette-cyan-rgb);
-    --sem-green: var(--palette-teal);
-    --sem-green-rgb: var(--palette-teal-rgb);
-    --sem-blue-rgb: 74,133,217;
-
-    --sem-magenta-rgb: 196,28,98; /* keep a magenta rgb mapping for older rules */
-
-    /* Accent gradient (keeps both styles' approaches) */
+    /* Accent gradient */
     --accent-gradient: linear-gradient(90deg, var(--palette-cyan) 0%, var(--palette-teal) 50%, var(--palette-periwinkle) 100%);
-
-    /* Additional semantic fallbacks */
-    --sem-amber-rgb: 196,126,28;
   }
 
-  /* Ambient "LED" glow per section (deduplicated and consolidated) */
+  /* Ambient "LED" glow per section */
   .hero-section,
   .page-about,
   .projects-section,
@@ -180,58 +112,58 @@
     border: 1px solid rgba(0, 0, 0, 0.06);
   }
 
-  /* Utility classes for quick use (preserved) */
-  .bg-water { background-color: hsl(var(--map-water)); color: white; }
-  .bg-forest { background-color: hsl(var(--map-forest)); color: white; }
-  .bg-moss { background-color: hsl(var(--map-moss)); color: white; }
-  .bg-sand { background-color: hsl(var(--map-sand)); color: var(--map-ink); }
+  /* Utility classes (updated to use new tokens) */
+  .bg-water { background-color: var(--palette-cyan); color: white; }
+  .bg-forest { background-color: var(--palette-teal); color: white; }
+  .bg-moss { background-color: rgba(60,194,182,0.9); color: white; }
+  .bg-sand { background-color: var(--palette-periwinkle); color: var(--color-text-dark); }
 
-  .text-stone { color: hsl(var(--map-stone)); }
-  .text-water-deep { color: hsl(var(--map-water-deep)); }
-  .text-black-strong { color: hsl(var(--brand-black)); }
+  .text-stone { color: var(--color-text-muted); }
+  .text-water-deep { color: #0B1120; }
+  .text-black-strong { color: var(--color-text-dark); }
 
-  .text-primary-color { color: hsl(var(--primary)); }
-  .bg-primary { background-color: hsl(var(--primary)); color: white; }
-  .bg-primary-light { background-color: hsl(var(--primary-light)); color: white; }
-  .bg-primary-muted { background-color: hsl(var(--primary-muted)); }
-  .border-primary { border-color: hsl(var(--primary)); }
+  .text-primary-color { color: var(--color-accent-cyan); }
+  .bg-primary { background-color: var(--color-accent-cyan); color: white; }
+  .bg-primary-light { background-color: var(--color-accent-cyan-hover); color: white; }
+  .bg-primary-muted { background-color: rgba(34,211,238,0.12); }
+  .border-primary { border-color: var(--color-accent-cyan); }
 
-  .text-accent { color: hsl(var(--accent)); }
-  .text-accent-light { color: hsl(var(--accent-light)); }
-  .text-accent-dark { color: hsl(var(--accent-dark)); }
-  .bg-accent { background-color: hsl(var(--accent)); color: white; }
-  .bg-accent-subtle { background-color: hsl(var(--accent-muted)); }
-  .bg-accent-dark { background-color: hsl(var(--accent-dark)); color: white; }
-  .border-accent { border-color: hsl(var(--accent)); }
-  .border-accent-subtle { border-color: hsl(var(--accent) / 0.25); }
+  .text-accent { color: var(--color-accent-gold); }
+  .text-accent-light { color: rgba(245,158,11,0.9); }
+  .text-accent-dark { color: rgba(245,158,11,0.7); }
+  .bg-accent { background-color: var(--color-accent-gold); color: white; }
+  .bg-accent-subtle { background-color: rgba(245,158,11,0.12); }
+  .bg-accent-dark { background-color: rgba(245,158,11,0.85); color: white; }
+  .border-accent { border-color: var(--color-accent-gold); }
+  .border-accent-subtle { border-color: rgba(245,158,11,0.25); }
 
-  .hover\:bg-accent:hover { background-color: hsl(var(--accent)); color: white; }
-  .hover\:text-accent:hover { color: hsl(var(--accent)); }
+  .hover\:bg-accent:hover { background-color: var(--color-accent-gold); color: white; }
+  .hover\:text-accent:hover { color: var(--color-accent-gold); }
   .underline-accent-hover:hover {
     text-decoration: underline;
-    text-decoration-color: hsl(var(--accent));
+    text-decoration-color: var(--color-accent-gold);
     text-decoration-thickness: 2px;
   }
 
-  .text-primary { color: var(--text-primary); }
-  .text-secondary { color: hsl(var(--text-secondary)); }
-  .text-muted { color: hsl(var(--text-muted)); }
-  .text-inverted { color: var(--bg-primary); }
+  .text-primary { color: var(--color-text-heading); }
+  .text-secondary { color: var(--color-text-body); }
+  .text-muted { color: var(--color-text-muted); }
+  .text-inverted { color: var(--color-text-dark); }
 
-  /* Global reset and base typography (from styles/main.css) */
-  * { margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; box-sizing: border-box; color: var(--text-primary); }
+  /* Global reset and base typography */
+  * { margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; box-sizing: border-box; color: var(--color-text-body); }
 
-  h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--text-primary); }
+  h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--color-text-heading); }
   h1 { font-weight: 800; }
   h2 { font-weight: 700; }
 
-  p, span, li { font-weight: 500; line-height: 1.6; color: hsl(var(--text-secondary)); }
+  p, span, li { font-weight: 500; line-height: 1.6; color: var(--color-text-body); }
 
-  a { font-weight: 500; line-height: 1.6; color: var(--accent-primary); text-decoration: none; transition: color 0.2s ease; }
-  a:hover { color: hsl(var(--primary-light)); }
+  a { font-weight: 500; line-height: 1.6; color: var(--color-accent-cyan); text-decoration: none; transition: color 0.2s ease; }
+  a:hover { color: var(--color-accent-cyan-hover); }
 
-  button { font-family: inherit; background: var(--accent-primary); color: var(--bg-primary); border: none; cursor: pointer; transition: all 0.2s ease; }
-  button:hover { background: hsl(var(--primary-dark)); }
+  button { font-family: inherit; background: var(--color-accent-cyan); color: var(--color-text-dark); border: none; cursor: pointer; transition: all 0.2s ease; }
+  button:hover { background: var(--color-accent-cyan-hover); }
 
   strong, b { font-weight: 700; }
 
@@ -244,22 +176,22 @@
 
   .page-root { display: flex; flex-direction: column; flex: 1 0 auto; min-height: 0; position: relative; z-index: 1; }
 
+  /* Global layout/body rules (use canon new tokens) */
   body {
     min-height: 100vh;
     max-width: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
-    background-color: var(--bg-primary);
+    background-color: var(--color-bg-main);
     overflow-x: hidden;
     overflow-y: auto;
     overscroll-behavior: none;
-    /* allow src-specific override for background and body color tokens */
-    background: var(--color-bg-main, var(--bg-primary));
-    color: var(--color-text-body, hsl(var(--text-secondary)));
+    background: var(--color-bg-main);
+    color: var(--color-text-body);
   }
 
-  /* Subtle background texture (from styles/main.css) */
+  /* Subtle background texture */
   body::before {
     content: '';
     position: fixed;
@@ -302,7 +234,7 @@
   }
 
   /* Global heading styles to ensure accessible contrast */
-  h1, h2, h3 { color: var(--color-text-heading, #F9FAFB); }
+  h1, h2, h3 { color: var(--color-text-heading); }
 
   /* Helper class for highlighted name usage */
   .highlight-name { color: var(--color-accent-gold); }
@@ -314,7 +246,7 @@
     left: 1rem;
     padding: 0.5rem 1rem;
     background-color: var(--color-accent-cyan);
-    color: var(--color-text-dark, #0B1120);
+    color: var(--color-text-dark);
     font-weight: bold;
     border-radius: 6px;
     z-index: 9999;
@@ -369,7 +301,7 @@ section { margin-bottom: 0; scroll-margin-top: var(--header-offset, 72px); }
 .section-container {
   width: 100%;
   max-width: 1100px;
-  background: var(--color-bg-card, var(--card-bg, rgba(15,23,42,0.95)));
+  background: var(--color-bg-card);
   border-radius: 12px;
   padding: 48px;
   box-shadow: 0 8px 30px rgba(3,6,12,0.6);
