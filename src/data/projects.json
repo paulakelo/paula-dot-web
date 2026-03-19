@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "id": "kenya-admin-boundaries-api",
+    "title": "Kenya Admin Boundaries API",
+    "description": "A RESTful API for accessing Kenya's political boundaries.",
+    "tags": ["docker", "postgis", "go"],
+    "status": "active",
+    "github": "https://github.com/paulakelo/kenya-admin-boundaries-api"
+  }
+]

@@ -55,9 +55,9 @@
     color: var(--color-text-body);
     margin: 0;
     /* Constrain paragraph width for better readability on very wide screens.
-       56rem is approximately Tailwind's max-w-4xl (comfortable reading column).
-       We intentionally do not set width:100% so the max-width will keep the text from
-       stretching fully across large containers while staying left-aligned. */
+         56rem is approximately Tailwind's max-w-4xl (comfortable reading column).
+         We intentionally do not set width:100% so the max-width will keep the text from
+         stretching fully across large containers while staying left-aligned. */
     max-width: 56rem;
 }
 
@@ -71,19 +71,20 @@
     align-items: stretch;
 }
 
-/* ==========================================
-   PROJECT CARD - Case Study Design
-   ========================================== */
 .project-card {
-    position: relative; /* contains ::before and .project-status */
+    /* corrected selector (removed stray asterisk) */
+    position: relative;
     background: rgba(12, 20, 36, 0.78);
     border-radius: 12px;
-    overflow: hidden;
+    overflow: hidden; /* ensure inner scrolling and pseudo-elements are clipped */
     box-shadow: 0 8px 28px rgba(2,6,18,0.6);
-    border: 1px solid rgba(var(--palette-periwinkle-rgb,134,168,231),0.06); /* faint periwinkle */
+    border: 1px solid rgba(var(--palette-periwinkle-rgb,134,168,231),0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 220ms ease;
     display: flex;
     flex-direction: column;
+    /* Allow cards to scroll internally when content is long so the header can remain visible */
+    min-height: 220px;
+    max-height: 420px; /* reasonable cap so long descriptions create an internal scroll */
 }
 
 .project-card:hover {
@@ -92,11 +93,10 @@
     border-color: rgba(var(--palette-cyan-rgb),0.22);
 }
 
-/* Decorative gradient border using a pseudo-element */
 .project-card::before {
     content: "";
     position: absolute;
-    inset: -1px; /* keep the subtle border effect but contained by position:relative */
+    inset: -1px;
     border-radius: 13px;
     padding: 1px;
     background: linear-gradient(90deg, rgba(var(--palette-cyan-rgb),0.9), rgba(var(--palette-teal-rgb),0.9) 50%, rgba(var(--palette-periwinkle-rgb),0.9));
@@ -104,7 +104,7 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
-    opacity: 0.0; /* hidden by default; revealed on hover */
+    opacity: 0.0;
     transition: opacity 260ms ease;
 }
 
@@ -112,8 +112,40 @@
     opacity: 1.0;
 }
 
-/* Status Badge */
-.project-status {
+/* Make the inner content area scrollable while keeping the header visible */
+.project-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow: auto; /* enable internal scrolling when content exceeds max-height */
+}
+
+/* Keep the header pinned to the top of the scrollable .project-content */
+.project-header {
+    margin-bottom: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 2; /* sit above scrolled content */
+    /* slight backdrop so header text reads clearly when overlapping scrolled content */
+    background: linear-gradient(180deg, rgba(12,20,36,0.92), rgba(12,20,36,0.85));
+    padding-top: 6px; /* small padding to visually separate header from card top */
+    padding-bottom: 6px;
+    /* preserve flow spacing for non-scrolling contexts */
+}
+
+/* Description should be allowed to grow and scroll if necessary */
+.project-description {
+    font-size: 0.925rem;
+    line-height: 1.6;
+    color: var(--color-text-body);
+    margin: 0 0 16px 0;
+    flex: 1 1 auto;
+    overflow: auto;
+}
+
+/*
+*.project-status {
     position: absolute;
     top: 12px;
     right: 12px;
@@ -126,7 +158,7 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     border-radius: 4px;
-}
+}*/
 
 /* Content Area */
 .project-content {
