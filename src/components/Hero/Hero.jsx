@@ -38,16 +38,14 @@ export default function Hero() {
                         <a href="/projects" className="btn btn-primary" aria-label="View Projects section">
                             View Projects
                         </a>
-                        <a href="/contact" className="btn btn-outline" aria-label="Jump to Contact section">
+                        <a href="/contact" className="btn btn-secondary" aria-label="Jump to Contact section">
                             Contact
                         </a>
 
-                        {/*
-                        Commented out: Download CV / Resume button (uncomment to enable)
-                        <a href="/assets/resume.pdf" className="btn btn-download" download aria-label="Download CV or Resume (PDF)">
-                            Download CV / Resume
+                        {/* Download CV / Resume button */}
+                        <a href="/assets/cv-1.pdf" className="btn btn-download" download aria-label="Download CV(PDF)">
+                            Download CV
                         </a>
-                        */}
                     </div>
                 </div>
 
@@ -67,9 +65,9 @@ export default function Hero() {
 
                             {/* connecting lines */}
                             <g stroke="#2b2b2b" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.9">
-                                <path d="M60 220 C140 180, 220 180, 300 220" fill="none"/>
-                                <path d="M100 80 C180 40, 300 40, 380 80" fill="none"/>
-                                <path d="M240 30 L240 150" fill="none"/>
+                                <path d="M60 220 C140 180, 220 180, 300 220" fill="none" />
+                                <path d="M100 80 C180 40, 300 40, 380 80" fill="none" />
+                                <path d="M240 30 L240 150" fill="none" />
                             </g>
 
                             {/* main nodes (wrapped so pointer transforms compose with animation) */}

@@ -2,6 +2,7 @@
 @tailwind utilities;
 
 @layer base {
+
   /* Combined global variables and helpers (new semantic names only) */
   :root {
     /* Page & surface */
@@ -10,10 +11,13 @@
     --color-bg-input: #1F2937;
 
     /* Typography */
-    --color-text-heading: #F9FAFB; /* headings */
-    --color-text-body: #9CA3AF;    /* body text */
+    --color-text-heading: #F9FAFB;
+    /* headings */
+    --color-text-body: #9CA3AF;
+    /* body text */
     --color-text-muted: #6B7280;
-    --color-text-dark: #0B1120;    /* dark ink for light elements */
+    --color-text-dark: #0B1120;
+    /* dark ink for light elements */
 
     /* Primary accent (cyan) and secondary gold */
     --color-accent-cyan: #22D3EE;
@@ -22,11 +26,11 @@
 
     /* Palette tokens used by decorative elements */
     --palette-cyan: #5FFBF1;
-    --palette-cyan-rgb: 95,251,241;
+    --palette-cyan-rgb: 95, 251, 241;
     --palette-teal: #3CC2B6;
-    --palette-teal-rgb: 60,194,182;
+    --palette-teal-rgb: 60, 194, 182;
     --palette-periwinkle: #86A8E7;
-    --palette-periwinkle-rgb: 134,168,231;
+    --palette-periwinkle-rgb: 134, 168, 231;
 
     /* Semantic accents (RGB for subtle glows) */
     --sem-cyan: var(--palette-cyan);
@@ -34,9 +38,9 @@
     --sem-green: var(--palette-teal);
     --sem-green-rgb: var(--palette-teal-rgb);
     --sem-blue: #4A85D9;
-    --sem-blue-rgb: 74,133,217;
+    --sem-blue-rgb: 74, 133, 217;
     --sem-magenta: #EC3C85;
-    --sem-magenta-rgb: 236,60,133;
+    --sem-magenta-rgb: 236, 60, 133;
 
     /* Header offset used for scroll-margin-top */
     --header-offset: 72px;
@@ -44,7 +48,7 @@
     /* Accent gradient */
     --accent-gradient: linear-gradient(90deg, var(--palette-cyan) 0%, var(--palette-teal) 50%, var(--palette-periwinkle) 100%);
   }
-  
+
   /* Ambient "LED" glow per section */
   .hero-section,
   .page-about,
@@ -87,6 +91,7 @@
   }
 
   @media (max-width: 900px) {
+
     .hero-section::before,
     .page-about::before,
     .projects-section::before,
@@ -113,68 +118,223 @@
   }
 
   /* Utility classes (updated to use new tokens) */
-  .bg-water { background-color: var(--palette-cyan); color: white; }
-  .bg-forest { background-color: var(--palette-teal); color: white; }
-  .bg-moss { background-color: rgba(60,194,182,0.9); color: white; }
-  .bg-sand { background-color: var(--palette-periwinkle); color: var(--color-text-dark); }
+  .bg-water {
+    background-color: var(--palette-cyan);
+    color: white;
+  }
 
-  .text-stone { color: var(--color-text-muted); }
-  .text-water-deep { color: #0B1120; }
-  .text-black-strong { color: var(--color-text-dark); }
+  .bg-forest {
+    background-color: var(--palette-teal);
+    color: white;
+  }
 
-  .text-primary-color { color: var(--color-accent-cyan); }
-  .bg-primary { background-color: var(--color-accent-cyan); color: white; }
-  .bg-primary-light { background-color: var(--color-accent-cyan-hover); color: white; }
-  .bg-primary-muted { background-color: rgba(34,211,238,0.12); }
-  .border-primary { border-color: var(--color-accent-cyan); }
+  .bg-moss {
+    background-color: rgba(60, 194, 182, 0.9);
+    color: white;
+  }
 
-  .text-accent { color: var(--color-accent-gold); }
-  .text-accent-light { color: rgba(245,158,11,0.9); }
-  .text-accent-dark { color: rgba(245,158,11,0.7); }
-  .bg-accent { background-color: var(--color-accent-gold); color: white; }
-  .bg-accent-subtle { background-color: rgba(245,158,11,0.12); }
-  .bg-accent-dark { background-color: rgba(245,158,11,0.85); color: white; }
-  .border-accent { border-color: var(--color-accent-gold); }
-  .border-accent-subtle { border-color: rgba(245,158,11,0.25); }
+  .bg-sand {
+    background-color: var(--palette-periwinkle);
+    color: var(--color-text-dark);
+  }
 
-  .hover\:bg-accent:hover { background-color: var(--color-accent-gold); color: white; }
-  .hover\:text-accent:hover { color: var(--color-accent-gold); }
+  .text-stone {
+    color: var(--color-text-muted);
+  }
+
+  .text-water-deep {
+    color: #0B1120;
+  }
+
+  .text-black-strong {
+    color: var(--color-text-dark);
+  }
+
+  .text-primary-color {
+    color: var(--color-accent-cyan);
+  }
+
+  .bg-primary {
+    background-color: var(--color-accent-cyan);
+    color: white;
+  }
+
+  .bg-primary-light {
+    background-color: var(--color-accent-cyan-hover);
+    color: white;
+  }
+
+  .bg-primary-muted {
+    background-color: rgba(34, 211, 238, 0.12);
+  }
+
+  .border-primary {
+    border-color: var(--color-accent-cyan);
+  }
+
+  .text-accent {
+    color: var(--color-accent-gold);
+  }
+
+  .text-accent-light {
+    color: rgba(245, 158, 11, 0.9);
+  }
+
+  .text-accent-dark {
+    color: rgba(245, 158, 11, 0.7);
+  }
+
+  .bg-accent {
+    background-color: var(--color-accent-gold);
+    color: white;
+  }
+
+  .bg-accent-subtle {
+    background-color: rgba(245, 158, 11, 0.12);
+  }
+
+  .bg-accent-dark {
+    background-color: rgba(245, 158, 11, 0.85);
+    color: white;
+  }
+
+  .border-accent {
+    border-color: var(--color-accent-gold);
+  }
+
+  .border-accent-subtle {
+    border-color: rgba(245, 158, 11, 0.25);
+  }
+
+  .hover\:bg-accent:hover {
+    background-color: var(--color-accent-gold);
+    color: white;
+  }
+
+  .hover\:text-accent:hover {
+    color: var(--color-accent-gold);
+  }
+
   .underline-accent-hover:hover {
     text-decoration: underline;
     text-decoration-color: var(--color-accent-gold);
     text-decoration-thickness: 2px;
   }
 
-  .text-primary { color: var(--color-text-heading); }
-  .text-secondary { color: var(--color-text-body); }
-  .text-muted { color: var(--color-text-muted); }
-  .text-inverted { color: var(--color-text-dark); }
+  .text-primary {
+    color: var(--color-text-heading);
+  }
+
+  .text-secondary {
+    color: var(--color-text-body);
+  }
+
+  .text-muted {
+    color: var(--color-text-muted);
+  }
+
+  .text-inverted {
+    color: var(--color-text-dark);
+  }
 
   /* Global reset and base typography */
-  * { margin: 0; padding: 0; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; box-sizing: border-box; color: var(--color-text-body); }
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+    color: var(--color-text-body);
+  }
 
-  h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; color: var(--color-text-heading); }
-  h1 { font-weight: 800; }
-  h2 { font-weight: 700; }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--color-text-heading);
+  }
 
-  p, span, li { font-weight: 500; line-height: 1.6; color: var(--color-text-body); }
+  h1 {
+    font-weight: 800;
+  }
 
-  a { font-weight: 500; line-height: 1.6; color: var(--color-accent-cyan); text-decoration: none; transition: color 0.2s ease; }
-  a:hover { color: var(--color-accent-cyan-hover); }
+  h2 {
+    font-weight: 700;
+  }
 
-  button { font-family: inherit; background: var(--color-accent-cyan); color: var(--color-text-dark); border: none; cursor: pointer; transition: all 0.2s ease; }
-  button:hover { background: var(--color-accent-cyan-hover); }
+  p,
+  span,
+  li {
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--color-text-body);
+  }
 
-  strong, b { font-weight: 700; }
+  a {
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--color-accent-cyan);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
 
-  html { max-width: 100%; overflow-x: hidden; overflow-y: auto; overscroll-behavior: none; scroll-behavior: smooth; }
+  a:hover {
+    color: var(--color-accent-cyan-hover);
+  }
 
-  html, body, #root { height: 100%; }
+  button {
+    font-family: inherit;
+    background: var(--color-accent-cyan);
+    color: var(--color-text-dark);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  button:hover {
+    background: var(--color-accent-cyan-hover);
+  }
+
+  strong,
+  b {
+    font-weight: 700;
+  }
+
+  html {
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: none;
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
 
   /* Root-level layout helpers (merge of both files) */
-  #root { display: flex; flex-direction: column; min-height: 100vh; position: relative; z-index: 0; }
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    z-index: 0;
+  }
 
-  .page-root { display: flex; flex-direction: column; flex: 1 0 auto; min-height: 0; position: relative; z-index: 1; }
+  .page-root {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    min-height: 0;
+    position: relative;
+    z-index: 1;
+  }
 
   /* Global layout/body rules (use canon new tokens) */
   body {
@@ -206,25 +366,52 @@
       radial-gradient(ellipse at 80% 100%, rgba(212, 197, 176, 0.02) 0%, transparent 50%);
   }
 
-  body::after { display: none; }
+  body::after {
+    display: none;
+  }
 
   /* make main grow to fill available space between header and footer */
-  main { flex: 1 0 auto; display: flex; flex-direction: column; }
+  main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
 
-  main.page, .page { flex: 1 0 auto; min-height: 0; background: transparent; color: inherit; }
+  main.page,
+  .page {
+    flex: 1 0 auto;
+    min-height: 0;
+    background: transparent;
+    color: inherit;
+  }
 
   /* Shared page inner container */
-  .page-inner { padding: 48px 16px; max-width: 1100px; margin: 0 auto; }
-  .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+  .page-inner {
+    padding: 48px 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
 
   /* Accessibility: Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
-    body::before, body::after { animation: none; }
+
+    body::before,
+    body::after {
+      animation: none;
+    }
   }
 
   /* Responsive adjustments for topographic background */
   @media (max-width: 768px) {
-    body::before, body::after {
+
+    body::before,
+    body::after {
       background-size:
         400px 400px,
         500px 500px,
@@ -234,10 +421,16 @@
   }
 
   /* Global heading styles to ensure accessible contrast */
-  h1, h2, h3 { color: var(--color-text-heading); }
+  h1,
+  h2,
+  h3 {
+    color: var(--color-text-heading);
+  }
 
   /* Helper class for highlighted name usage */
-  .highlight-name { color: var(--color-accent-gold); }
+  .highlight-name {
+    color: var(--color-accent-gold);
+  }
 
   /* Accessibility: Skip link */
   .skip-link {
@@ -251,10 +444,13 @@
     border-radius: 6px;
     z-index: 9999;
     transition: top 0.3s ease, opacity 0.2s ease;
-    box-shadow: 0 6px 20px rgba(2,6,23,0.35);
+    box-shadow: 0 6px 20px rgba(2, 6, 23, 0.35);
   }
 
-  .skip-link:focus { top: 0; outline: none; }
+  .skip-link:focus {
+    top: 0;
+    outline: none;
+  }
 
   /* Small helpers: keep them in the base layer so Tailwind's utilities can coexist */
 }
@@ -262,14 +458,21 @@
 /* ------------------ src/styles/main.css specific additions (section card layout & glows) ------------------ */
 
 /* Global layout: ensure footer stays at bottom, main grows to fill viewport (src original) */
-html, body, #root, .app-root {
+html,
+body,
+#root,
+.app-root {
   height: 100%;
   min-height: 100vh;
   margin: 0;
   padding: 0;
 }
 
-#root { display: flex; flex-direction: column; min-height: 100vh; }
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
 .app-root {
   display: flex;
@@ -285,10 +488,15 @@ html, body, #root, .app-root {
   min-height: 0;
 }
 
-footer.footer { margin-top: 0; }
+footer.footer {
+  margin-top: 0;
+}
 
 /* Remove excessive vertical spacing between sections */
-section { margin-bottom: 0; scroll-margin-top: var(--header-offset, 72px); }
+section {
+  margin-bottom: 0;
+  scroll-margin-top: var(--header-offset, 72px);
+}
 
 /* Section wrapper / card layout from src/styles/main.css */
 .section-wrapper {
@@ -304,18 +512,26 @@ section { margin-bottom: 0; scroll-margin-top: var(--header-offset, 72px); }
   background: var(--color-bg-card);
   border-radius: 12px;
   padding: 48px;
-  box-shadow: 0 8px 30px rgba(3,6,12,0.6);
-  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 8px 30px rgba(3, 6, 12, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.03);
   box-sizing: border-box;
 }
 
 @media (max-width: 640px) {
-  .section-wrapper { padding: 32px 12px; }
-  .section-container { padding: 24px; border-radius: 10px; }
+  .section-wrapper {
+    padding: 32px 12px;
+  }
+
+  .section-container {
+    padding: 24px;
+    border-radius: 10px;
+  }
 }
 
 /* Smooth scrolling */
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 /* Ambient glows - keep them (consolidated earlier but repeating here is safe) */
 .hero-section::before,
@@ -327,11 +543,44 @@ html { scroll-behavior: smooth; }
 
 /* Hide heavy glows on small screens for performance and clarity (reaffirm) */
 @media (max-width: 900px) {
+
   .hero-section::before,
   .page-about::before,
   .projects-section::before,
-  .contact-section::before { display: none; }
+  .contact-section::before {
+    display: none;
+  }
 }
 
 /* end of merged stylesheet */
 
+/* ==========================================
+   Viewport Bands (JetBrains Style Full-Width Wrappers)
+   ========================================== */
+.viewport-band {
+  width: 100%;
+  padding: 40px 0;
+  background-color: #000000;
+  /* Intense jet black for contrast */
+  border-top: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Individual semantic colors for subtle background gradients */
+.viewport-band.band-hero {
+  background: linear-gradient(180deg, rgba(var(--sem-cyan-rgb), 0.06) 0%, #000000 40%);
+}
+
+.viewport-band.band-about {
+  background: linear-gradient(180deg, rgba(var(--sem-green-rgb), 0.06) 0%, #000000 40%);
+}
+
+.viewport-band.band-projects {
+  background: linear-gradient(180deg, rgba(var(--sem-blue-rgb), 0.06) 0%, #000000 40%);
+}
+
+.viewport-band.band-contact {
+  background: linear-gradient(180deg, rgba(var(--sem-magenta-rgb), 0.06) 0%, #000000 40%);
+}

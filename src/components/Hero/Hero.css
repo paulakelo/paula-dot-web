@@ -2,24 +2,30 @@
     position: relative;
     width: 100%;
     /* reduced vertical padding to tighten spacing with the next section */
-    padding: 75px 16px 0; /* top: 56px, left/right: 16px, bottom: 8px */
+    padding: 75px 16px 0;
+    /* top: 56px, left/right: 16px, bottom: 8px */
     display: flex;
     align-items: center;
     justify-content: center;
     background: transparent;
-    min-height: 69vh; /* slightly reduced hero height to tighten section spacing */
+    min-height: 69vh;
+    /* slightly reduced hero height to tighten section spacing */
 }
 
 /* Hero Card - borderless / full-width look */
 .hero-card {
-    background: rgba(12, 20, 36, 0.7); /* darker card to match elevated dark container aesthetic */
+    background: rgba(12, 20, 36, 0.7);
+    /* darker card to match elevated dark container aesthetic */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-radius: 16px; /* rounded containers */
-    border: 1px solid rgba(134,168,231,0.06); /* faint periwinkle border */
-    box-shadow: 0 12px 30px rgba(2,6,23,0.6);
-    padding: 48px; /* a bit more interior space */
-    max-width:1700px;
+    border-radius: 16px;
+    /* rounded containers */
+    border: 1px solid rgba(134, 168, 231, 0.06);
+    /* faint periwinkle border */
+    box-shadow: 0 12px 30px rgba(2, 6, 23, 0.6);
+    padding: 48px;
+    /* a bit more interior space */
+    max-width: 1700px;
     width: calc(100% - 32px);
     margin: 0 auto;
 }
@@ -29,7 +35,8 @@
     position: relative;
     /* width: 100%; */
     width: 100%;
-    max-width: 1400px; /* constrain on very large viewports but avoid fixed overflow on small screens */
+    max-width: 1400px;
+    /* constrain on very large viewports but avoid fixed overflow on small screens */
     display: grid;
     grid-template-columns: 1.4fr 1fr;
     gap: 32px;
@@ -52,8 +59,17 @@
 }
 
 @keyframes pulse-dot {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.2); }
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1.2);
+    }
 }
 
 /* Name */
@@ -69,7 +85,8 @@
 
 /* Greeting */
 .hero-greeting {
-    font-size: 1rem; /* reduced to a subtle micro-label */
+    font-size: 1rem;
+    /* reduced to a subtle micro-label */
     color: var(--color-text-muted);
     margin: 0;
     font-weight: 600;
@@ -94,10 +111,13 @@
 
 /* Stronger visual hierarchy: make the first title line the visual priority */
 .hero-title .title-line:first-of-type {
-    color: var(--color-text-heading, #FFFFFF); /* bright, primary title */
-    font-weight: 900; /* heavier to lead the hierarchy */
+    color: var(--color-text-heading, #FFFFFF);
+    /* bright, primary title */
+    font-weight: 900;
+    /* heavier to lead the hierarchy */
     /* Keep it visually a touch larger than the accent line on all viewports */
-    font-size: 1.0em; /* inherited from .hero-title; explicit for clarity */
+    font-size: 1.0em;
+    /* inherited from .hero-title; explicit for clarity */
 }
 
 /* Accent/subtitle: smaller and lighter so it doesn't overpower the primary title */
@@ -106,19 +126,25 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    opacity: 0.88;       /* subtle tone down so it reads as a secondary line */
-    font-weight: 600;    /* lighter than the main title */
-    font-size: 0.85em;   /* slightly smaller (≈85%) to establish hierarchy */
+    opacity: 0.88;
+    /* subtle tone down so it reads as a secondary line */
+    font-weight: 600;
+    /* lighter than the main title */
+    font-size: 0.85em;
+    /* slightly smaller (≈85%) to establish hierarchy */
     letter-spacing: 0.01em;
 }
 
 /* Ensure on very small screens the relative sizing remains readable */
 @media (max-width: 600px) {
     .hero-title .title-line:first-of-type {
-        font-size: 1.02em; /* keep primary slightly larger on small screens */
+        font-size: 1.02em;
+        /* keep primary slightly larger on small screens */
     }
+
     .title-accent {
-        font-size: 0.9em; /* avoid making the accent too tiny on narrow widths */
+        font-size: 0.9em;
+        /* avoid making the accent too tiny on narrow widths */
     }
 }
 
@@ -138,7 +164,7 @@
     font-weight: 600;
     border-radius: 8px;
     text-decoration: none;
-    transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease, background-color 220ms ease, border-color 220ms ease, filter 220ms ease;
+    transition: transform 220ms cubic-bezier(.2, .9, .2, 1), box-shadow 220ms ease, background-color 220ms ease, border-color 220ms ease, filter 220ms ease;
     cursor: pointer;
 }
 
@@ -160,28 +186,29 @@
     transform: translateY(-1px) scale(0.997);
 }
 
-/* Secondary (outline) button: brighter border and subtle amber hover */
-.btn-outline {
-    background: transparent;
-    color: var(--color-text-heading);
-    border: 2px solid hsla(35, 92%, 50%, 0.45); /* brighter outline */
+/* Secondary button: Solid amber to establish mid-tier hierarchy */
+.btn-secondary {
+    background: var(--color-accent-gold, #F59E0B);
+    color: #000000;
+    border: none;
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.25);
 }
 
-.btn-outline:hover,
-.btn-outline:focus {
-    background: rgba(245,158,11,0.08); /* ~8-10% amber (visual hint) */
-    border-color: hsla(35, 92%, 50%, 0.65);
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background: hsla(35, 92%, 60%, 1);
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(245,158,11,0.06);
+    box-shadow: 0 10px 34px rgba(245, 158, 11, 0.4);
 }
 
-.btn-outline:active {
+.btn-secondary:active {
     transform: translateY(-1px) scale(0.997);
 }
 
 .btn:focus {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(245,158,11,0.09); /* accessible focus ring */
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+    /* accessible focus ring */
 }
 
 /* Right column visual */
@@ -192,7 +219,8 @@
     width: 100%;
     max-width: 420px;
     margin-left: auto;
-    --parallax: 0px; /* default value for JS-updated var */
+    --parallax: 0px;
+    /* default value for JS-updated var */
 }
 
 .node-graph {
@@ -203,7 +231,11 @@
     transform: translateY(var(--parallax, 0));
 }
 
-.node-graph svg { display: block; width: 100%; height: auto; }
+.node-graph svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
 
 /* ambient glow behind the graph - shift to amber semantic color */
 .node-graph::before {
@@ -214,83 +246,180 @@
     transform: translate(-50%, -50%);
     width: 240px;
     height: 160px;
-    background: radial-gradient(circle at center, rgba(var(--palette-cyan-rgb),0.12) 0%, rgba(var(--palette-teal-rgb),0.08) 40%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(var(--palette-cyan-rgb), 0.12) 0%, rgba(var(--palette-teal-rgb), 0.08) 40%, transparent 70%);
     filter: blur(28px);
     z-index: -1;
     pointer-events: none;
 }
 
 /* allow SVG nodes to use CSS variables for their fills via currentColor helpers */
-.node-graph svg .node { transition: fill 200ms ease, stroke 200ms ease; }
+.node-graph svg .node {
+    transition: fill 200ms ease, stroke 200ms ease;
+}
 
 /* helper classes for sem colors (apply by class or use inline style) */
-.sem-amber { fill: var(--c-amber) !important; }
-.sem-green  { fill: var(--c-green) !important; }
-.sem-cyan   { fill: var(--c-cyan) !important; }
-.sem-blue   { fill: var(--c-blue) !important; }
-.sem-magenta{ fill: var(--c-magenta) !important; }
+.sem-amber {
+    fill: var(--c-amber) !important;
+}
+
+.sem-green {
+    fill: var(--c-green) !important;
+}
+
+.sem-cyan {
+    fill: var(--c-cyan) !important;
+}
+
+.sem-blue {
+    fill: var(--c-blue) !important;
+}
+
+.sem-magenta {
+    fill: var(--c-magenta) !important;
+}
 
 /* Stroke helpers use same semantic tokens */
-.stroke-amber { stroke: var(--c-amber) !important; }
-.stroke-green { stroke: var(--c-green) !important; }
-.stroke-cyan  { stroke: var(--c-cyan) !important; }
-.stroke-blue  { stroke: var(--c-blue) !important; }
-.stroke-magenta { stroke: var(--c-magenta) !important; }
+.stroke-amber {
+    stroke: var(--c-amber) !important;
+}
+
+.stroke-green {
+    stroke: var(--c-green) !important;
+}
+
+.stroke-cyan {
+    stroke: var(--c-cyan) !important;
+}
+
+.stroke-blue {
+    stroke: var(--c-blue) !important;
+}
+
+.stroke-magenta {
+    stroke: var(--c-magenta) !important;
+}
 
 /* Dark fill helper for nodes that intentionally use a dark interior */
-.fill-dark { fill: #0f172a !important; }
+.fill-dark {
+    fill: #0f172a !important;
+}
 
 /* Node animations */
 @keyframes floatY {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 @keyframes floatSmall {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-3px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.15); opacity: 0.85; }
-    100% { transform: scale(1); opacity: 1; }
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 0.85;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 /* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-    .node, .accent { animation: none !important; }
+
+    .node,
+    .accent {
+        animation: none !important;
+    }
 }
 
 /* Apply animations with slight offsets for natural feel */
-.node-1 { transform-origin: center; animation: floatY 6s ease-in-out infinite; }
-.node-2 { transform-origin: center; animation: floatSmall 5s ease-in-out 0.6s infinite; }
-.node-3 { transform-origin: center; animation: floatY 7s ease-in-out 0.2s infinite; }
-.node-4 { transform-origin: center; animation: floatSmall 5.6s ease-in-out 0.3s infinite; }
-.node-5 { transform-origin: center; animation: floatY 6.8s ease-in-out 0.4s infinite; }
+.node-1 {
+    transform-origin: center;
+    animation: floatY 6s ease-in-out infinite;
+}
 
-.accent-1 { transform-origin: center; animation: pulse 4.2s ease-in-out 0.2s infinite; }
-.accent-2 { transform-origin: center; animation: pulse 4.6s ease-in-out 0.5s infinite; }
-.accent-3 { transform-origin: center; animation: pulse 3.8s ease-in-out 0.8s infinite; }
+.node-2 {
+    transform-origin: center;
+    animation: floatSmall 5s ease-in-out 0.6s infinite;
+}
+
+.node-3 {
+    transform-origin: center;
+    animation: floatY 7s ease-in-out 0.2s infinite;
+}
+
+.node-4 {
+    transform-origin: center;
+    animation: floatSmall 5.6s ease-in-out 0.3s infinite;
+}
+
+.node-5 {
+    transform-origin: center;
+    animation: floatY 6.8s ease-in-out 0.4s infinite;
+}
+
+.accent-1 {
+    transform-origin: center;
+    animation: pulse 4.2s ease-in-out 0.2s infinite;
+}
+
+.accent-2 {
+    transform-origin: center;
+    animation: pulse 4.6s ease-in-out 0.5s infinite;
+}
+
+.accent-3 {
+    transform-origin: center;
+    animation: pulse 3.8s ease-in-out 0.8s infinite;
+}
 
 /* Node wrap transforms (pointer + parallax) */
 .node-graph {
     transform: translateY(var(--parallax, 0));
 }
 
-.node-wrap, .accent-wrap {
-    transition: transform 300ms cubic-bezier(.2,.9,.2,1);
+.node-wrap,
+.accent-wrap {
+    transition: transform 300ms cubic-bezier(.2, .9, .2, 1);
     will-change: transform;
 }
 
 /* Smaller transforms for accent wraps to avoid visual jump */
-.accent-wrap { transition: transform 360ms cubic-bezier(.2,.9,.2,1); }
+.accent-wrap {
+    transition: transform 360ms cubic-bezier(.2, .9, .2, 1);
+}
 
 /* Slight color brighten on hover for the whole visual */
-.hero-visual:hover .node-graph svg .node-1, .hero-visual:hover .node-graph svg .node-5 {
-    filter: drop-shadow(0 6px 14px rgba(196,126,28,0.22));
+.hero-visual:hover .node-graph svg .node-1,
+.hero-visual:hover .node-graph svg .node-5 {
+    filter: drop-shadow(0 6px 14px rgba(196, 126, 28, 0.22));
 }
 
 /* Ensure the hero SVG gradient uses the global CTA color for the stop */
@@ -303,14 +432,16 @@
 }
 
 /* Ensure transforms are smooth */
-.node, .accent {
+.node,
+.accent {
     transition: transform 220ms ease, opacity 220ms ease, filter 220ms ease;
 }
 
 @media (max-width: 900px) {
     .hero-section {
         min-height: auto;
-        padding: 32px 16px 8px; /* reduce bottom padding on tablet */
+        padding: 32px 16px 8px;
+        /* reduce bottom padding on tablet */
     }
 
     .hero-card {
@@ -347,12 +478,15 @@
         max-width: 240px;
     }
 
-    .node-graph::before { display: none; }
+    .node-graph::before {
+        display: none;
+    }
 }
 
 @media (max-width: 600px) {
     .hero-section {
-        padding: 24px 16px 8px; /* reduce bottom padding on small screens */
+        padding: 24px 16px 8px;
+        /* reduce bottom padding on small screens */
     }
 
     .hero-card {
@@ -401,8 +535,15 @@
 
 /* Reset inline transforms on mobile for stability */
 @media (max-width: 900px) {
-    .node-wrap, .accent-wrap { transform: none !important; }
-    .node-graph { transform: none !important; }
+
+    .node-wrap,
+    .accent-wrap {
+        transform: none !important;
+    }
+
+    .node-graph {
+        transform: none !important;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -412,21 +553,20 @@
     }
 }
 
-/*
-// Commented out: Download CV / Resume button styles (uncomment to enable)
+/* Download CV button styles */
 .btn-download {
-    background: linear-gradient(90deg, var(--color-accent-cyan, var(--palette-cyan)) 0%, var(--c-amber) 100%);
-    color: var(--color-text-dark, var(--bg-primary));
+    background: var(--sem-blue, #4A85D9);
+    color: #FFFFFF;
     border: none;
     padding: 12px 22px;
     border-radius: 10px;
     font-weight: 700;
-    box-shadow: 0 8px 30px rgba(12, 20, 36, 0.6);
+    box-shadow: 0 8px 30px rgba(74, 133, 217, 0.3);
 }
 
 .btn-download:hover,
 .btn-download:focus {
     transform: translateY(-2px);
-    box-shadow: 0 12px 36px rgba(12, 20, 36, 0.7);
+    box-shadow: 0 12px 36px rgba(74, 133, 217, 0.5);
+    background: var(--palette-periwinkle, #86A8E7);
 }
-*/

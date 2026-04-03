@@ -12,10 +12,18 @@ export default function App() {
     <>
       <Header />
       <main id="main">
-        <Hero />
-        <AboutSection />
-        <Projects />
-        <ContactSection />
+        <div className="viewport-band band-hero">
+          <Hero />
+        </div>
+        <div className="viewport-band band-about">
+          <AboutSection />
+        </div>
+        <div className="viewport-band band-projects">
+          <Projects />
+        </div>
+        <div className="viewport-band band-contact">
+          <ContactSection />
+        </div>
       </main>
       <Footer />
     </>
